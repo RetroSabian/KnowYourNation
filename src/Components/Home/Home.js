@@ -7,9 +7,6 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-      <BrowserRouter>
-        <Route path="/" component={Navbar} />
-      </BrowserRouter>
       <h4> Home Component </h4>
 
       </div>
