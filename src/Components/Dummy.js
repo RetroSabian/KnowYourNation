@@ -6,8 +6,7 @@ class Dummy extends Component {
   render() {
     return (
       <div className="Dummy">
-      <Navbar/>
-        <h4> Dummy </h4>
+        <h1> Dummy </h1>
             
       </div>
     );
