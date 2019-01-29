@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch,NavLink } from "react-router-dom";
 
 import './App.css';
 import Dummy from "./Components/Dummy";
-import Home from "./Components/Home";
+import Home from "./Components/Home/Home";
 
 
 class App extends Component {
