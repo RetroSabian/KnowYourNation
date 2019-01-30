@@ -4,9 +4,9 @@ import './App.scss';
 import { BrowserRouter, Route, Switch,NavLink } from "react-router-dom";
 
 import './App.sass';
-import Dummy from "./Components/Dummy";
-import Home from "./Components/Home/Home";
-import Navbar from './Components/Navbar/Navbar';
+import Dummy from "./js/components/Dummy";
+import Home from "./js/components/Home/Home";
+import Navbar from './js/components/Navbar/Navbar';
 
 
 class App extends Component {
