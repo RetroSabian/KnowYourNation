@@ -8,7 +8,6 @@ import Dummy from "./js/components/Dummy";
 import Home from "./js/components/Home/Home";
 import Navbar from './js/components/Navbar/Navbar';
 
-
 class App extends Component {
   render() {
     return (
