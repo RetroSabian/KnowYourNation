@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./js/store/index";
 import App from "./App.js";
 import 'bootstrap/dist/css/bootstrap.css';
-
+import * as serviceWorker from './serviceWorker';
 render(
     <Provider store={store}>
         <App />
@@ -14,3 +14,5 @@ render(
     // document.getElementById("app")
     document.getElementById("root")
 );
+
+serviceWorker.register();
