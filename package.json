@@ -16,6 +16,7 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
     "sass": "^1.16.1",
+    "serve": "^10.1.1",
     "victory": "^31.2.0"
   },
   "scripts": {
