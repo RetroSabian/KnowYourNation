@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ArticleApp from "../App";
-// import worker from "../../other/workerz";
-import MyWorker from '../../other/workerz';
+import MyWorker from "../../other/workerz";
 
 class Home extends Component {
   
