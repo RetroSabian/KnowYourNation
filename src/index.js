@@ -15,5 +15,4 @@ render(
     // document.getElementById("app")
     document.getElementById("root")
 );
-
 serviceWorker.register();
