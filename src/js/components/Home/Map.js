@@ -35,8 +35,7 @@ const Map = ({ center }) => (
                             cx={250}
                             cy={250}
                             r={220}
-                            fill="transparent"
-                            stroke="#CFD8DC"
+                            fill="#0018BE" //ocean coulour fill
                         />
                         <Geographies
                             disableOptimization
@@ -49,7 +48,7 @@ const Map = ({ center }) => (
                                         geography={geo}
                                         projection={proj}
                                         style={{
-                                            default: { fill: "#CFD8DC" }
+                                            default: { fill: "#61993b" } //country colour fills
                                         }}
                                     />
                                 ))

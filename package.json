@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "country-region-dropdown-menu": "^2.1.2",
     "next": "^7.0.2",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-flags-select": "^1.1.10",
     "react-motion": "^0.5.2",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
@@ -17,12 +19,13 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
     "sass": "^1.16.1",
+    "serve": "^10.1.1",
     "victory": "^31.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
     "dev": "next",
     "eject": "react-scripts eject"
   },
@@ -36,8 +39,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "cross-env": "^5.2.0",
+    "react-test-renderer": "^16.7.0",
     "redux": "^4.0.1",
-    "uuid": "^3.3.2",
-    "react-test-renderer": "^16.7.0"
+    "uuid": "^3.3.2"
   }
 }
