@@ -3,6 +3,9 @@ import Map from "./Map";
 import './MapStyles.sass'
 import ReactFlagsSelect from 'react-flags-select';
 
+function onSelectFlag(countryCode){
+    console.log(countryCode)
+}
 class Mapbuttons extends Component {
     constructor() {
         super()
@@ -11,6 +14,7 @@ class Mapbuttons extends Component {
     changeCenter = center => () => {
         this.setState({center})
     }
+
 
     render() {
         return (
@@ -25,7 +29,10 @@ class Mapbuttons extends Component {
                                            selectedSize={18}
                                            optionsSize={20}
                                            className="menu-flags"
-                                           alignOptions="left"/>
+                                           alignOptions="left"
+                                           onSelect={this.onSelectFlag}/> //this.changeCenter([-122.4194, 37.7749])
+
+
                         {/*style={{ padding: "1rem 0" }}*/}
                         {/*<button*/}
                         {/*className="btn"*/}
