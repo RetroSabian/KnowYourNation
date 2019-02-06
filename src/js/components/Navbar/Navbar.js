@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch,NavLink } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
-import './Navbar.sass';
+import "./Navbar.sass";
 import Dummy from "../Dummy";
 import Home from "../Home/Home";
+import Login from "../LoginPage/Login";
+
 class Navbar extends Component {
-    render() {
+  render() {
     return (
       <div className="Navbar">
-        <h3> Navbar </h3>
-        <hr/>
-        
-          <NavLink to="/"> Home </NavLink>
-          <NavLink to="/Dummy"> Dummy </NavLink>
+        <hr />
+        <NavLink to="/"> Home </NavLink>
+        <NavLink to="/Dummy"> Dummy </NavLink>
+        <NavLink to="/Login"> Login</NavLink>
       </div>
     );
   }
