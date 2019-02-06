@@ -31,14 +31,6 @@ class Mapbuttons extends Component {
                                            onSelect={this.onSelectFlag}/>
                                            {/*this.changeCenter([-122.4194, 37.7749])*/}
 
-
-                        {/*style={{ padding: "1rem 0" }}*/}
-                        {/*<button*/}
-                        {/*className="btn"*/}
-                        {/*onClick={this.changeCenter([-122.4194, 37.7749])}*/}
-                        {/*>*/}
-                        {/*{"San Francisco"}*/}
-                        {/*</button>*/}
                         {/*<button*/}
                         {/*className="btn"*/}
                         {/*onClick={this.changeCenter([151.2093, -33.8688])}*/}
