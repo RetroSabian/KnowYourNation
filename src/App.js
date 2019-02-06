@@ -7,22 +7,26 @@ import "./App.sass";
 import Dummy from "./js/components/Dummy";
 import Home from "./js/components/Home/Home";
 import Navbar from "./js/components/Navbar/Navbar";
+import { Provider } from "react-redux";
+import Books from "./js/components/Books/Books";
 import Login from "./js/components/LoginPage/Login";
 import SignUp from "./js/components/RegisterPage/SignUp";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 
 class App extends Component {
   render() {
+    var loc_navBarTitle = "KnowYourNation";
+    var loc_navbarItems = [false, true, true, true];
+
     return (
       <div className="App">
         <BrowserRouter>
           <div>
-            <Navbar />
             <Switch>
-              <Route path="/Dummy" component={Dummy} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
               <Route path="/resetpassword" component={ForgotSignIn} />
+              <Route path="/Books" component={Books} />
               <Route component={Home} />
             </Switch>
           </div>

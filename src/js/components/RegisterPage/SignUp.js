@@ -3,7 +3,7 @@ import FormGroup from "react-bootstrap/FormGroup";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Bootstrap, { FormLabel } from "react-bootstrap";
+import FormLabel from "react-bootstrap/FormLabel";
 import "./SignUp.sass";
 
 export default class Signup extends Component {
