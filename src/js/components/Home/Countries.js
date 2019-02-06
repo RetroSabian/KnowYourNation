@@ -13,6 +13,11 @@ class Mapbuttons extends Component {
         this.setState({center})
     }
 
+     onSelectFlag=countryCode=>() =>{
+        console.log(countryCode);
+        return this.changeCenter([-122.4194, 37.7749])
+    }
+
 
     render() {
         return (
@@ -23,12 +28,13 @@ class Mapbuttons extends Component {
                     </div>
                     <div className="col-3">
                         <ReactFlagsSelect  searchable={true}
+                                           defaultCountry="US"
                                            searchPlaceholder="Know Your Nation"
                                            selectedSize={18}
                                            optionsSize={20}
                                            className="menu-flags"
                                            alignOptions="left"
-                                           onSelect={this.onSelectFlag}/>
+                                           onSelect={this.changeCenter([-122.4194, 37.7749])}/>
                                            {/*this.changeCenter([-122.4194, 37.7749])*/}
 
                         {/*<button*/}
@@ -44,7 +50,5 @@ class Mapbuttons extends Component {
     }
 }
 
-function onSelectFlag(countryCode){
-    console.log(countryCode)
-}
+
 export default Mapbuttons
