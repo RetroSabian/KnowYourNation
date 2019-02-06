@@ -25,7 +25,7 @@ class Mapbuttons extends Component {
                                            selectedSize={18}
                                            optionsSize={20}
                                            className="menu-flags"
-                                           alignOptions="center"/>
+                                           alignOptions="left"/>
                         {/*style={{ padding: "1rem 0" }}*/}
                         {/*<button*/}
                         {/*className="btn"*/}
