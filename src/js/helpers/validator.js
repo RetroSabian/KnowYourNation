@@ -48,7 +48,7 @@ export const isEmpty = thing => {
  */
 export const isLength = (str, options) => {
   if (isEmpty(options)) {
-    throw "Who will provide the options you?";
+    throw "Please provide your email address";
   }
 
   let isValid = true;
