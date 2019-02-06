@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ArticleApp from "../App";
-import {Switch} from "react-router-dom";
 import Mapbuttons from "./Countries"
 import Map from "./Map";
 import MyWorker from '../../other/workerz';

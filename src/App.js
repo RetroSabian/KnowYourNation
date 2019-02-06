@@ -9,7 +9,6 @@ import Home from "./js/components/Home/Home";
 import Navbar from "./js/components/Navbar/Navbar";
 import {Provider} from "react-redux";
 import Books from "./js/components/Books/Books";
-import Navbar from './js/components/Navbar/Navbar';
 
 class App extends Component {
   render() {
@@ -21,7 +20,6 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <Navbar />
             <Switch>
               <Route path="/Dummy" component={Dummy} />
               <Route path="/Books" component={Books} />
