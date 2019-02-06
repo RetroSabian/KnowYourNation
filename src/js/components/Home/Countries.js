@@ -3,9 +3,7 @@ import Map from "./Map";
 import './MapStyles.sass'
 import ReactFlagsSelect from 'react-flags-select';
 
-function onSelectFlag(countryCode){
-    console.log(countryCode)
-}
+
 class Mapbuttons extends Component {
     constructor() {
         super()
@@ -30,16 +28,9 @@ class Mapbuttons extends Component {
                                            optionsSize={20}
                                            className="menu-flags"
                                            alignOptions="left"
-                                           onSelect={this.onSelectFlag}/> //this.changeCenter([-122.4194, 37.7749])
+                                           onSelect={this.onSelectFlag}/>
+                                           {/*this.changeCenter([-122.4194, 37.7749])*/}
 
-
-                        {/*style={{ padding: "1rem 0" }}*/}
-                        {/*<button*/}
-                        {/*className="btn"*/}
-                        {/*onClick={this.changeCenter([-122.4194, 37.7749])}*/}
-                        {/*>*/}
-                        {/*{"San Francisco"}*/}
-                        {/*</button>*/}
                         {/*<button*/}
                         {/*className="btn"*/}
                         {/*onClick={this.changeCenter([151.2093, -33.8688])}*/}
@@ -53,4 +44,7 @@ class Mapbuttons extends Component {
     }
 }
 
+function onSelectFlag(countryCode){
+    console.log(countryCode)
+}
 export default Mapbuttons
