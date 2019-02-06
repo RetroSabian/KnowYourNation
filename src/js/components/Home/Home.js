@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ArticleApp from "../App";
-import {Switch} from "react-router-dom";
 import Mapbuttons from "./Countries"
 import Map from "./Map";
 import MyWorker from '../../other/workerz';
@@ -23,6 +22,7 @@ class Home extends Component {
       <div className="Home">
       <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
       <h4> Home Component </h4>
+
       <NavLink to="/Books"> <button className="btn btn-success"> Books </button> </NavLink>
       <h4> Insert speedy picture here </h4>
       <Mapbuttons />
