@@ -105,7 +105,7 @@ class Login extends Component {
                 placeholder="Enter your email"
                 onChange={this.handleInputChange}
               />
-              {errors.email && <Form.HelpBlock>{errors.email}</Form.HelpBlock>}
+              {errors.email && <Form>{errors.email}</Form>}
             </FormGroup>
             <FormGroup
               controlId="password"
@@ -120,36 +120,24 @@ class Login extends Component {
                 placeholder="Enter your password"
                 onChange={this.handleInputChange}
               />
-              {errors.password && (
-                <Form.HelpBlock>{errors.password}</Form.HelpBlock>
-              )}
+              {errors.password && <Form>{errors.password}</Form>}
 
-              <Link to="/resetpassword" className="btn btn-link">
-                Forget Password or UserName?
-              </Link>
+              <Link to="/resetpassword">Forget Password or UserName?</Link>
+              <Link to="/register"> Not Registered? Sign Up </Link>
               <div className="d-flex flex-column">
                 <ButtonGroup className="mt-3">
                   <FormLabel>OR Login with </FormLabel>
-                  <FacebookLoginButton type="submit"> </FacebookLoginButton>
-                  <GoogleLoginButton type="submit"> </GoogleLoginButton>
-                  <TwitterLoginButton type="submit"> </TwitterLoginButton>
-                </ButtonGroup>
-                <ButtonGroup className="mt-3">
-                  <Button variant="primary" type="submit">
-                    Sign-In
-                  </Button>
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    style={{ marginLeft: "5px" }}
-                  >
-                    Sign-Up
-                  </Button>
+                  <FacebookLoginButton> </FacebookLoginButton>
+                  <GoogleLoginButton> </GoogleLoginButton>
+                  <TwitterLoginButton> </TwitterLoginButton>
                 </ButtonGroup>
               </div>
             </FormGroup>
+            <Button variant="primary" type="submit">
+              Sign-In
+            </Button>
           </Form>
-        </Row>{" "}
+        </Row>
       </div>
     );
   }
