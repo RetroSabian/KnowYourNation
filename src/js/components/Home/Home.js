@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import ArticleApp from "../App";
 import Mapbuttons from "./Countries";
-import Map from "./Map";
-import MyWorker from "../../other/workerz";
 import Navbar from "../Navbar/Navbar";
-import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Home extends Component {
   constructor() {

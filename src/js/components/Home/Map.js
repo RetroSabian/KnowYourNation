@@ -9,7 +9,8 @@ import { Motion, spring } from "react-motion";
 
 const mapStyles = {
     width: "50%",       // Where the globe width size on the page is set.
-    height: "auto"
+    height: "auto",
+    outline: "#888888"
 };
 
 const Map = ({ center }) => (
@@ -35,7 +36,8 @@ const Map = ({ center }) => (
                             cx={250}
                             cy={250}
                             r={220}
-                            fill="#0018BE" //ocean coulour fill
+                            fill="#0018BE" //ocean colour fill
+                            // outline-color="#FFFFFF" need to make a border around globe.
                         />
                         <Geographies
                             disableOptimization
