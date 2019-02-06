@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.2.1",
-    "country-region-dropdown-menu": "^2.1.2",
     "next": "^7.0.2",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
