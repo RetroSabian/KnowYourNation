@@ -8,9 +8,15 @@ import Dummy from "./js/components/Dummy";
 import Home from "./js/components/Home/Home";
 import Navbar from "./js/components/Navbar/Navbar";
 import {Provider} from "react-redux";
+import Books from "./js/components/Books/Books";
+import Navbar from './js/components/Navbar/Navbar';
 
 class App extends Component {
   render() {
+
+    var loc_navBarTitle  = "KnowYourNation";
+    var loc_navbarItems = [false,true,true,true];
+
     return (
       <div className="App">
         <BrowserRouter>
@@ -18,6 +24,7 @@ class App extends Component {
             <Navbar />
             <Switch>
               <Route path="/Dummy" component={Dummy} />
+              <Route path="/Books" component={Books} />
               <Route component={Home} />
             </Switch>
           </div>
