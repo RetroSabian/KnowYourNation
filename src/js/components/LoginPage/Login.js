@@ -88,7 +88,7 @@ class Login extends Component {
 
   render() {
     var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [false, true, true, false];
+    var loc_navbarItems = [true, true, true, true];
 
     const { errors, formSubmitted } = this.state;
 
