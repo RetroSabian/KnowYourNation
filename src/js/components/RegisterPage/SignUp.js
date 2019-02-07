@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormLabel from "react-bootstrap/FormLabel";
-import "./SignUp.sass";
+import "./SignUp.scss";
 import Navbar from "../Navbar/Navbar";
 import {RegisterUser} from "../../services/apiservice";
 

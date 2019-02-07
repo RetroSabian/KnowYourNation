@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
-import "./Navbar.sass";
+import "./Navbar.scss";
 
 /*
   This is a paramaterized component that needs paramaters to successfully render

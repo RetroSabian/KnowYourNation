@@ -3,7 +3,7 @@ import Mapbuttons from "./Countries";
 import Navbar from "../Navbar/Navbar";
 import Navbuttons from "../Fragments/Navbuttons";
 import { NavLink } from "react-router-dom";
-import "./Home.sass";
+import "./Home.scss";
 
 class Home extends Component {
 
@@ -12,16 +12,12 @@ class Home extends Component {
     this.state = { center: [0, 0] };
   }
 
-  changeCenter = center => () => {
-    this.setState({ center });
-  };
-
   render() {
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [false, true, true, false];
 
     return (
-      <div className="Home">
+      <div className="home">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         <NavLink to="/Books">
           <button className="btn btn-success"> Books </button>{" "}

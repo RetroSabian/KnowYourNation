@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
-import "./Navbuttons.sass";
+import "./Navbuttons.scss";
 
 /*
   This fragment is the volunteer and donate button that will be used accross multiple pages

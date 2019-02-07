@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import FormLabel from "react-bootstrap/FormLabel";
 import Navbar from "../Navbar/Navbar";
-import "./Login.sass";
+import "./Login.scss";
 import "./ButtonStyles.css";
 import FacebookLoginButton from "react-social-login-buttons/lib/buttons/FacebookLoginButton";
 import GoogleLoginButton from "react-social-login-buttons/lib/buttons/GoogleLoginButton";
@@ -93,7 +93,7 @@ class Login extends Component {
     const { errors, formSubmitted } = this.state;
 
     return (
-      <div className="Login">
+      <div className="login">
         <Navbar
           titleFromParent={loc_navBarTitle}
           navbarItems={loc_navbarItems}
