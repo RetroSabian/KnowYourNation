@@ -8,7 +8,7 @@ import {
 import { Motion, spring } from "react-motion";
 
 const mapStyles = {
-    width: "58%",       // Where the globe width size on the page is set.
+    width: "100%",       // Where the globe width size on the page is set.
     height: "auto",
     outline: "#888888"
 };

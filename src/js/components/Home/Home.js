@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Mapbuttons from "./Countries";
 import Navbar from "../Navbar/Navbar";
+import Navbuttons from "../Fragments/Navbuttons";
 import { NavLink } from "react-router-dom";
-
+import "./Home.sass";
 class Home extends Component {
   constructor() {
     super();
@@ -21,15 +22,18 @@ class Home extends Component {
           titleFromParent={loc_navBarTitle}
           navbarItems={loc_navbarItems}
         />
-        <h4> Home Component </h4>
+        <br/>
 
         <NavLink to="/Books">
           {" "}
           <button className="btn btn-success"> Books </button>{" "}
         </NavLink>
-        <h4> Insert speedy picture here </h4>
+        <br/>
+        <br/>
+        <br/>
+        {/* <h4> Insert speedy picture here </h4> */}
         <Mapbuttons />
-        {/*<ArticleApp/>*/}
+        <Navbuttons/>
       </div>
     );
   }
