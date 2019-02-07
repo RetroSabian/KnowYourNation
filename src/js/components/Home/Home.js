@@ -19,7 +19,7 @@ class Home extends Component {
       <div className="home">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         <NavLink to="/Books">
-          <button className="btn btn-success"> Books </button>{" "}
+          <button className="btn btn-success"> Books </button>
         </NavLink>
         <Mapbuttons />
       </div>

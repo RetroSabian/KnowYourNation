@@ -10,8 +10,7 @@ class Mapbuttons extends Component {
     constructor() {
         super()
         this.state = {
-            center: [0, 0],
-            countryName: 'South Africa'
+            center: [0, 0]
         }
         this.getCountryCode = this.getCountryCode.bind(this);
         this.setCountry = this.setCountry.bind(this);
