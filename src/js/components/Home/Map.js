@@ -8,8 +8,9 @@ import {
 import { Motion, spring } from "react-motion";
 
 const mapStyles = {
-    width: "50%",       // Where the globe width size on the page is set.
-    height: "auto"
+    width: "58%",       // Where the globe width size on the page is set.
+    height: "auto",
+    outline: "#888888"
 };
 
 const Map = ({ center }) => (
@@ -35,7 +36,10 @@ const Map = ({ center }) => (
                             cx={250}
                             cy={250}
                             r={220}
-                            fill="#0018BE" //ocean coulour fill
+                            fill="#26BAF2"
+                            stroke = "#000"
+                            strokeWidth = "6"//ocean colour fill
+                            // outline-color="#FFFFFF" need to make a border around globe.
                         />
                         <Geographies
                             disableOptimization
@@ -48,7 +52,9 @@ const Map = ({ center }) => (
                                         geography={geo}
                                         projection={proj}
                                         style={{
-                                            default: { fill: "#61993b" } //country colour fills
+                                            default: { fill: "#9BC214",
+                                                stroke: "#000",
+                                                strokeWidth: 0.5} //country colour fills
                                         }}
                                     />
                                 ))
