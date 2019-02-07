@@ -23,31 +23,31 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('http://ereader.retrotest.co.za/api/Db')
-    .then(res => res.json())
-    .then(json => {
-      this.setState({
-        isLoaded: true,
-        items: json,
-      })
-    });
+    // fetch('http://ereader.retrotest.co.za/api/Db')
+    // .then(res => res.json())
+    // .then(json => {
+    //   this.setState({
+    //     isLoaded: true,
+    //     items: json,
+    //   })
+    // });
 
-    fetch('http://ereader.retrotest.co.za/api/Db', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    "usersId": 0,
-    "name": "NA",
-    "surname": "NA",
-    "email": "NA",
-    "phoneNumber": "NA",
-    "password": "NA",
-    "membershipType": "NA",
-  })
-})
+//     fetch('http://ereader.retrotest.co.za/api/Db', {
+//   method: 'POST',
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     "usersId": 0,
+//     "name": "NA",
+//     "surname": "NA",
+//     "email": "NA",
+//     "phoneNumber": "NA",
+//     "password": "NA",
+//     "membershipType": "NA",
+//   })
+// })
   }
 
   render() {
@@ -56,18 +56,18 @@ class App extends Component {
 
     var {isLoaded, items} = this.state;
 
-    if (!isLoaded){
-      return <div>Loading...</div>;
-    }
-    else
+    // if (!isLoaded){
+    //   return <div>Loading...</div>;
+    // }
+    // else
     return (
 
       <div className="App">
-            {items.map(item => (
+            {/* {items.map(item => (
               <li key={item.id}>
                 {item.name}
               </li>
-        ))}
+        ))} */}
         <BrowserRouter>
           <div>
             <Switch>

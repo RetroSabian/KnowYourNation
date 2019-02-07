@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import FormLabel from "react-bootstrap/FormLabel";
 import "./SignUp.sass";
 import Navbar from "../Navbar/Navbar";
-
+import {RegisterUser} from "../../services/apiservice";
 export default class Signup extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +22,7 @@ export default class Signup extends Component {
       confirmationCode: "",
       newUser: null
     };
+    
   }
 
   validateForm() {
@@ -30,6 +31,17 @@ export default class Signup extends Component {
       this.state.password.length > 0 &&
       this.state.password === this.state.confirmPassword
     );
+  }
+  // (username, surname, passsword, email, phoneNumber, membershipType)
+  fun_register()
+  {
+    RegisterUser(this.state.name,
+      this.state.surname,
+      this.state.passsword,
+      this.state.email,
+      this.state.phoneNumber,
+      "free"
+      );
   }
 
   validateConfirmationForm() {
@@ -163,6 +175,7 @@ export default class Signup extends Component {
           >
             SignUp{" "}
           </Button>
+
         </Form>
       </Row>
     );
@@ -170,7 +183,7 @@ export default class Signup extends Component {
 
   render() {
     var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [false, true, true, false];
+    var loc_navbarItems = [true, true, true, false];
     return (
       <div className="Signup">
         <Navbar
@@ -179,7 +192,8 @@ export default class Signup extends Component {
         />
         {this.state.newUser === null
           ? this.renderForm()
-          : this.renderConfirmationForm()}
+          : this.fun_register()}
+
       </div>
     );
   }
