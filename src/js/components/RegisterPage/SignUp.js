@@ -40,7 +40,7 @@ export default class Signup extends Component {
   */
   register()
   {
-    RegisterUser(this.state.name,this.state.surname,this.state.passsword,this.state.email,this.state.phoneNumber,"free");
+    RegisterUser(this.state.name,this.state.surname,this.state.password,this.state.email,this.state.phoneNumber,"free");
   }
 
   validateConfirmationForm() {
