@@ -8,7 +8,7 @@ import {
 import { Motion, spring } from "react-motion";
 
 const mapStyles = {
-    width: "58%",       // Where the globe width size on the page is set.
+    width: "60%",       // Where the globe width size on the page is set.
     height: "auto",
     outline: "#888888"
 };
@@ -54,7 +54,7 @@ const Map = ({ center }) => (
                                         style={{
                                             default: { fill: "#9BC214",
                                                 stroke: "#000",
-                                                strokeWidth: 0.5} //country colour fills
+                                                strokeWidth: 0.4} //country colour fills
                                         }}
                                     />
                                 ))
