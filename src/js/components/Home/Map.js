@@ -9,7 +9,7 @@ import { Motion, spring } from "react-motion";
 
 const mapStyles = {
     width: "60%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
-    height: "auto",
+    height: "100%",
     outline: "#888888"
 };
 
