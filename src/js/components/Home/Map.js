@@ -7,12 +7,8 @@ import {
 } from "react-simple-maps";
 import { Motion, spring } from "react-motion";
 
-const mapStyles = {
-<<<<<<< HEAD
+const mapStyles = { 
     width: "100%",       // Where the globe width size on the page is set.
-=======
-    width: "60%",       // Where the globe width size on the page is set.
->>>>>>> 4abc8ee6cb57261a75cf27acbcc208dd93239c1d
     height: "auto",
     outline: "#888888"
 };

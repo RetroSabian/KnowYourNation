@@ -7,6 +7,7 @@ import FormLabel from "react-bootstrap/FormLabel";
 import "./SignUp.sass";
 import Navbar from "../Navbar/Navbar";
 import {RegisterUser} from "../../services/apiservice";
+
 export default class Signup extends Component {
   constructor(props) {
     super(props);
@@ -32,16 +33,14 @@ export default class Signup extends Component {
       this.state.password === this.state.confirmPassword
     );
   }
-  // (username, surname, passsword, email, phoneNumber, membershipType)
-  fun_register()
+
+  /*
+      This function is used to register a user, the last paramater is a default membership that indicates that the user
+      create will be a 'free' user as part of our business logic.
+  */
+  register()
   {
-    RegisterUser(this.state.name,
-      this.state.surname,
-      this.state.passsword,
-      this.state.email,
-      this.state.phoneNumber,
-      "free"
-      );
+    RegisterUser(this.state.name,this.state.surname,this.state.passsword,this.state.email,this.state.phoneNumber,"free");
   }
 
   validateConfirmationForm() {
@@ -76,12 +75,7 @@ export default class Signup extends Component {
         <Form onSubmit={this.handleConfirmationSubmit}>
           <FormGroup controlId="confirmationCode" bsSize="large">
             <FormLabel>Confirmation Code</FormLabel>
-            <Form.Control
-              autoFocus
-              type="tel"
-              value={this.state.confirmationCode}
-              onChange={this.handleChange}
-            />
+            <Form.Control autoFocus type="tel" value={this.state.confirmationCode} onChange={this.handleChange}/>
             <Form>Please check your email for the code.</Form>
           </FormGroup>
           <Button
@@ -90,8 +84,7 @@ export default class Signup extends Component {
             disabled={!this.validateConfirmationForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            loadingText="Verifying…"
-          >
+            loadingText="Verifying…">
             Verify
           </Button>
         </Form>
@@ -101,18 +94,16 @@ export default class Signup extends Component {
 
   renderForm() {
     return (
-      <Row>
+      <Row> 
         <Form onSubmit={this.handleSubmit}>
           <h2> Register </h2>
           <FormGroup controlId="name" bsSize="large">
             <FormLabel>Name</FormLabel>
-            <Form.Control
-              autoFocus
+            <Form.Control autoFocus
               type="name"
               value={this.state.name}
               placeholder="Enter your name"
-              onChange={this.handleChange}
-            />
+              onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup controlId="surname" bsSize="large">
             <FormLabel>Surname</FormLabel>
@@ -121,8 +112,7 @@ export default class Signup extends Component {
               type="surname"
               value={this.state.surname}
               placeholder="Enter your Surname"
-              onChange={this.handleChange}
-            />
+              onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup controlId="email" bsSize="large">
             <FormLabel>Email</FormLabel>
@@ -131,8 +121,7 @@ export default class Signup extends Component {
               type="email"
               value={this.state.email}
               placeholder="Enter your email"
-              onChange={this.handleChange}
-            />
+              onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup controlId="phoneNumber" bsSize="large">
             <FormLabel>Phone Number</FormLabel>
@@ -141,8 +130,7 @@ export default class Signup extends Component {
               type="phoneNumber"
               value={this.state.phoneNumber}
               placeholder="Enter your phoneNumber"
-              onChange={this.handleChange}
-            />
+              onChange={this.handleChange}/>
           </FormGroup>
 
           <FormGroup controlId="password" bsSize="large">
@@ -151,8 +139,7 @@ export default class Signup extends Component {
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
-              placeholder="Enter your password"
-            />
+              placeholder="Enter your password"/>
           </FormGroup>
 
           <FormGroup controlId="confirmPassword" bsSize="large">
@@ -161,8 +148,7 @@ export default class Signup extends Component {
               value={this.state.confirmPassword}
               onChange={this.handleChange}
               type="password"
-              placeholder="Confirm your password"
-            />
+              placeholder="Confirm your password"/>
           </FormGroup>
 
           <Button
@@ -171,8 +157,7 @@ export default class Signup extends Component {
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            loadingText="Signing up…"
-          >
+            loadingText="Signing up…">
             SignUp{" "}
           </Button>
 
@@ -192,7 +177,7 @@ export default class Signup extends Component {
         />
         {this.state.newUser === null
           ? this.renderForm()
-          : this.fun_register()}
+          : this.register()}
 
       </div>
     );
