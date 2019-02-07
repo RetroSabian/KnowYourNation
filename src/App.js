@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
-import {BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 import "./App.sass";
 import Dummy from "./js/components/Dummy";
 import Home from "./js/components/Home/Home";
@@ -11,6 +11,7 @@ import Books from "./js/components/Books/Books";
 import Login from "./js/components/LoginPage/Login";
 import SignUp from "./js/components/RegisterPage/SignUp";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
+import ArticleReader from "./js/components/Articles/ArticleReader";
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path="/register" component={SignUp} />
               <Route path="/resetpassword" component={ForgotSignIn} />
               <Route path="/Books" component={Books} />
+              <Route path="/ereader" component={ArticleReader} />
               <Route component={Home} />
             </Switch>
           </div>

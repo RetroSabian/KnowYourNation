@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FormGroup from "react-bootstrap/FormGroup";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormLabel from "react-bootstrap/FormLabel";
@@ -169,17 +170,15 @@ export default class Signup extends Component {
   }
 
   render() {
-    var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [false, true, true, false];
+    var navBarTitle = "KnowYourNation";
+    var navbarItems = [true, true, true, true];
     return (
       <div className="Signup">
-        <Navbar
-          titleFromParent={loc_navBarTitle}
-          navbarItems={loc_navbarItems}
-        />
+        <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
         {this.state.newUser === null
           ? this.renderForm()
-          : this.renderConfirmationForm()}
+          : alert(this.state.surname)}{" "}
+        {/*for testing purpose */}
       </div>
     );
   }

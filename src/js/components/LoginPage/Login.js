@@ -8,7 +8,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import FormLabel from "react-bootstrap/FormLabel";
 import Navbar from "../Navbar/Navbar";
 import "./Login.sass";
-import "./ButtonStyles.css";
+import "./ButtonStyles.sass";
 import FacebookLoginButton from "react-social-login-buttons/lib/buttons/FacebookLoginButton";
 import GoogleLoginButton from "react-social-login-buttons/lib/buttons/GoogleLoginButton";
 import TwitterLoginButton from "react-social-login-buttons/lib/buttons/TwitterLoginButton";
@@ -60,7 +60,7 @@ class Login extends Component {
     } else if (isContainWhiteSpace(formData.password)) {
       errors.password = "Password should not contain white spaces";
     } else if (!isLength(formData.password, { gte: 4, lte: 16, trim: true })) {
-      errors.password = "Password's length must between 4 to 16";
+      errors.password = "Password's length must be between 4 to 16";
     }
 
     if (isEmpty(errors)) {
@@ -87,17 +87,14 @@ class Login extends Component {
   };
 
   render() {
-    var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [false, true, true, false];
+    var navBarTitle = "Login";
+    var navbarItems = [true, true, true, true];
 
     const { errors, formSubmitted } = this.state;
 
     return (
       <div className="Login">
-        <Navbar
-          titleFromParent={loc_navBarTitle}
-          navbarItems={loc_navbarItems}
-        />
+        <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
         <Row>
           <Form onSubmit={this.login}>
             <h2> Login </h2>

@@ -15,15 +15,12 @@ class Home extends Component {
     this.setState({ center });
   };
   render() {
-    var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [false, true, true, false];
+    var navBarTitle = "KnowYourNation";
+    var navbarItems = [false, true, true, true];
 
     return (
       <div className="Home">
-        <Navbar
-          titleFromParent={loc_navBarTitle}
-          navbarItems={loc_navbarItems}
-        />
+        <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
         <h4> Home Component </h4>
 
         <NavLink to="/Books">
@@ -32,7 +29,6 @@ class Home extends Component {
         </NavLink>
         <h4> Insert speedy picture here </h4>
         <Mapbuttons />
-        {/*<ArticleApp/>*/}
       </div>
     );
   }
