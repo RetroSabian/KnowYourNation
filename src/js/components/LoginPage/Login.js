@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import FormLabel from "react-bootstrap/FormLabel";
+import Navbar from "../Navbar/Navbar";
 import "./Login.sass";
 import "./ButtonStyles.css";
 import FacebookLoginButton from "react-social-login-buttons/lib/buttons/FacebookLoginButton";
@@ -58,8 +59,8 @@ class Login extends Component {
       errors.password = "Password can't be blank";
     } else if (isContainWhiteSpace(formData.password)) {
       errors.password = "Password should not contain white spaces";
-    } else if (!isLength(formData.password, { gte: 6, lte: 16, trim: true })) {
-      errors.password = "Password's length must between 6 to 16";
+    } else if (!isLength(formData.password, { gte: 4, lte: 16, trim: true })) {
+      errors.password = "Password's length must between 4 to 16";
     }
 
     if (isEmpty(errors)) {
@@ -86,12 +87,20 @@ class Login extends Component {
   };
 
   render() {
+    var loc_navBarTitle = "KnowYourNation";
+    var loc_navbarItems = [true, true, true, true];
+
     const { errors, formSubmitted } = this.state;
 
     return (
       <div className="Login">
+        <Navbar
+          titleFromParent={loc_navBarTitle}
+          navbarItems={loc_navbarItems}
+        />
         <Row>
           <Form onSubmit={this.login}>
+            <h2> Login </h2>
             <FormGroup
               controlId="email"
               validationState={
@@ -105,7 +114,7 @@ class Login extends Component {
                 placeholder="Enter your email"
                 onChange={this.handleInputChange}
               />
-              {errors.email && <Form.HelpBlock>{errors.email}</Form.HelpBlock>}
+              {errors.email && <Form>{errors.email}</Form>}
             </FormGroup>
             <FormGroup
               controlId="password"
@@ -120,36 +129,24 @@ class Login extends Component {
                 placeholder="Enter your password"
                 onChange={this.handleInputChange}
               />
-              {errors.password && (
-                <Form.HelpBlock>{errors.password}</Form.HelpBlock>
-              )}
+              {errors.password && <Form>{errors.password}</Form>}
 
-              <Link to="/resetpassword" className="btn btn-link">
-                Forget Password or UserName?
-              </Link>
+              <Link to="/resetpassword">Forget Password or UserName?</Link>
+              <Link to="/register"> Not Registered? Sign Up </Link>
               <div className="d-flex flex-column">
                 <ButtonGroup className="mt-3">
                   <FormLabel>OR Login with </FormLabel>
-                  <FacebookLoginButton type="submit"> </FacebookLoginButton>
-                  <GoogleLoginButton type="submit"> </GoogleLoginButton>
-                  <TwitterLoginButton type="submit"> </TwitterLoginButton>
-                </ButtonGroup>
-                <ButtonGroup className="mt-3">
-                  <Button variant="primary" type="submit">
-                    Sign-In
-                  </Button>
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    style={{ marginLeft: "5px" }}
-                  >
-                    Sign-Up
-                  </Button>
+                  <FacebookLoginButton> </FacebookLoginButton>
+                  <GoogleLoginButton> </GoogleLoginButton>
+                  <TwitterLoginButton> </TwitterLoginButton>
                 </ButtonGroup>
               </div>
             </FormGroup>
+            <Button class="btn-circle" variant="primary" type="submit">
+              Sign-In
+            </Button>
           </Form>
-        </Row>{" "}
+        </Row>
       </div>
     );
   }

@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormLabel from "react-bootstrap/FormLabel";
 import "./SignUp.sass";
+import Navbar from "../Navbar/Navbar";
+import {RegisterUser} from "../../services/apiservice";
 
 export default class Signup extends Component {
   constructor(props) {
@@ -12,12 +14,16 @@ export default class Signup extends Component {
 
     this.state = {
       isLoading: false,
+      name: "",
+      surname: "",
       email: "",
+      phoneNumber: "",
       password: "",
       confirmPassword: "",
       confirmationCode: "",
       newUser: null
     };
+    
   }
 
   validateForm() {
@@ -26,6 +32,15 @@ export default class Signup extends Component {
       this.state.password.length > 0 &&
       this.state.password === this.state.confirmPassword
     );
+  }
+
+  /*
+      This function is used to register a user, the last paramater is a default membership that indicates that the user
+      create will be a 'free' user as part of our business logic.
+  */
+  register()
+  {
+    RegisterUser(this.state.name,this.state.surname,this.state.passsword,this.state.email,this.state.phoneNumber,"free");
   }
 
   validateConfirmationForm() {
@@ -60,15 +75,8 @@ export default class Signup extends Component {
         <Form onSubmit={this.handleConfirmationSubmit}>
           <FormGroup controlId="confirmationCode" bsSize="large">
             <FormLabel>Confirmation Code</FormLabel>
-            <Form.Control
-              autoFocus
-              type="tel"
-              value={this.state.confirmationCode}
-              onChange={this.handleChange}
-            />
-            <Form.HelpBlock>
-              Please check your email for the code.
-            </Form.HelpBlock>
+            <Form.Control autoFocus type="tel" value={this.state.confirmationCode} onChange={this.handleChange}/>
+            <Form>Please check your email for the code.</Form>
           </FormGroup>
           <Button
             block
@@ -76,9 +84,9 @@ export default class Signup extends Component {
             disabled={!this.validateConfirmationForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            text="Verify"
-            loadingText="Verifying…"
-          />
+            loadingText="Verifying…">
+            Verify
+          </Button>
         </Form>
       </Row>
     );
@@ -86,53 +94,91 @@ export default class Signup extends Component {
 
   renderForm() {
     return (
-      <Row>
+      <Row> 
         <Form onSubmit={this.handleSubmit}>
+          <h2> Register </h2>
+          <FormGroup controlId="name" bsSize="large">
+            <FormLabel>Name</FormLabel>
+            <Form.Control autoFocus
+              type="name"
+              value={this.state.name}
+              placeholder="Enter your name"
+              onChange={this.handleChange}/>
+          </FormGroup>
+          <FormGroup controlId="surname" bsSize="large">
+            <FormLabel>Surname</FormLabel>
+            <Form.Control
+              autoFocus
+              type="surname"
+              value={this.state.surname}
+              placeholder="Enter your Surname"
+              onChange={this.handleChange}/>
+          </FormGroup>
           <FormGroup controlId="email" bsSize="large">
             <FormLabel>Email</FormLabel>
             <Form.Control
               autoFocus
               type="email"
               value={this.state.email}
-              onChange={this.handleChange}
-            />
+              placeholder="Enter your email"
+              onChange={this.handleChange}/>
           </FormGroup>
+          <FormGroup controlId="phoneNumber" bsSize="large">
+            <FormLabel>Phone Number</FormLabel>
+            <Form.Control
+              autoFocus
+              type="phoneNumber"
+              value={this.state.phoneNumber}
+              placeholder="Enter your phoneNumber"
+              onChange={this.handleChange}/>
+          </FormGroup>
+
           <FormGroup controlId="password" bsSize="large">
             <FormLabel>Password</FormLabel>
             <Form.Control
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
-            />
+              placeholder="Enter your password"/>
           </FormGroup>
+
           <FormGroup controlId="confirmPassword" bsSize="large">
             <FormLabel>Confirm Password</FormLabel>
             <Form.Control
               value={this.state.confirmPassword}
               onChange={this.handleChange}
               type="password"
-            />
+              placeholder="Confirm your password"/>
           </FormGroup>
+
           <Button
             block
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            text="Signup"
-            loadingText="Signing up…"
-          />
+            loadingText="Signing up…">
+            SignUp{" "}
+          </Button>
+
         </Form>
       </Row>
     );
   }
 
   render() {
+    var loc_navBarTitle = "KnowYourNation";
+    var loc_navbarItems = [true, true, true, false];
     return (
       <div className="Signup">
+        <Navbar
+          titleFromParent={loc_navBarTitle}
+          navbarItems={loc_navbarItems}
+        />
         {this.state.newUser === null
           ? this.renderForm()
-          : this.renderConfirmationForm()}
+          : this.register()}
+
       </div>
     );
   }
