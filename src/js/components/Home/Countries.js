@@ -6,8 +6,8 @@ import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyBiCz9njYP8nYxEUEQLzltCM8kAnm7z6To");
 
 class Mapbuttons extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {center: [0, 0]}
         this.getCountryCode = this.getCountryCode.bind(this);
         this.getCountryName = this.getCountryName.bind(this);
