@@ -20,13 +20,19 @@ class Home extends Component {
 
     return (
       <div className="Home">
-      <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
-      <h4> Home Component </h4>
+        <Navbar
+          titleFromParent={loc_navBarTitle}
+          navbarItems={loc_navbarItems}
+        />
+        <h4> Home Component </h4>
 
-      <NavLink to="/Books"> <button className="btn btn-success"> Books </button> </NavLink>
-      <h4> Insert speedy picture here </h4>
-      <Mapbuttons />
-      {/*<ArticleApp/>*/}
+        <NavLink to="/Books">
+          {" "}
+          <button className="btn btn-success"> Books </button>{" "}
+        </NavLink>
+        <h4> Insert speedy picture here </h4>
+        <Mapbuttons />
+        {/*<ArticleApp/>*/}
       </div>
     );
   }
