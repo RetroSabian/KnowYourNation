@@ -36,9 +36,9 @@ const Map = ({ center }) => (
                             cx={250}
                             cy={250}
                             r={220}
-                            fill="#26BAF2"
+                            fill="#26BAF2" //ocean colour fill
                             stroke = "#000"
-                            strokeWidth = "6"//ocean colour fill
+                            strokeWidth = "6"
                         />
                         <Geographies
                             disableOptimization
