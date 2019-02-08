@@ -7,6 +7,10 @@ class  Books extends Component {
   render() {
     var loc_navBarTitle  = "BOOKS";
     var loc_navbarItems = [true,true,true,true];
+      var rows = [];
+      for (var i = 0; i < 5; i++) {
+          rows.push(<div key={i} className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard /></div> )
+      }
 
     return (
       <div className="Books">
@@ -14,12 +18,7 @@ class  Books extends Component {
         <br/>
         <div className="container ">
             <div className="row">
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>                    
+                    {rows}         
             </div>
         </div>
       </div>
