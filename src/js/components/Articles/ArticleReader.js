@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import { createGlobalStyle } from "styled-components";
 import { ReactReader } from "./modules";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import "./ArticleReader.sass";
 import {
   Container,
   ReaderContainer,
@@ -11,6 +13,7 @@ import {
   CloseIcon,
   FontSizeButton
 } from "./Components";
+import Button from "react-bootstrap/Button";
 
 const storage = global.localStorage || null;
 
@@ -124,6 +127,11 @@ class Article extends Component {
             Toggle font-size
           </FontSizeButton>
         </ReaderContainer>
+        {/* <ButtonGroup className="Btn">
+          <Button> A</Button>
+          <Button> B</Button>
+          <Button> F</Button>
+        </ButtonGroup> */}
       </Container>
     );
   }

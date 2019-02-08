@@ -4,7 +4,7 @@ class ForgotSignIn extends Component {
   render() {
     return (
       <div className="ForgotSign">
-        <h1> ForgotSign Page </h1>
+        <h1> Forgot Password/Username Page </h1>
       </div>
     );
   }

@@ -7,11 +7,9 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import FormLabel from "react-bootstrap/FormLabel";
 import Navbar from "../Navbar/Navbar";
-import "./Login.sass";
-import "./ButtonStyles.sass";
-import FacebookLoginButton from "react-social-login-buttons/lib/buttons/FacebookLoginButton";
-import GoogleLoginButton from "react-social-login-buttons/lib/buttons/GoogleLoginButton";
-import TwitterLoginButton from "react-social-login-buttons/lib/buttons/TwitterLoginButton";
+import "./LoginForm.scss";
+import "./Buttons.scss";
+import "./SocialMediaButtons.scss";
 
 import {
   isEmail,
@@ -25,6 +23,8 @@ class Login extends Component {
     super(props);
 
     this.state = {
+      email: "",
+      password: "",
       formData: {}, // Contains login form data
       errors: {}, // Contains login field errors
       formSubmitted: false, // Indicates submit status of login form
@@ -63,6 +63,11 @@ class Login extends Component {
       errors.password = "Password's length must be between 4 to 16";
     }
 
+    this.setState({
+      email: formData.email,
+      password: formData.password
+    });
+
     if (isEmpty(errors)) {
       return true;
     } else {
@@ -95,9 +100,11 @@ class Login extends Component {
     return (
       <div className="Login">
         <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
+
         <Row>
           <Form onSubmit={this.login}>
             <h2> Login </h2>
+
             <FormGroup
               controlId="email"
               validationstate={
@@ -113,6 +120,7 @@ class Login extends Component {
               />
               {errors.email && <Form>{errors.email}</Form>}
             </FormGroup>
+
             <FormGroup
               controlId="password"
               validationstate={
@@ -128,20 +136,31 @@ class Login extends Component {
               />
               {errors.password && <Form>{errors.password}</Form>}
 
-              <Link to="/resetpassword">Forget Password or UserName?</Link>
-              <Link to="/register"> Not Registered? Sign Up </Link>
-              <div className="d-flex flex-column">
-                <ButtonGroup className="mt-3">
-                  <FormLabel>OR Login with </FormLabel>
-                  <FacebookLoginButton> </FacebookLoginButton>
-                  <GoogleLoginButton> </GoogleLoginButton>
-                  <TwitterLoginButton> </TwitterLoginButton>
-                </ButtonGroup>
-              </div>
+              <Link to="/resetpassword">Forgot Password/Username?</Link>
             </FormGroup>
-            <Button variant="primary" type="submit">
-              Sign-In
+
+            <Button clavariant="primary" type="submit">
+              Login
             </Button>
+            <Link to="/registration">
+              {" "}
+              <Button variant="primary">Not Registered? Sign Up</Button>
+            </Link>
+
+            <div className="d-flex flex-column">
+              <FormLabel>OR Login with </FormLabel>
+              <div className="rounded-social-buttons">
+                <a
+                  className="social-button facebook"
+                  href="login with facebook"
+                />
+                <a
+                  className="social-button twitter"
+                  href="login with twitter"
+                />
+                <a className="social-button google" href="login with google" />
+              </div>
+            </div>
           </Form>
         </Row>
       </div>
