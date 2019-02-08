@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Bookcard from '../Books/Bookcard/Bookcard';
 
-import './Book.sass';
+import './Book.scss';
 class  Books extends Component {
   render() {
     var loc_navBarTitle  = "BOOKS";
@@ -19,19 +19,7 @@ class  Books extends Component {
                 <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
                 <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
                 <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
-                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>                    
             </div>
         </div>
       </div>

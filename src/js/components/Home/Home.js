@@ -3,7 +3,7 @@ import Mapbuttons from "./Countries";
 import Navbar from "../Navbar/Navbar";
 import Navbuttons from "../Fragments/Navbuttons";
 import { NavLink } from "react-router-dom";
-import "./Home.sass";
+import "./Home.scss";
 
 class Home extends Component {
 
