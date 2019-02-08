@@ -70,31 +70,31 @@ class Login extends Component {
       return errors;
     }
   };
-  register()
+
+  loginUser()
   {
-    alert("calledLogin");
+    alert("calledLogin"+this.formData.email);
     LoginUser("string","string");
-    // alert(x);
   };
 
 
   login = e => {
     e.preventDefault();
 
-    // let errors = this.validateLoginForm();
+    let errors = this.validateLoginForm();
 
-    // if (errors === true) {
+    if (errors === true) {
           alert("calledLogin");
     var x = LoginUser("string","string");
     alert( x);
-      // alert("You are successfully signed in...");
-      // window.location.reload();
-    // } else {
-    //   this.setState({
-    //     errors: errors,
-    //     formSubmitted: true
-    //   });
-    // }
+      alert("You are successfully signed in...");
+      window.location.reload();
+    } else {
+      this.setState({
+        errors: errors,
+        formSubmitted: true
+      });
+    }
   };
 
 
