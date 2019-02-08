@@ -100,7 +100,7 @@ class Login extends Component {
             <h2> Login </h2>
             <FormGroup
               controlId="email"
-              validationState={
+              validationstate={
                 formSubmitted ? (errors.email ? "error" : "success") : null
               }
             >
@@ -115,7 +115,7 @@ class Login extends Component {
             </FormGroup>
             <FormGroup
               controlId="password"
-              validationState={
+              validationstate={
                 formSubmitted ? (errors.password ? "error" : "success") : null
               }
             >
@@ -139,7 +139,7 @@ class Login extends Component {
                 </ButtonGroup>
               </div>
             </FormGroup>
-            <Button class="btn-circle" variant="primary" type="submit">
+            <Button variant="primary" type="submit">
               Sign-In
             </Button>
           </Form>
