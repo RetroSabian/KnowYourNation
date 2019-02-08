@@ -73,7 +73,7 @@ class Login extends Component {
 
   loginUser()
   {
-    alert("calledLogin"+this.formData.email);
+    // TODO: remind Tshonolo to complete this function
     LoginUser("string","string");
   };
 
