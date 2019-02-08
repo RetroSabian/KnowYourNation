@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
-import "./Navbar.sass";
+import "./Navbar.scss";
 
 /*
   loc_navBarTitle: String passed to object for the title

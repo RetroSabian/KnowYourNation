@@ -3,7 +3,7 @@ import Mapbuttons from "./Countries";
 import Navbar from "../Navbar/Navbar";
 import { NavLink } from "react-router-dom";
 import "./Home.scss";
-
+import  Navbuttons  from "../Fragments/Navbuttons";
 class Home extends Component {
 
   constructor() {
@@ -22,6 +22,7 @@ class Home extends Component {
           <button className="btn btn-success"> Books </button>
         </NavLink>
         <Mapbuttons />
+        <Navbuttons/>
       </div>
     );
   }
