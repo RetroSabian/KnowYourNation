@@ -14,10 +14,24 @@ class  Books extends Component {
         <br/>
         <div className="container ">
             <div className="row">
-                <div className="col-4  noPaddMar"><Bookcard/></div>           
-                <div className="col-4  noPaddMar"><Bookcard/></div>           
-                <div className="col-4  noPaddMar"><Bookcard/></div>           
-                <div className="col-4  noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
+                <div className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard/></div>           
             </div>
         </div>
       </div>

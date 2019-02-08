@@ -12,6 +12,7 @@ import "./ButtonStyles.css";
 import FacebookLoginButton from "react-social-login-buttons/lib/buttons/FacebookLoginButton";
 import GoogleLoginButton from "react-social-login-buttons/lib/buttons/GoogleLoginButton";
 import TwitterLoginButton from "react-social-login-buttons/lib/buttons/TwitterLoginButton";
+import {LoginUser} from "../../services/apiservice";
 
 import {
   isEmail,
@@ -69,22 +70,34 @@ class Login extends Component {
       return errors;
     }
   };
+  register()
+  {
+    alert("calledLogin");
+    LoginUser("string","string");
+    // alert(x);
+  };
+
 
   login = e => {
     e.preventDefault();
 
-    let errors = this.validateLoginForm();
+    // let errors = this.validateLoginForm();
 
-    if (errors === true) {
-      alert("You are successfully signed in...");
-      window.location.reload();
-    } else {
-      this.setState({
-        errors: errors,
-        formSubmitted: true
-      });
-    }
+    // if (errors === true) {
+          alert("calledLogin");
+    var x = LoginUser("string","string");
+    alert( x);
+      // alert("You are successfully signed in...");
+      // window.location.reload();
+    // } else {
+    //   this.setState({
+    //     errors: errors,
+    //     formSubmitted: true
+    //   });
+    // }
   };
+
+
 
   render() {
     var loc_navBarTitle = "KnowYourNation";
@@ -145,6 +158,7 @@ class Login extends Component {
             <Button class="btn-circle" variant="primary" type="submit">
               Sign-In
             </Button>
+            <button onClick=""> Sign In </button>
           </Form>
         </Row>
       </div>
