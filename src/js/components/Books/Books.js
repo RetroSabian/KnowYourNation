@@ -17,7 +17,7 @@ class  Books extends Component {
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         <br/>
         <div className="container ">
-            <div className="row">
+                <div className="row noPaddMar">
                     {rows}         
             </div>
         </div>

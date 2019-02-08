@@ -7,7 +7,6 @@ export const RegisterUser = (username, surname, passsword, email, phoneNumber, m
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-        "usersId": 0,
         "name": username,
         "surname": surname,
         "email": email,
