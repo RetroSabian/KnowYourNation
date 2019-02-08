@@ -42,7 +42,7 @@ class Mapbuttons extends Component {
                     <div className="col-md-2 col-12">
                         {/*DropDown option where country is selected, with configuration */}
                         <ReactFlagsSelect  searchable={true}
-                                           defaultCountry= "South Africa"
+                                           defaultCountry= "ZA"
                                            searchPlaceholder="Know Your Nation"
                                            selectedSize={16}
                                            optionsSize={14}
