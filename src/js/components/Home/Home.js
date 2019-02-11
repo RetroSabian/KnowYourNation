@@ -12,8 +12,8 @@ class Home extends Component {
   }
 
   render() {
-    var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [false, true, true, false];
+    let loc_navBarTitle = "KnowYourNation";
+    let loc_navbarItems = [false, true, true, false];
 
     return (
       <div className="home">
