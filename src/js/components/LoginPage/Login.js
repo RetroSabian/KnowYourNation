@@ -4,11 +4,11 @@ import FormGroup from "react-bootstrap/FormGroup";
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import FormLabel from "react-bootstrap/FormLabel";
 import Navbar from "../Navbar/Navbar";
 import "./LoginForm.scss";
 import "./Buttons.scss";
+import "./PasswordEyeIcon.css";
 import "./SocialMediaButtons.scss";
 
 import {
@@ -60,7 +60,7 @@ class Login extends Component {
     } else if (isContainWhiteSpace(formData.password)) {
       errors.password = "Password should not contain white spaces";
     } else if (!isLength(formData.password, { gte: 4, lte: 16, trim: true })) {
-      errors.password = "Password's length must be between 4 to 16";
+      errors.password = "Password's length must be between 4 to 16 characters";
     }
 
     this.setState({
@@ -98,13 +98,12 @@ class Login extends Component {
     const { errors, formSubmitted } = this.state;
 
     return (
-      <div className="Login">
+      <div>
         <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
 
         <Row>
-          <Form onSubmit={this.login}>
-            <h2> Login </h2>
-
+          <Form className="Login" onSubmit={this.login}>
+            <h2 align="left"> Login </h2>
             <FormGroup
               controlId="email"
               validationstate={
@@ -139,7 +138,7 @@ class Login extends Component {
               <Link to="/resetpassword">Forgot Password/Username?</Link>
             </FormGroup>
 
-            <Button clavariant="primary" type="submit">
+            <Button variant="primary" type="submit">
               Login
             </Button>
             <Link to="/registration">

@@ -92,7 +92,7 @@ export default class Signup extends Component {
     return (
       <Row>
         <Form onSubmit={this.handleSubmit}>
-          <h2> Register </h2>
+          <h2 align="left"> Register </h2>
           <FormGroup controlId="name" bsSize="large">
             <FormLabel>Name</FormLabel>
             <Form.Control
@@ -170,7 +170,7 @@ export default class Signup extends Component {
   }
 
   render() {
-    var navBarTitle = "KnowYourNation";
+    var navBarTitle = "Member Registration";
     var navbarItems = [true, true, true, true];
     return (
       <div className="Signup">

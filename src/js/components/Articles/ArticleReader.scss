@@ -1,0 +1,83 @@
+.Btn {
+  margin: 0 auto;
+  margin-top: 544px;
+  max-width: 400px;
+  border-radius: 50%;
+
+  //   background: #fff;
+}
+
+//@import "compass/css3";
+
+// Variables
+$gray: #808080;
+
+// Mixin
+@mixin circle-btn($bkgd-color, $font-size) {
+  color: #333937;
+  font-family: "lato";
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  font-size: $font-size;
+  margin: 0.5em;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  padding: 1.45em 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background: $bkgd-color;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    border-radius: 30%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 3em 0 rgba(255, 255, 255, 0.1);
+    top: 130%;
+    left: 0;
+    z-index: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  &:hover {
+    border-radius: 30%;
+    &:after {
+      top: 0;
+    }
+  }
+  &:active {
+    &:after {
+      background: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Styling
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 30px;
+  background: #333937;
+}
+
+.circle-btn--gray {
+  @include circle-btn($gray, 1.2em);
+}
+.circle-btn--video {
+  @include circle-btn($gray, 1.6em);
+}

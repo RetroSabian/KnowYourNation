@@ -11,16 +11,16 @@ export const Container = styled.div`
 export const ReaderContainer = styled.div`
   font-size: 16px;
   position: absolute;
-  top: ${props => (props.fullscreen ? 0 : 135)}px;
+  top: ${props => (props.fullscreen ? 0 : 36)}px;
   left: ${props => (props.fullscreen ? 0 : 1)}rem;
   right: ${props => (props.fullscreen ? 0 : 1)}rem;
-  bottom: ${props => (props.fullscreen ? 0 : 1)}rem;
+  bottom: ${props => (props.fullscreen ? 0 : 10)}rem;
   transition: all 0.6s ease;
   ${props => !props.fullscreen && "0 0 5px rgba(0,0,0,.3);"};
 `;
 export const Bar = styled.header`
   position: absolute;
-  top: 10px;
+  top: 0.5px;
   left: 20px;
   right: 20px;
 `;
@@ -84,7 +84,7 @@ export const CloseIcon = styled.i`
   }
 `;
 export const FontSizeButton = styled(Button)`
-  position: fixed;
+  position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 10;

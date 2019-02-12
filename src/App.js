@@ -12,7 +12,7 @@ import Login from "./js/components/LoginPage/Login";
 import SignUp from "./js/components/RegisterPage/SignUp";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import ArticleReader from "./js/components/Articles/ArticleReader";
-
+import Video from "./js/components/Articles/Video";
 class App extends Component {
   render() {
     var loc_navBarTitle = "KnowYourNation";
@@ -28,6 +28,7 @@ class App extends Component {
               <Route path="/resetpassword" component={ForgotSignIn} />
               <Route path="/Books" component={Books} />
               <Route path="/ereader" component={ArticleReader} />
+              <Route path="/videoplayer" component={Video} />
               <Route component={Home} />
             </Switch>
           </div>
