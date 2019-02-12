@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import { NavLink } from "react-router-dom";
 import "./SignUp.scss";
-import { Redirect } from 'react-router-dom'
-import firebase from "firebase"
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
-
+import { Redirect } from 'react-router-dom';
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import {RegisterUser} from "../../services/apiservice.js";
 firebase.initializeApp({
 
     apiKey: "AIzaSyBB0W3EuMqoeQLVuczRUCQmaWQV0HOHZQQ",
@@ -19,7 +19,8 @@ class SignUp extends Component {
         signInFlow: "popup",
         signInOptions: [
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.TwitterAuthProvider.PROVIDER_ID
         ],
         callbacks: {
         signInSuccess: () => false
@@ -28,15 +29,14 @@ class SignUp extends Component {
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(user => {
           this.setState({ isSignedIn: !!user })
+
           console.log("user", user)
         })
     }
-
     render()
     {
         let loc_navBarTitle = "MEMBER REGISTRATION";
         let loc_navbarItems = [true, true, true, true];
-
         return (
             <div className="SignUp">
                 <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
@@ -71,13 +71,13 @@ class SignUp extends Component {
                             <label >Organisation</label>
                             <span><input className="formInput" type="text" value="Optional"/></span>
                         </div>
-                        return (<div className="col-12 marginTop30px">
+                         <div className="col-12 marginTop20px">
                             <label >Or Register with </label>
                             <span>
                                 {this.state.isSignedIn ?(  
-                                 <Redirect to='/home' />
-
-                                ) :(
+                                    RegisterUser(firebase.auth().currentUser.displayName," ",firebase.auth().currentUser.uid,firebase.auth().currentUser.email,firebase.auth().currentUser.phoneNumber," "),                                    
+                                    <Redirect to='/home'/>
+                                    ) :(
                                 <StyledFirebaseAuth
                                     uiConfig={this.uiConfig}
                                     firebaseAuth={firebase.auth()}
@@ -88,7 +88,7 @@ class SignUp extends Component {
                                 <button className="btnLoginOptions twitter"><i className="fab fa-twitter"></i></button>
                             </span>
                         </div>
-                        )
+                        
                         <div className="col-12 marginTop30px">
                             <span><label> Membership type</label></span>
                             <div className="divMembershipType">

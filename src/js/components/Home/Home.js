@@ -4,9 +4,8 @@ import Navbar from "../Navbar/Navbar";
 import { NavLink } from "react-router-dom";
 import "./Home.scss";
 import  Navbuttons  from "../Fragments/Navbuttons";
+import firebase from "firebase";
 
-import firebase from "firebase"
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 class Home extends Component {
 
@@ -19,14 +18,17 @@ class Home extends Component {
 
   componentDidMount = () =>{
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({ isSignedIn: !!user })
-     
+      this.setState({ isSignedIn: !!user })     
     })
   }
+
+  
+  
 
   render() {
     let loc_navBarTitle = "KnowYourNation";
     let loc_navbarItems = [false, true, true, false];
+
 
     return (
       <div className="home">
@@ -36,7 +38,6 @@ class Home extends Component {
 			      <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
             <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
           </span>
-          
         ) :(
           <div/>               
         )}

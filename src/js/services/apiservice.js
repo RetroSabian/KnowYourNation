@@ -1,6 +1,6 @@
 export const RegisterUser = (username, surname, passsword, email, phoneNumber, membershipType)=>{
 
-    fetch('http://ereader.retrotest.co.za/api/Db', {
+    fetch('https://api.ereader.retrotest.co.za/api/users', {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
