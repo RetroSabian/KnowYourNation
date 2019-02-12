@@ -1,8 +1,37 @@
 import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
+import { NavLink } from "react-router-dom";
 import "./SignUp.scss";
+import { Redirect } from 'react-router-dom';
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {RegisterUser} from "../../services/apiservice.js";
+
+firebase.initializeApp({
+
+    apiKey: "AIzaSyBB0W3EuMqoeQLVuczRUCQmaWQV0HOHZQQ",
+    authDomain: "knowyournation-6daac.firebaseapp.com"
+  })
+
 class SignUp extends Component {
+  
+   state = { isSignedIn: false }
+    uiConfig = {
+        signInFlow: "popup",
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID
+        ],
+        callbacks: {
+        signInSuccess: () => false
+        }
+    }
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged(user => {
+          this.setState({ isSignedIn: !!user })
+          console.log("user", user)
+        })
+    }
 
     constructor(props) {
         super(props);
@@ -47,8 +76,6 @@ class SignUp extends Component {
        let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
        console.log(result);
     }
-
-
     render()
     {
 
@@ -90,14 +117,24 @@ class SignUp extends Component {
                             <label >Organisation</label>
                             <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateOrganisationValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop30px">
+                        return (<div className="col-12 marginTop30px">
                             <label >Or Register with </label>
                             <span>
+                                {this.state.isSignedIn ?(  
+                                 <Redirect to='/home' />
+
+                                ) :(
+                                <StyledFirebaseAuth
+                                    uiConfig={this.uiConfig}
+                                    firebaseAuth={firebase.auth()}
+                                />
+                                )}
                                 <button className="btnLoginOptions facebook"><i className="fab fa-facebook-f"></i></button>
                                 <button className="btnLoginOptions google"><i className="fab fa-google"></i></button>
                                 <button className="btnLoginOptions twitter"><i className="fab fa-twitter"></i></button>
                             </span>
                         </div>
+                        )
                         <div className="col-12 marginTop30px">
                             <span><label> Membership type</label></span>
                             <div className="divMembershipType">
