@@ -92,3 +92,12 @@ export const FontSizeButton = styled(Button)`
   border-radius: 2px;
   padding: 0.5rem;
 `;
+export const ExitFullScreenButton = styled(Button)`
+  position: absolute;
+  bottom: 1.5rem;
+  right: 22rem;
+  z-index: 10;
+  background: #eee;
+  border-radius: 2px;
+  padding: 0.5rem;
+`;

@@ -2,22 +2,14 @@ import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import { createGlobalStyle } from "styled-components";
 import { ReactReader } from "./modules";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Row from "react-bootstrap/ButtonGroup";
 import { NavLink } from "react-router-dom";
-import "./ArticleReader.scss";
-//import "/Users/Tshenolo Matome/Documents/My Web Sites/Articles";
-
+import "./ArticleButtons.scss";
 import {
   Container,
   ReaderContainer,
-  Bar,
-  Logo,
-  CloseButton,
-  CloseIcon,
-  FontSizeButton
+  FontSizeButton,
+  ExitFullScreenButton
 } from "./Components";
-import Button from "react-bootstrap/Button";
 
 const storage = global.localStorage || null;
 
@@ -108,20 +100,6 @@ class Article extends Component {
     rendition.themes.fontSize(largeText ? "140%" : "100%");
   };
 
-  // componentDidMount() {
-  //   fetch("/Users/Tshenolo Matome/Documents/My Web Sites/Articles/alice.epub")
-  //     .then(response => response.json())
-  //     .then(parsedJSON => {
-  //       this.setState({
-  //         isLoaded: true,
-  //         article: parsedJSON
-  //       });
-  //     });
-
-  //   // }console.log(parsedJSON.results))
-  //   // .catch(error => console.log("Parsing failed", error));
-  // }
-
   render() {
     var navBarTitle = "Name of The Book";
     var navbarItems = [true, true, true, true];
@@ -132,7 +110,6 @@ class Article extends Component {
       <Container>
         <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
         <GlobalStyle />
-        <Bar />
         <ReaderContainer fullscreen={fullscreen}>
           <ReactReader
             url={
@@ -146,8 +123,16 @@ class Article extends Component {
           <FontSizeButton onClick={this.onToggleFontSize}>
             Toggle font-size
           </FontSizeButton>
+
+          {this.state.fullscreen ? (
+            <ExitFullScreenButton onClick={this.toggleFullscreen}>
+              Exit FullScreen
+            </ExitFullScreenButton>
+          ) : (
+            <div />
+          )}
         </ReaderContainer>
-        <div className="Btn">
+        <div className="reader-buttons">
           <a className="circle-btn--gray" onClick={this.toggleFullscreen}>
             FullScreen{" "}
           </a>
