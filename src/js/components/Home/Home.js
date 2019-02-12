@@ -31,8 +31,8 @@ class Home extends Component {
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         {this.state.isSignedIn?(  
           <span>    
-			      <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-            <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+		<button onClick={() => firebase.auth().signOut()}>Sign out!</button>
+            	<h1>Welcome {firebase.auth().currentUser.displayName}</h1>
           </span>          
         ) :(
           <div/>               
