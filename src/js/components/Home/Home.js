@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import "./Home.scss";
 import  Navbuttons  from "../Fragments/Navbuttons";
 import firebase from "firebase";
-
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 class Home extends Component {
 
@@ -35,9 +35,9 @@ class Home extends Component {
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         {this.state.isSignedIn?(  
           <span>    
-			      <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-            <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-          </span>
+		<button onClick={() => firebase.auth().signOut()}>Sign out!</button>
+            	<h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+          </span>          
         ) :(
           <div/>               
         )}
