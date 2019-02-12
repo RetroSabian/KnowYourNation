@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import { NavLink } from "react-router-dom";
 import "./SignUp.scss";
-import { Redirect } from 'react-router-dom'
-import firebase from "firebase"
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import { Redirect } from 'react-router-dom';
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 firebase.initializeApp({
 
