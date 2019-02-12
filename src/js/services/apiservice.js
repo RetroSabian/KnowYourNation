@@ -21,9 +21,11 @@ export const RegisterUser = (username, surname, passsword, email, phoneNumber, m
         return content;
     })();
 }
+/*
+// TODO: This is just to remind me that this code is returned as a json object and how to make the raw function call
 
 export const LoginUser = (username, pass)=>{
-              /*      This is just to remind me that this code is returned as a json object and how to make the raw function call
+
 
         (async () => {
             const rawResponse = await fetch('http://ereader.retrotest.co.za/api/Users/login', {
@@ -39,6 +41,7 @@ export const LoginUser = (username, pass)=>{
             });
         // const content = await rawResponse.json();
         // alert(JSON.stringify(content) );
-      })();*/
+      })();
 
 }
+*/
