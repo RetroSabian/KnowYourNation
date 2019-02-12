@@ -14,7 +14,7 @@ class Navbar extends Component {
         {this.props.navbarItems[0] === true ? (
           <NavLink to="/">
             <div className="fas">
-              <i className="fas fa-chevron-circle-left" />
+              <i class="fas fa-chevron-circle-left" />
             </div>
           </NavLink>
         ) : null}
@@ -40,7 +40,7 @@ class Navbar extends Component {
             </li>
           ) : null}
           {this.props.navbarItems[3] === false ? (
-            <i class="fas fa-times" />
+            <i className="fas fa-times" />
           ) : null}
         </ul>
       </nav>
