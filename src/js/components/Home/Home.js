@@ -29,18 +29,18 @@ class Home extends Component {
     return (
       <div className="home">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
-        {this.state.isSignedIn?(  
+        {this.state.isSignedIn ? (
           <span>    
 		<button onClick={() => firebase.auth().signOut()}>Sign out!</button>
             	<h1>Welcome {firebase.auth().currentUser.displayName}</h1>
           </span>          
         ) :(
-          <div/>               
+          null
         )}
         <NavLink to="/Books">
           <button className="btn btn-success"> Books </button>
         </NavLink>
-        <Mapbuttons />
+        <Mapbuttons/>
         <Navbuttons/>
       </div>
     );

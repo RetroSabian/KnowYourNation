@@ -1,6 +1,6 @@
 $primary-color: #fff;
 
-.SignUp{
+.signup{
   background-color: #bbb;
   min-height: 100vh;
   color: $primary-color;
@@ -22,7 +22,7 @@ label {
 input {
   width: 100%
 }
-.formInput{
+.form-input{
   background-color: transparent;
   border: 1px solid $primary-color;
   font-size: 15px;
@@ -31,22 +31,18 @@ input {
   color: $primary-color;
 }
 
-.marginTop20px{
+.margin-top-20{
   margin-top: 20px;
 }
-.marginLeft20px{
+.margin-left-20{
   margin-left: 20px;
 }
 
-.marginTop40px{
-  margin-top: 40px;
-}
-
-.marginTop30px{
+.margin-top-30{
   margin-top: 30px;
 }
 
-.btnLoginOptions{
+.btn-login-options{
   border-radius: 100%;
   border: 1px solid grey;
   margin-right: 8px;
@@ -63,14 +59,14 @@ input {
   }
 }
 
-.divMembershipType{
+.div-membershiptype{
   border: 1px solid $primary-color;
   min-height: 100px;
   margin-bottom: 10px;
   padding-top: 10px;
 }
 
-.noBackground{
+.no-background{
   background-color: transparent !important; // Had to overwrite bootstrap default
 }
 

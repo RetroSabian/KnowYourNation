@@ -84,43 +84,43 @@ class SignUp extends Component {
        // RegisterUser("username", "surname", "passsword", "email", "phoneNumber", "membershipType");
 
         return (
-            <div className="SignUp">
+            <div className="signup">
                 <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
                 <div className="container ">
-                    <div className="row marginTop20px ">
-                            <h3 className="marginLeft20px">Register</h3>
+                    <div className="row margin-top-20 ">
+                            <h3 className="margin-left-20">Register</h3>
                     </div>
                     <div className="row ">
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Name</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateNameValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateNameValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Surname</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateSurnameValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateSurnameValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >E-mail</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateEmailValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateEmailValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Phone no</label>
-                            <span><input className="formInput" type="phone" value={this.state.inputValue} onChange={evt => this.updatePhoneValue(evt)}/></span>
+                            <span><input className="form-input" type="phone" value={this.state.inputValue} onChange={evt => this.updatePhoneValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Password</label>
                             <span>
-                                <input className="formInput" type="password" value={this.state.inputValue} onChange={evt => this.updatePasswordValue(evt)}/>
+                                <input className="form-input" type="password" value={this.state.inputValue} onChange={evt => this.updatePasswordValue(evt)}/>
                             </span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Organisation</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateOrganisationValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateOrganisationValue(evt)}/></span>
                         </div>
-                        return (<div className="col-12 marginTop30px">
+                        <div className="col-12 margin-top-30">
                             <label >Or Register with </label>
                             <span>
-                                {this.state.isSignedIn ?(  
+                                {this.state.isSignedIn ?(
                                  <Redirect to='/home' />
 
                                 ) :(
@@ -129,18 +129,18 @@ class SignUp extends Component {
                                     firebaseAuth={firebase.auth()}
                                 />
                                 )}
-                                <button className="btnLoginOptions facebook"><i className="fab fa-facebook-f"></i></button>
-                                <button className="btnLoginOptions google"><i className="fab fa-google"></i></button>
-                                <button className="btnLoginOptions twitter"><i className="fab fa-twitter"></i></button>
+                                <button className="btn-login-options facebook"><i className="fab fa-facebook-f"></i></button>
+                                <button className="btn-login-options google"><i className="fab fa-google"></i></button>
+                                <button className="btn-login-options twitter"><i className="fab fa-twitter"></i></button>
                             </span>
                         </div>
                         )
-                        <div className="col-12 marginTop30px">
+                        <div className="col-12 margin-top-30">
                             <span><label> Membership type</label></span>
-                            <div className="divMembershipType">
+                            <div className="div-membershiptype">
                                 <ul className="nav nav-tabs">
                                     <li className="nav-item  ">
-                                        <a className="noBackground nav-link active border-0 " data-toggle="tab" href="#home"><b>Free</b><br/> 0/month</a>
+                                        <a className="no-background nav-link active border-0 " data-toggle="tab" href="#home"><b>Free</b><br/> 0/month</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" data-toggle="tab" href="#menu1"><b>Speedy</b><br/> R20/month</a>
