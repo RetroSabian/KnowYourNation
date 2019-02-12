@@ -35,7 +35,7 @@ class Mapbuttons extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container-fluid country-div">
                 <div className="row">
                     <div className="col-md-9 col-12">
                         <Map center={this.state.center}/>
