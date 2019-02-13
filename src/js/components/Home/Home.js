@@ -29,7 +29,7 @@ class Home extends Component {
         <Mapbuttons />
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         <CharacterPage1/>
-        <Navbuttons/>
+        {/*<Navbuttons/>*/}
           {/*<Navbuttons/>*/}
       </div>
     );

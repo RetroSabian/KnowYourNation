@@ -1,15 +1,33 @@
 .character{
-  height: 90%;
-  width: 40%;
+  height: 60%;
+  width: 100%;
 }
 .char-window{
   background-color: #ccc;
+  min-height: 100%;
 }
 .character-page{
-background-color: #ccc;
+  display: flex;
+  align-items: center;
+  background-color: #ccc;
+}
+.item-info{
+  display: flex;
+  align-items: center;
 }
 .book{
-  height: 20%;
-  width: 30%;
-  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+}
+.char-info{
+  display: flex;
+  align-items: center;
+  color: #FFF;
+  background-color: #4e555b;
+}
+.space-above{
+  padding-top: 10rem;
+}
+.space-below{
+  padding-bottom: 10rem;
 }
