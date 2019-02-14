@@ -9,12 +9,19 @@ import Share from "./Share";
 
 class VideoPlayer extends Component {
   state = {
-    share: false
+    share: false,
+    bookmarked: false
   };
 
   handleSharing = () => {
     this.setState({
       sharing: true
+    });
+  };
+
+  handleBookmark = () => {
+    this.setState({
+      bookmarked: !this.state.bookmarked
     });
   };
 
@@ -44,7 +51,20 @@ class VideoPlayer extends Component {
         ) : (
           <div>
             <a className="circle-btn--videoplayer">FullScreen </a>
-            <a className="circle-btn--videoplayer">Bkmrk </a>
+
+            {this.state.bookmarked ? (
+              <a className="circle-btn--yellow" onClick={this.handleBookmark}>
+                Bkmrk{" "}
+              </a>
+            ) : (
+              <a
+                className="circle-btn--videoplayer"
+                onClick={this.handleBookmark}
+              >
+                Bkmrk{" "}
+              </a>
+            )}
+
             <a className="circle-btn--videoplayer" onClick={this.handleSharing}>
               {" "}
               Share{" "}

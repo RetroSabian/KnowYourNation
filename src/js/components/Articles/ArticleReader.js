@@ -4,6 +4,7 @@ import { createGlobalStyle } from "styled-components";
 import { ReactReader } from "./modules";
 import { NavLink } from "react-router-dom";
 import "./ArticleButtons.scss";
+import "./GlobalStyle.scss";
 import Share from "./Share";
 import "../Fragments/Navbuttons.scss";
 
@@ -15,33 +16,6 @@ import {
 } from "./Components";
 
 const storage = global.localStorage || null;
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    margin: 0;
-    padding: 0;
-    color: inherit;
-    font-size: inherit;
-    font-weight: 300;
-    line-height: 1.4;
-    word-break: break-word;
-  }
-  html {
-    font-size: 62.5%;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-size: 1.8rem;
-    background: #333;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    color: #fff;
-  }
-`;
 
 class Article extends Component {
   constructor(props) {
@@ -126,9 +100,9 @@ class Article extends Component {
     const { isLoaded, article } = this.state;
 
     return (
-      <Container>
+      <Container className="createGlobalStyle">
         <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
-        <GlobalStyle />
+
         <ReaderContainer fullscreen={fullscreen}>
           <ReactReader
             url={this.state.url}
