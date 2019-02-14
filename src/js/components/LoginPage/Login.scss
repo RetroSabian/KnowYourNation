@@ -51,15 +51,7 @@ input {
   margin-right: 8px;
   width: 30px;
   height: 30px;
-  &.facebook{
-    background-color: $primary-color;
-  }
-  &.google{
-    background-color: $primary-color;
-  }
-  &.twitter{
-    background-color: $primary-color;
-  }
+  background-color: $primary-color;
 }
 
 .div-membershiptype{

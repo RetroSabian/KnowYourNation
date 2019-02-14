@@ -72,6 +72,7 @@ class SignUp extends Component {
        let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
        console.log(result);
     }
+
     render()
     {
 
