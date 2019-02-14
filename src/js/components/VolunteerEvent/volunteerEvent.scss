@@ -1,0 +1,56 @@
+$primary-color: #fff;
+
+.volunteerEvent{
+    
+        background: grey;
+        min-height: 100vh;
+}
+
+.btn-volunteerEvent-title{
+    border-radius: 100px !important;
+    margin-bottom: 15px;
+}
+
+
+label {
+  float: left
+}
+
+.amd-label{
+ display: block;
+ width: 100%;
+}
+
+
+
+.marginTop20px{
+  margin-top: 20px;
+}
+.marginLeft20px{
+  margin-left: 20px;
+}
+
+.marginTop40px{
+  margin-top: 40px;
+}
+
+.marginTop30px{
+  margin-top: 30px;
+}
+
+.btnLoginOptions{
+  border-radius: 100%;
+  border: 1px solid grey;
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  &.facebook{
+    background-color: $primary-color;
+  }
+  &.google{
+    background-color: $primary-color;
+  }
+  &.twitter{
+    background-color: $primary-color;
+  }
+}

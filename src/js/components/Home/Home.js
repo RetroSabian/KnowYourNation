@@ -1,23 +1,27 @@
-import React, { Component } from 'react';
-import ArticleApp from "../App";
-// import worker from "../../other/workerz";
-import MyWorker from '../../other/workerz';
+import React, { Component } from "react";
+import Mapbuttons from "./Countries";
+import Navbar from "../Navbar/Navbar";
+import { NavLink } from "react-router-dom";
+import "./Home.scss";
 
 class Home extends Component {
-  
-  render() {
 
-    var myWorker = new Worker(MyWorker);
-    
-    myWorker.onmessage = (m) => {
-        console.log("msg from worker: ", m.data);
-    };
-    myWorker.postMessage('im from main');
+  constructor() {
+    super();
+    this.state = { center: [0, 0] };
+  }
+
+  render() {
+    var loc_navBarTitle = "KnowYourNation";
+    var loc_navbarItems = [false, true, true, false];
 
     return (
-      <div className="Home">
-      <h4> Home Component </h4>
-      <ArticleApp/>
+      <div className="home">
+        <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
+        <NavLink to="/Books">
+          <button className="btn btn-success"> Books </button>
+        </NavLink>
+        <Mapbuttons />
       </div>
     );
   }
