@@ -148,8 +148,8 @@ class SignUp extends Component {
                                 <div className="tab-content">
                                     <div className="tab-pane container active" id="home"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
                                     <div className="tab-pane container" id="menu1"><p>Thought I found a way , Isn't it lovely say interesting I mean really interesting</p></div>
-                                    <div className="tab-pane container" id="menu2"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
-                                    <div className="tab-pane container" id="menu3"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu2"><p>I really enjoy read</p></div>
+                                    <div className="tab-pane container" id="menu3"><p>This text is a text for the know your nation memebership or speedy information</p></div>
                                 </div>
                             </div>
                         </div>
