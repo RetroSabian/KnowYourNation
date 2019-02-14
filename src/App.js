@@ -8,6 +8,7 @@ import Books from "./js/components/Books/Books";
 import Login from "./js/components/LoginPage/Login";
 import SignUp from "./js/components/RegisterPage/SignUp";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
+import AdminMembershipDisplay from "./js/components/AdminMembershipPage/AdminMembershipDisplay";
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
               <Route path="/resetpassword" component={ForgotSignIn} />
               <Route path="/Books" component={Books} />
               <Route path="/AdminMembership" component={AdminMembership}/>
+              <Route path="/AdminMembershipDisplay" component={AdminMembershipDisplay}/>
               <Route component={Home} />
             </Switch>
           </div>

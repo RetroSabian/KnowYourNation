@@ -1,62 +1,84 @@
 import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./AdminMembership.scss";
-import {CreateEditMembership} from "../../services/apiservice.js";
+import {CreateMembership} from "../../services/apiservice.js";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 class AdminMembership extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            membershipType: '',
-            membershipDuration: '',
-            membershipPrice: '',
+            id: '',
+            type: '',
+            duration: 0,
+            price: 0,
             description: '',
-            allowArticles: '',
-            allowAnimations: '',
-            allowBooks: '',
-            allowComics: ''
+            allowArticle: false,
+            allowAnimation: false,
+            allowBook: false,
+            allowComic: false
         };
     }
 
         updateTypeValue(evt) {
-            this.setState({membershipType: evt.target.value});
+            this.setState({type: evt.target.value});
         }
     
         updateDurationValue(evt) {
-            this.setState({membershipDuration: evt.target.value});
+            this.setState({duration: parseInt(evt.target.value)});
         }
     
         updatePriceValue(evt) {
-            this.setState({membershipPrice: evt.target.value});
+            this.setState({price: parseInt(evt.target.value)});
         }
 
         updateAllowAnimationsValue(evt) {
-            this.setState({allowAnimations: evt.target.value});
+            if(this.state.allowAnimation === false){
+                this.setState({allowAnimation: true});
+            }
+            else{
+                this.setState({allowAnimation: false});
+            }
         }
 
         updateAllowArticlesValue(evt) {
-            this.setState({allowArticles: evt.target.value});
+            if(this.state.allowArticle === false){
+                this.setState({allowArticle: true});
+            }
+            else{
+                this.setState({allowArticle: false});
+            }
         }
 
         updateAllowBooksValue(evt) {
-            this.setState({allowBooks: evt.target.value});
+            if(this.state.allowBook === false){
+                this.setState({allowBook: true});
+            }
+            else{
+                this.setState({allowBook: false});
+            }
         }
 
         updateAllowComicsValue(evt) {
-            this.setState({allowComics: evt.target.value});
+            if(this.state.allowComic === false){
+                this.setState({allowComic: true});
+            }
+            else{
+                this.setState({allowComic: false});
+            }
         }
 
         updateOnceOffValue(evt){
-            this.setState({membershipDuration: "Once-Off"});
+            this.setState({membershipDuration: 100000000});
         }
 
         updateMonthlyValue(evt){
-            this.setState({membershipDuration: "Monthly"});
+            this.setState({membershipDuration: 30});
         }
 
         updateYearlyValue(evt){
-            this.setState({membershipDuration: "Yearly"});
+            this.setState({membershipDuration: 365});
         }
 
         updateDescriptionValue(evt){
@@ -64,12 +86,12 @@ class AdminMembership extends Component {
         }
 
         handleClick() {
-           CreateEditMembership(this.state.membershipType, this.state.membershipDuration, this.state.membershipPrice, this.state.description, this.state.allowAnimations, this.state.allowArticles, this.state.allowBooks, this.state.allowComics)
+           CreateMembership(this.state.type, this.state.duration, this.state.price, this.state.description, this.state.allowAnimation, this.state.allowArticle, this.state.allowBook, this.state.allowComic)
         }
 
     render()
     {
-        let loc_navBarTitle = "BACK";
+        let loc_navBarTitle = "EDIT MEMEMBERSHIP";
         let loc_navbarItems = [true, true, true, true];
 
         return (
@@ -81,11 +103,11 @@ class AdminMembership extends Component {
                     </div>
                     <div className="col-12 marginTop20px">
                         <label >Name:</label>
-                        <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateTypeValue(evt)}/></span>
+                        <span><input className="formInput" id="NameInput" type="text" value={this.state.inputValue} onChange={evt => this.updateTypeValue(evt)}/></span>
                     </div>
                     <div className="col-12 marginTop20px">
                         <label >Price: R</label>
-                        <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
+                        <span><input className="formInput" type="text" pattern="[0-9]*" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
                     </div>
                     <div className="row marginTop10px ">
                         <h5 className="marginLeft20px">Description</h5>
@@ -98,19 +120,19 @@ class AdminMembership extends Component {
                         <h5 className="marginLeft20px">Payment Option</h5>
                     </div>  
                     <div className="col-12 marginTop10px">
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Payradio" value={this.state.inputValue} onChange={evt => this.updateOnceOffValue(evt)}/>Once-Off
+                        <div className="form-check-inline">
+                            <label className="form-check-label">
+                                <input type="radio" className="form-check-input" name="Payradio" value={this.state.inputValue} onChange={evt => this.updateOnceOffValue(evt)}/>Once-Off
                             </label>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Payradio" value={this.state.inputValue} onChange={evt => this.updateMonthlyValue(evt)}/>Monthly
+                        <div className="form-check-inline">
+                            <label className="form-check-label">
+                                <input type="radio" className="form-check-input" name="Payradio" value={this.state.inputValue} onChange={evt => this.updateMonthlyValue(evt)}/>Monthly
                             </label>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Payradio" value={this.state.inputValue} onChange={evt => this.updateYearlyValue(evt)}/>Yearly
+                        <div className="form-check-inline">
+                            <label className="form-check-label">
+                                <input type="radio" className="form-check-input" name="Payradio" value={this.state.inputValue} onChange={evt => this.updateYearlyValue(evt)}/>Yearly
                             </label>
                         </div>
                     </div>
@@ -118,29 +140,29 @@ class AdminMembership extends Component {
                         <h5 className="marginLeft20px">Access To</h5>
                     </div>  
                     <div className="col-12 marginTop10px">
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowComicsValue(evt)}/>Comics
+                        <div className="form-check-inline">
+                            <label className="form-check-label">
+                                <input type="checkbox" className="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowComicsValue(evt)}/>Comics
                             </label>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowAnimationsValue(evt)}/>Animations
+                        <div className="form-check-inline">
+                            <label className="form-check-label">
+                                <input type="checkbox" className="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowAnimationsValue(evt)}/>Animations
                             </label>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowBooksValue(evt)}/>Books
+                        <div className="form-check-inline">
+                            <label className="form-check-label">
+                                <input type="checkbox" className="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowBooksValue(evt)}/>Books
                             </label>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowArticlesValue(evt)}/>Articles
+                        <div className="form-check-inline">
+                            <label className="form-check-label">
+                                <input type="checkbox" className="form-check-input" name="Accessradio" value={this.state.inputValue} onChange={evt => this.updateAllowArticlesValue(evt)}/>Articles
                             </label>
                         </div>            
                     </div>
                     <div className="col-12 marginTop20px">
-                    <button className="reg-circle" onClick={this.handleClick.bind(this)}> Save</button>
+                        <NavLink to= "/AdminMembershipDisplay"><button className="reg-circle" onClick={this.handleClick.bind(this)}> Save</button></NavLink>
                     </div>
                 </div>
             </div>
