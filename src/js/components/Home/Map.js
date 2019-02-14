@@ -11,7 +11,7 @@ import "./Home.scss";
 
 const mapStyles = {
     width: "100%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
-    height: "100%",
+    // height: "100%",
     outline: "#888888"
 };
 
