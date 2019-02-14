@@ -4,6 +4,11 @@ import { createGlobalStyle } from "styled-components";
 import { ReactReader } from "./modules";
 import { NavLink } from "react-router-dom";
 import "./ArticleButtons.scss";
+import Share from "./Share";
+import "../Fragments/Navbuttons.scss";
+import Bookmark from "react-bookmark";
+//import Bookmark from "./Bookmarks";
+
 import {
   Container,
   ReaderContainer,
@@ -46,7 +51,11 @@ class Article extends Component {
     this.state = {
       isLoaded: false,
       article: [],
+      sharing: false,
+      bookmarked: false,
       fullscreen: false,
+      url: "https://gerhardsletten.github.io/react-reader/files/alice.epub",
+      title: "Alice in wonderland",
       location:
         storage && storage.getItem("epub-location")
           ? storage.getItem("epub-location")
@@ -100,6 +109,18 @@ class Article extends Component {
     rendition.themes.fontSize(largeText ? "140%" : "100%");
   };
 
+  handleSharing = () => {
+    this.setState({
+      sharing: !this.state.sharing
+    });
+  };
+
+  handleBookmark = () => {
+    this.setState({
+      bookmarked: !this.state.bookmarked
+    });
+  };
+
   render() {
     var navBarTitle = "Name of The Book";
     var navbarItems = [true, true, true, true];
@@ -112,11 +133,9 @@ class Article extends Component {
         <GlobalStyle />
         <ReaderContainer fullscreen={fullscreen}>
           <ReactReader
-            url={
-              "https://gerhardsletten.github.io/react-reader/files/alice.epub"
-            }
+            url={this.state.url}
             locationChanged={this.onLocationChanged}
-            title={"Alice in wonderland"}
+            title={this.state.title}
             location={location}
             getRendition={this.getRendition}
           />
@@ -132,17 +151,41 @@ class Article extends Component {
             <div />
           )}
         </ReaderContainer>
-        <div className="reader-buttons">
-          <a className="circle-btn--gray" onClick={this.toggleFullscreen}>
-            FullScreen{" "}
-          </a>
-          <a className="circle-btn--gray">Bkmrk </a>
+        {this.state.sharing ? (
+          <div className="reader-buttons">
+            {" "}
+            <button className="btn-nav-button center-nav-button">
+              <i className="fas fa-angle-down" />
+            </button>{" "}
+            <div>
+              {" "}
+              <Share />{" "}
+            </div>
+          </div>
+        ) : (
+          <div className="reader-buttons">
+            <a className="circle-btn--gray" onClick={this.toggleFullscreen}>
+              FullScreen{" "}
+            </a>
 
-          <a className="circle-btn--gray">Share </a>
-          <NavLink to="/videoplayer">
-            <a className="circle-btn--video">Watch Video </a>
-          </NavLink>
-        </div>
+            {this.state.bookmarked ? (
+              <a className="circle-btn--yellow" onClick={this.handleBookmark}>
+                Bkmrk{" "}
+              </a>
+            ) : (
+              <a className="circle-btn--gray" onClick={this.handleBookmark}>
+                Bkmrk{" "}
+              </a>
+            )}
+            <a className="circle-btn--gray" onClick={this.handleSharing}>
+              {" "}
+              Share{" "}
+            </a>
+            <NavLink to="/videoplayer">
+              <a className="circle-btn--video">Watch Video </a>
+            </NavLink>
+          </div>
+        )}
       </Container>
     );
   }
