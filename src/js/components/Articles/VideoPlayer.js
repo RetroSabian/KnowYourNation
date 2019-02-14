@@ -29,11 +29,7 @@ class VideoPlayer extends Component {
           poster="/assets/poster.png"
           src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
         />
-        {/* <div className="groupbutton">
-          <a className="circle-btn--videoplayer"> FullScreen </a>
-          <a className="circle-btn--videoplayer">Bkmrk </a>
-          <a className="circle-btn--videoplayer">Share </a>
-        </div> */}
+
         {this.state.sharing ? (
           <div>
             {" "}

@@ -6,8 +6,6 @@ import { NavLink } from "react-router-dom";
 import "./ArticleButtons.scss";
 import Share from "./Share";
 import "../Fragments/Navbuttons.scss";
-import Bookmark from "react-bookmark";
-//import Bookmark from "./Bookmarks";
 
 import {
   Container,
