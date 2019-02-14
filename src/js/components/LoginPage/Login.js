@@ -88,7 +88,6 @@ class Login extends Component {
                 <button className="btn-login-options twitter"><i className="fab fa-twitter"></i></button>
               </span>
             </div>
-
         </div>
       </div>
     );

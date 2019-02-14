@@ -19,6 +19,7 @@ label {
 input {
   width: 100%
 }
+
 .form-input{
   background-color: transparent;
   border: 1px solid $primary-color;
@@ -30,9 +31,12 @@ input {
 
 .margin-top-10{
   margin-top: 10px;
-}.margin-top-20{
+}
+
+.margin-top-20{
   margin-top: 20px;
 }
+
 .margin-left-20{
   margin-left: 20px;
 }
@@ -113,11 +117,7 @@ input {
 }
 
 .display-flow-root{
-  // Had to use this to override bootstraps row property
+  // Had to use this to override bootstraps 'row' property
   display: flow-root !important;
   margin-left: 20px !important;
-}
-
-.border-danger{
-  //border: 1px solid red;
 }
