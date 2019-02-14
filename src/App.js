@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.scss";
 import {BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.sass";
 import Home from "./js/components/Home/Home";
 import Books from "./js/components/Books/Books";
 import Login from "./js/components/LoginPage/Login";
@@ -12,17 +11,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <BrowserRouter>
-          <div>
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
               <Route path="/resetpassword" component={ForgotSignIn} />
-              <Route path="/Books" component={Books} />
+              <Route path="/books" component={Books} />
               <Route component={Home} />
             </Switch>
-          </div>
         </BrowserRouter>
       </div>
     );

@@ -6,15 +6,19 @@ import {
     Geography
 } from "react-simple-maps";
 import { Motion, spring } from "react-motion";
+import Speedy from "../../../Assests/Images/Speedy_Pose_3.png";
+import "./Home.scss";
 
 const mapStyles = {
-    width: "60%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
-    height: "100%",
-    outline: "#888888"
+    width: "100%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
+    // height: "100%",
+    outline: "#888888",
+    paddingBottom: "80px"
 };
 
 const Map = ({ center }) => (
     <div>
+        <img className="speedy" src={Speedy} alt="Speedy Character"></img>
         <Motion
             defaultStyle={{
                 x: center[0],
@@ -36,9 +40,9 @@ const Map = ({ center }) => (
                             cx={250}
                             cy={250}
                             r={220}
-                            fill="#26BAF2"
+                            fill="#26BAF2" //ocean colour fill
                             stroke = "#000"
-                            strokeWidth = "6"//ocean colour fill
+                            strokeWidth = "6"
                         />
                         <Geographies
                             disableOptimization

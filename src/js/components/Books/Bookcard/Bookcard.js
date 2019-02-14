@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import './Bookcard.sass';
+import './Bookcard.scss';
 
 class  Bookcard extends Component {
   render() {
     return (
     <div className="Bookcard ">
-        <div className="bookcardImage borderYellow">
+        <div className="bookcard-image borderYellow">
             Book Name
         </div>
         <div className="container-fluid bookcardAccessory borderYellow ">
