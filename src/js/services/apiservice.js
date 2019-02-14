@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 export const RegisterUser = (username, surname, passsword, email, phoneNumber, membershipType, userOrganisation)=>{
 
@@ -65,32 +66,14 @@ export const CreateMembership = (type, duration, price, description, allowAnimat
     .then(res => {
         console.log(res.status);
       })
-    // (async () => {
-    //     const rawResponse = await fetch('https://api.ereader.retrotest.co.za/api/Memberships/CreateMembership', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             "type": type,
-    //             "duration": duration,
-    //             "price": price,
-    //             "description": description,
-    //             "allowAnimation": allowAnimation,
-    //             "allowArticle": allowArticle,
-    //             "allowBook": allowBook,
-    //             "allowComic": allowComic
-    //         })
-    //     });
-        
-    //     const content = await rawResponse.json();
-    //     return content;
-    // })();
 }
+/*
+// TODO: This is just to remind me that this code is returned as a json object and how to make the raw function call
 
 export const LoginUser = (username, pass)=>{
+
               /*      This is just to remind me that this code is returned as a json object and how to make the raw function call
+
 
         (async () => {
             const rawResponse = await fetch('http://ereader.retrotest.co.za/api/Users/login', {
@@ -106,6 +89,8 @@ export const LoginUser = (username, pass)=>{
             });
         // const content = await rawResponse.json();
         // alert(JSON.stringify(content) );
-      })();*/
+
+      })();
 
 }
+*/

@@ -1,4 +1,4 @@
-.Navbuttons{
+.nav-buttons{
     position: absolute;
     bottom: 20px;
     width: 100%;
@@ -8,27 +8,27 @@
     text-align:center;
 }
 
-.btnNavButton{
+.btn-nav-button{
     background-color: #333;
     color: white;
     height: 60px;
 }
 
-.leftNavButton{
+.left-nav-button{
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
     float: left;
     width: 30%;
 }
 
-.rightNavButton{
+.right-nav-button{
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
     float: right;
     width: 30%;
 }
 
-.centerNavButton{
+.center-nav-button{
     display: inline-block;
     border-radius: 100%;
     width: 60px;
