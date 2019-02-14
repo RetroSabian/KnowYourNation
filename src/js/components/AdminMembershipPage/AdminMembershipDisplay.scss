@@ -1,0 +1,66 @@
+$primary-color: #fff;
+
+.AdminMembershipDisplay{
+  background-color: #bbb;
+  min-height: 100vh;
+  color: $primary-color;
+  & span {
+    display: block;
+    overflow: hidden;
+    padding: 0 4px 0 6px
+  }
+}
+
+label {
+  float: left
+}
+
+.amd-label{
+ display: block;
+ width: 100%;
+}
+
+input {
+  width: 100%
+}
+.formInput{
+  background-color: transparent;
+  border: 1px solid $primary-color;
+  font-size: 15px;
+  height: 35px;
+  padding-left: 10px;
+  color: $primary-color;
+}
+
+.marginTop20px{
+  margin-top: 20px;
+}
+.marginLeft20px{
+  margin-left: 20px;
+}
+
+.marginTop40px{
+  margin-top: 40px;
+}
+
+.marginTop30px{
+  margin-top: 30px;
+}
+
+.btnLoginOptions{
+  border-radius: 100%;
+  border: 1px solid grey;
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  &.facebook{
+    background-color: $primary-color;
+  }
+  &.google{
+    background-color: $primary-color;
+  }
+  &.twitter{
+    background-color: $primary-color;
+  }
+}
+

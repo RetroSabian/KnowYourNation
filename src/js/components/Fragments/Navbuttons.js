@@ -9,14 +9,14 @@ import "./Navbuttons.scss";
 class Navbuttons extends Component {
   render() {
     return (
-        <div className="Navbuttons">
-          <button className="btnNavButton leftNavButton">
+        <div className="nav-buttons">
+          <button className="btn-nav-button left-nav-button">
             Volunteer
           </button>
-          <button className="btnNavButton centerNavButton">
+          <button className="btn-nav-button center-nav-button">
             <i className="fas fa-angle-down"></i>
           </button>
-          <button className="btnNavButton rightNavButton">
+          <button className="btn-nav-button right-nav-button">
             Donate
           </button>
         </div>
