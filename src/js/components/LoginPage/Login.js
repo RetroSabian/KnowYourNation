@@ -7,7 +7,6 @@ import StyledFirebaseAuth from "../RegisterPage/SignUp";
 import {RegisterUser} from "../../services/apiservice";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -17,11 +16,8 @@ class Login extends Component {
       email: '',
       phone: '',
       password: '',
-      organisation: '',
-
+      organisation: ''
     };
-
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   updateNameValue(evt) {
@@ -43,14 +39,13 @@ class Login extends Component {
   updatePasswordValue(evt) {
     this.setState({password: evt.target.value});
   }
+
   updateOrganisationValue(evt) {
     this.setState({organisation: evt.target.value});
   }
 
   handleClick() {
-    // console.log(this.state.name);
     let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
-    console.log(result);
   }
 
   render() {
