@@ -30,7 +30,7 @@ class Home extends Component {
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         <CharacterPage1/>
         <Navbuttons/>
-          viewBox      </div>
+      </div>
     );
   }
 }
