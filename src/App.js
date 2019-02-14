@@ -21,9 +21,10 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
               <Route path="/resetpassword" component={ForgotSignIn} />
-              <Route path="/books" component={Books} />
+              <Route path="/Books" component={Books} />
               <Route path="/AdminMembership" component={AdminMembership}/>
               <Route path="/AdminMembershipDisplay" component={AdminMembershipDisplay}/>
+              <Route path="/AdminMembership:id" render={(props) => <AdminMembership {...props} />} />
               <Route component={Home} />
             </Switch>
           </div>

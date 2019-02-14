@@ -162,7 +162,7 @@ class AdminMembership extends Component {
                         </div>            
                     </div>
                     <div className="col-12 marginTop20px">
-                        <NavLink to= "/AdminMembershipDisplay"><button className="reg-circle" onClick={this.handleClick.bind(this)}> Save</button></NavLink>
+                        <NavLink to= "/AdminMembershipDisplay:"><button className="reg-circle" onClick={this.handleClick.bind(this)}> Save</button></NavLink>
                     </div>
                 </div>
             </div>

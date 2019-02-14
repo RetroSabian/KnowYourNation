@@ -130,7 +130,6 @@ class AdminMembershipDisplay extends Component {
                         <span><h5 className="marginLeft20px">Payment Option</h5>
                         <label className="label" name = "PayLabel" id = "PayLabel" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
                     </div>  
-                    
                     <div className="row marginTop10px ">
                         <h5 className="marginLeft20px">Access To</h5>
                         <span className="amd-label"><label className="label" name = "AccessLabel" id = "AccessLabel1" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
