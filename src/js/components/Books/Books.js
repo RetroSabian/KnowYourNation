@@ -12,11 +12,11 @@ class  Books extends Component {
           rows.push(<div key={i} className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard /></div> )
       }
     return (
-      <div className="Books">
+      <div className="books">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         <br/>
         <div className="container ">
-                <div className="row noPaddMar">
+                <div className="row no-padding-margin">
                     {rows}         
             </div>
         </div>

@@ -36,16 +36,13 @@ class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            surname: '',
-            email: '',
-            phone: '',
-            password: '',
-            organisation: '',
-
+            name: "",
+            surname: "",
+            email: "",
+            phone: "",
+            password: "",
+            organisation: ""
         };
-
-       // this.handleClick = this.handleClick.bind(this);
     }
 
     updateNameValue(evt) {
@@ -72,74 +69,71 @@ class SignUp extends Component {
     }
 
     handleClick() {
-        // console.log(this.state.name);
        let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
-       console.log(result);
     }
+
     render()
     {
 
         let loc_navBarTitle = "MEMBER REGISTRATION";
         let loc_navbarItems = [true, true, true, true];
-       // RegisterUser("username", "surname", "passsword", "email", "phoneNumber", "membershipType");
         return (
-            <div className="SignUp">
+            <div className="signup">
                 <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
                 <div className="container ">
-                    <div className="row marginTop20px ">
-                            <h3 className="marginLeft20px">Register</h3>
+                    <div className="row margin-top-20 ">
+                            <h3 className="margin-left-20">Register</h3>
                     </div>
                     <div className="row ">
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Name</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateNameValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateNameValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Surname</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateSurnameValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateSurnameValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >E-mail</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateEmailValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateEmailValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Phone no</label>
-                            <span><input className="formInput" type="phone" value={this.state.inputValue} onChange={evt => this.updatePhoneValue(evt)}/></span>
+                            <span><input className="form-input" type="phone" value={this.state.inputValue} onChange={evt => this.updatePhoneValue(evt)}/></span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Password</label>
                             <span>
-                                <input className="formInput" type="password" value={this.state.inputValue} onChange={evt => this.updatePasswordValue(evt)}/>
+                                <input className="form-input" type="password" value={this.state.inputValue} onChange={evt => this.updatePasswordValue(evt)}/>
                             </span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-20">
                             <label >Organisation</label>
-                            <span><input className="formInput" type="text" value={this.state.inputValue} onChange={evt => this.updateOrganisationValue(evt)}/></span>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateOrganisationValue(evt)}/></span>
                         </div>
-                         <div className="col-12 marginTop20px">
+                        <div className="col-12 margin-top-30">
                             <label >Or Register with </label>
                             <span>
-                                {this.state.isSignedIn ?(  
-                                    RegisterUser(firebase.auth().currentUser.displayName," ",firebase.auth().currentUser.uid,firebase.auth().currentUser.email,firebase.auth().currentUser.phoneNumber," "),                                    
-                                    <Redirect to='/home'/>
-                                    ) :(
+                                {this.state.isSignedIn ?(
+                                 <Redirect to='/home' />
+
+                                ) :(
                                 <StyledFirebaseAuth
                                     uiConfig={this.uiConfig}
                                     firebaseAuth={firebase.auth()}
                                 />
                                 )}
-                                <button className="btnLoginOptions facebook"><i className="fab fa-facebook-f"></i></button>
-                                <button className="btnLoginOptions google"><i className="fab fa-google"></i></button>
-                                <button className="btnLoginOptions twitter"><i className="fab fa-twitter"></i></button>
+                                <button className="btn-login-options facebook"><i className="fab fa-facebook-f"></i></button>
+                                <button className="btn-login-options google"><i className="fab fa-google"></i></button>
+                                <button className="btn-login-options twitter"><i className="fab fa-twitter"></i></button>
                             </span>
                         </div>
-                        
-                        <div className="col-12 marginTop30px">
+                        <div className="col-12 margin-top-30">
                             <span><label> Membership type</label></span>
-                            <div className="divMembershipType">
+                            <div className="div-membershiptype">
                                 <ul className="nav nav-tabs">
                                     <li className="nav-item  ">
-                                        <a className="noBackground nav-link active border-0 " data-toggle="tab" href="#home"><b>Free</b><br/> 0/month</a>
+                                        <a className="no-background nav-link active border-0 " data-toggle="tab" href="#home"><b>Free</b><br/> 0/month</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" data-toggle="tab" href="#menu1"><b>Speedy</b><br/> R20/month</a>
@@ -151,12 +145,11 @@ class SignUp extends Component {
                                         <a className="nav-link" data-toggle="tab" href="#menu3"><b>Premium</b><br/> R100/month</a>
                                     </li>
                                 </ul>
-
                                 <div className="tab-content">
-                                    <div className="tab-pane container active" id="home">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu1">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu2">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu3">Some interesting information, when I say interesting I mean really interesting</div>
+                                    <div className="tab-pane container active" id="home"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu1"><p>Thought I found a way , Isn't it lovely say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu2"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu3"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
                                 </div>
                             </div>
                         </div>
