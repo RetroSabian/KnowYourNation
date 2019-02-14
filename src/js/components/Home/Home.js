@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Mapbuttons from "./Countries";
-import CharacterPage1 from "./ComicAreas/ComicBook.js"
+import CharacterPage1 from "./SpeedyScreens/Book.js"
 import Navbar from "../Navbar/Navbar";
 import Navbuttons from "../Fragments/Navbuttons";
 import { NavLink } from "react-router-dom";

@@ -6,6 +6,8 @@ import {
     Geography
 } from "react-simple-maps";
 import { Motion, spring } from "react-motion";
+import Speedy from "../../../Assests/Images/Speedy_Pose_3.png";
+import "./Home.scss";
 
 const mapStyles = {
     width: "100%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
@@ -15,6 +17,7 @@ const mapStyles = {
 
 const Map = ({ center }) => (
     <div>
+        <img className="speedy" src={Speedy} alt="Speedy Character"></img>
         <Motion
             defaultStyle={{
                 x: center[0],

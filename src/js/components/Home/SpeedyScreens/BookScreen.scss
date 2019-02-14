@@ -1,6 +1,8 @@
 .character{
-  height: 60%;
+  height: 100%;
   width: 100%;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 .char-window{
   background-color: #ccc;
@@ -25,9 +27,16 @@
   color: #FFF;
   background-color: #4e555b;
 }
-.space-above{
-  padding-top: 10rem;
+.btn-col{
+  padding-right: 0px;
+  display: flex;
+  align-items: center;
 }
-.space-below{
-  padding-bottom: 10rem;
+.btnCollapse{
+  background-color: #4e555b;
+  border-radius: 100%;
+  padding-right: 10px;
+  padding-left: 1px;
+  border: 4px;
+  //height: 50px;
 }
