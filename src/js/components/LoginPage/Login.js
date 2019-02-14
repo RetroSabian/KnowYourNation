@@ -11,12 +11,12 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      surname: '',
-      email: '',
-      phone: '',
-      password: '',
-      organisation: ''
+      name: "",
+      surname: "",
+      email: "",
+      phone: "",
+      password: "",
+      organisation: ""
     };
   }
 

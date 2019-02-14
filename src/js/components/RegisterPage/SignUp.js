@@ -36,12 +36,12 @@ class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            surname: '',
-            email: '',
-            phone: '',
-            password: '',
-            organisation: ''
+            name: "",
+            surname: "",
+            email: "",
+            phone: "",
+            password: "",
+            organisation: ""
         };
     }
 
@@ -70,7 +70,6 @@ class SignUp extends Component {
 
     handleClick() {
        let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
-       console.log(result);
     }
 
     render()
