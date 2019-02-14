@@ -134,7 +134,7 @@ class SignUp extends Component {
                                 <button className="btn-login-options twitter"><i className="fab fa-twitter"></i></button>
                             </span>
                         </div>
-                        )
+
                         <div className="col-12 margin-top-30">
                             <span><label> Membership type</label></span>
                             <div className="div-membershiptype">
@@ -155,7 +155,7 @@ class SignUp extends Component {
 
                                 <div className="tab-content">
                                     <div className="tab-pane container active" id="home">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu1">Some interesting information, when I say interesting I mean really interesting</div>
+                                    <div className="tab-pane container" id="menu1">Thought I found a way , Isn't it lovely say interesting I mean really interesting</div>
                                     <div className="tab-pane container" id="menu2">Some interesting information, when I say interesting I mean really interesting</div>
                                     <div className="tab-pane container" id="menu3">Some interesting information, when I say interesting I mean really interesting</div>
                                 </div>
