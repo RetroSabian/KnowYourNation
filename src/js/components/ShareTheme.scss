@@ -1,0 +1,22 @@
+body{
+    background-color: #bbb;
+    min-height: 100vh;
+    color: $primary-color;
+    padding-bottom: 30px;
+    & span {
+      display: block;
+      overflow: hidden;
+      padding: 0 4px 0 6px
+    }
+}
+
+
+  button{
+    border-radius: 100%;
+    border: 1px solid grey;
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+    background-color: $primary-color;
+  }
+  

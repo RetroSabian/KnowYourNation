@@ -1,15 +1,19 @@
 
 import React, { Component } from "react";
+import Navbar from "../Navbar/Navbar";
+import "./main.scss";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 class main extends Component {
   
 
   render() {
+        let loc_navBarTitle = "KnowYourNation";
+        let loc_navbarItems = [false, true, true, true];
     return (
         <div>
-            <h1>Menu</h1>
-           <nav className="ew">
+           <nav className="Main">
+           <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
                     <nav horizontal>
                         <navItem>
                                 <NavLink to="/" >Home</NavLink>
