@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
-import { createGlobalStyle } from "styled-components";
 import { ReactReader } from "react-reader";
 import { NavLink } from "react-router-dom";
 import "./ArticleButtons.scss";
 import "./GlobalStyle.scss";
+import "./ArticleReader.scss";
 import Share from "./Share";
 import "../Fragments/Navbuttons.scss";
 
@@ -100,10 +100,13 @@ class Article extends Component {
     const { isLoaded, article } = this.state;
 
     return (
-      <Container className="createGlobalStyle">
+      <Container className="createGlobalStyle reader-containers">
         <Navbar titleFromParent={navBarTitle} navbarItems={navbarItems} />
 
-        <ReaderContainer fullscreen={fullscreen}>
+        <ReaderContainer
+          className="reader-container bar"
+          fullscreen={fullscreen}
+        >
           <ReactReader
             url={this.state.url}
             locationChanged={this.onLocationChanged}
@@ -111,12 +114,18 @@ class Article extends Component {
             location={location}
             getRendition={this.getRendition}
           />
-          <FontSizeButton onClick={this.onToggleFontSize}>
+          <FontSizeButton
+            className="font-size-button"
+            onClick={this.onToggleFontSize}
+          >
             Toggle font-size
           </FontSizeButton>
 
           {this.state.fullscreen ? (
-            <ExitFullScreenButton onClick={this.toggleFullscreen}>
+            <ExitFullScreenButton
+              className="exit-fullscreen-button"
+              onClick={this.toggleFullscreen}
+            >
               Exit FullScreen
             </ExitFullScreenButton>
           ) : (
