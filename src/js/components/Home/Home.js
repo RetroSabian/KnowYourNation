@@ -13,23 +13,15 @@ class Home extends Component {
     super();
     this.state = { center: [0, 0] };
   }
-
   state={isSignedIn:false}
-
   componentDidMount = () =>{
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ isSignedIn: !!user })     
     })
   }
-
-  
-  
-
   render() {
     let loc_navBarTitle = "KnowYourNation";
     let loc_navbarItems = [false, true, true, false];
-
-
     return (
       <div className="home">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
@@ -50,5 +42,4 @@ class Home extends Component {
     );
   }
 }
-
 export default Home;

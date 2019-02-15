@@ -29,23 +29,18 @@ class SignUp extends Component {
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(user => {
           this.setState({ isSignedIn: !!user })
-
-          console.log("user", user)
         })
     }
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            surname: '',
-            email: '',
-            phone: '',
-            password: '',
-            organisation: '',
-
+            name: "",
+            surname: "",
+            email: "",
+            phone: "",
+            password: "",
+            organisation: ""
         };
-
-       // this.handleClick = this.handleClick.bind(this);
     }
 
     updateNameValue(evt) {
@@ -72,13 +67,11 @@ class SignUp extends Component {
     }
 
     handleClick() {
-        // console.log(this.state.name);
        let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
-       console.log(result);
     }
+
     render()
     {
-
         let loc_navBarTitle = "MEMBER REGISTRATION";
         let loc_navbarItems = [true, true, true, true];
         return (
@@ -126,14 +119,10 @@ class SignUp extends Component {
                                     uiConfig={this.uiConfig}
                                     firebaseAuth={firebase.auth()}
                                 />
-                                )}
-                                <button className="btnLoginOptions facebook"><i className="fab fa-facebook-f"></i></button>
-                                <button className="btnLoginOptions google"><i className="fab fa-google"></i></button>
-                                <button className="btnLoginOptions twitter"><i className="fab fa-twitter"></i></button>
+                                )}                               
                             </span>
                         </div>
-                        
-                        <div className="col-12 marginTop30px">
+                        <div className="col-12 margin-top-30">
                             <span><label> Membership type</label></span>
                             <div className="divMembershipType">
                                 <ul className="nav nav-tabs">
@@ -150,12 +139,11 @@ class SignUp extends Component {
                                         <a className="nav-link" data-toggle="tab" href="#menu3"><b>Premium</b><br/> R100/month</a>
                                     </li>
                                 </ul>
-
                                 <div className="tab-content">
-                                    <div className="tab-pane container active" id="home">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu1">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu2">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu3">Some interesting information, when I say interesting I mean really interesting</div>
+                                    <div className="tab-pane container active" id="home"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu1"><p>Thought I found a way , Isn't it lovely say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu2"><p>I really enjoy read</p></div>
+                                    <div className="tab-pane container" id="menu3"><p>This text is a text for the know your nation memebership or speedy information</p></div>
                                 </div>
                             </div>
                         </div>

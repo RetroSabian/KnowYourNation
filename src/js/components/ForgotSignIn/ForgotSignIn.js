@@ -18,7 +18,6 @@ GetEmail(evt) {
 }
 
 handleClick() {
-    // console.log(this.state.name);
    let result = ForgotPassword(this.state.email);
    console.log(result);
 }
