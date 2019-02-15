@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Product.scss";
+import  * as myConstClass from "../../constants/product-constants"
+
 class Product extends Component {
     constructor(props){
         super(props);
@@ -29,9 +31,11 @@ class Product extends Component {
         this.handleChecked=this.handleChecked.bind(this);
         this.Color=this.Color.bind(this)
     }
+
     onChange(e){
         this.setState({[e.target.name]:e.target.value});
     }
+
     onSubmit(e){
         e.preventDefault();
         const post={
@@ -43,7 +47,8 @@ class Product extends Component {
             ColourOption:this.state.ColourOption,
             CoverImageLocation:this.state.FileUpload,
         }
-        fetch('https://localhost:44311/api/Products',{
+
+        fetch(myConstClass.PRODUCT_URL,{
             method:'POST',
             headers:{
                 'Accept': 'application/json',
@@ -53,7 +58,9 @@ class Product extends Component {
         })
         .then(response=>response.json());
     }
-    Color(){
+
+    Color()
+    {
         if(this.state.color==false){
             this.setState({color:true});
             this.setState({ColourOption:1})
@@ -63,7 +70,9 @@ class Product extends Component {
         }
 
     }
-    handleChecked(){
+
+    handleChecked()
+    {
         if(this.state.speedy==false){
             this.setState({speedy:true,kyn:false,Type:"Speedy"});
         }
@@ -71,6 +80,7 @@ class Product extends Component {
             this.setState({speedy:false,kyn:true,Type:"Know your nation"});
         }
     }
+    
     Small()
     {
         if(this.state.small==false)
@@ -82,6 +92,7 @@ class Product extends Component {
             this.setState({small:false}); 
         }
     }
+
     Medium()
     {
         if(this.state.medium==false){
@@ -92,7 +103,9 @@ class Product extends Component {
             this.state.medium=false;
         }
     }
-    Large(){
+
+    Large()
+    {
         if(this.state.large==false){
             this.setState({large:true});
             this.setState({count:3});
@@ -100,7 +113,8 @@ class Product extends Component {
         else{
             this.setState({large:false});
         }
-      } 
+    } 
+    
     render()
     {
         let loc_navBarTitle = "CREATE PRODUCT";
@@ -132,7 +146,7 @@ class Product extends Component {
                             <label >Description</label>
                         </div>
                         <div className="col-12 marginTop10px">
-                            <textarea className ="Textarea"  type="text" name ="Description"  onChange={this.onChange}  value={this.state.Description}/>
+                            <textarea className ="Description"  type="text" name ="Description"  onChange={this.onChange}  value={this.state.Description}/>
                         </div>
                         <div className="col-12 marginTop20px">
                             <label >Type/Category</label>
@@ -157,9 +171,9 @@ class Product extends Component {
                         </div>
                         <div className="col-12 marginTop10px">
                             <div className='checkboxs'>
-                            <input className="Small" onClick={this.Small}  type="checkbox"/>
-                            <input className="Medium" onClick={this.Medium} type="checkbox"/>
-                            <input className="Large" onClick={this.Large} type="checkbox"/>
+                                <input className="Small" onClick={this.Small}  type="checkbox"/>
+                                <input className="Medium" onClick={this.Medium} type="checkbox"/>
+                                <input className="Large" onClick={this.Large} type="checkbox"/>
                             </div>
                         </div>
                         <div className="col-12 marginTop20px">
@@ -175,7 +189,7 @@ class Product extends Component {
                         <div className="col-12 marginTop20px">
                             <span className="createButton" >
                                 <button onClick ={this.onSubmit} type="button" class="btn btn-success">CREATE</button>
-                                
+
                             </span>
                         </div>
                     </div>
