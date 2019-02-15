@@ -22,7 +22,7 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
               <Route path="/forgotpassword" component={ForgotSignIn} />
-			  <Route path="/resetpassword" component={resetPassword} />
+	      <Route path="/resetpassword" component={resetPassword} />
               <Route path="/books" component={Books} />
               <Route path="/AdminMembership" component={AdminMembership}/>
               <Route path="/AdminMembershipDisplay" component={AdminMembershipDisplay}/>
