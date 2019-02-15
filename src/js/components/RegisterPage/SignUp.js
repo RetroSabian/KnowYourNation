@@ -9,8 +9,8 @@ import { Redirect } from 'react-router-dom';
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {RegisterUser} from "../../services/apiservice.js";
+import Navbar from "../Navbar/Navbar";
 firebase.initializeApp({
-
     apiKey: "AIzaSyBB0W3EuMqoeQLVuczRUCQmaWQV0HOHZQQ",
     authDomain: "knowyournation-6daac.firebaseapp.com"
   })
@@ -163,3 +163,5 @@ class SignUp extends Component {
         );
     }
 }
+
+export default SignUp;

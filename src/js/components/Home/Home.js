@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Navbuttons from "../Fragments/Navbuttons";
 import { NavLink } from "react-router-dom";
 import "./Home.scss";
+import firebase from 'firebase';
 
 class Home extends Component {
 

@@ -9,11 +9,11 @@ import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import AdminMembershipDisplay from "./js/components/AdminMembershipPage/AdminMembershipDisplay";
 import main from "./js/components/Main_Menu/Main";
 import collection from "./js/components/CollectionsPage/Collection";
+
 class App extends Component {
   render() {
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [true, true, true, true];
-  render() {
     return (
       <div className="app">
         <BrowserRouter>
