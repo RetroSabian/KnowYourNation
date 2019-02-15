@@ -7,13 +7,11 @@ import { NavLink } from "react-router-dom";
 import "./Home.scss";
 
 class Home extends Component {
-
   constructor() {
     super();
     this.state = { center: [0, 0] };
   }
   state={isSignedIn:false}
-
   componentDidMount = () =>{
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ isSignedIn: !!user })     
@@ -24,8 +22,6 @@ class Home extends Component {
     if (!page) page = 'home';
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [false, true, true, false];
-
-
     return (
       <div className="home">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>

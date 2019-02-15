@@ -1,15 +1,19 @@
 
 import React, { Component } from "react";
+import "./Collection.scss";
+import Navbar from "../Navbar/Navbar";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 class collection extends Component {
   
 
   render() {
+        let loc_navBarTitle = "KnowYourNation";
+        let loc_navbarItems = [true, true, true, true];
     return (
         <div>
-            <h1>Menu</h1>
-           <nav className="Collection">
+           <nav className="collection">
+           <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
                     <nav horizontal>
                         <navItem>
                                 <NavLink to="/Books" >Books</NavLink>
