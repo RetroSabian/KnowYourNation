@@ -76,8 +76,6 @@ export const ForgotPassword = (email)=>{
                 "email": email
                 })
             });
-        // const content = await rawResponse.json();
-        // alert(JSON.stringify(content) );
       })();
 }
 export const resetPassword = (email , password)=>{
