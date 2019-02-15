@@ -11,9 +11,13 @@ import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import ArticleReader from "./js/components/Articles/ArticleReader";
 import VideoPlayer from "./js/components/Articles/VideoPlayer";
 import AdminMembershipDisplay from "./js/components/AdminMembershipPage/AdminMembershipDisplay";
-
+import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
+import main from "./js/components/Main_Menu/Main";
+import collection from "./js/components/CollectionsPage/Collection";
 class App extends Component {
   render() {
+    var loc_navBarTitle = "KnowYourNation";
+    var loc_navbarItems = [true, true, true, true];
     return (
       <div className="App">
         <BrowserRouter>
@@ -22,6 +26,8 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
               <Route path="/resetpassword" component={ForgotSignIn} />
+               <Route path="/collection" component={collection} />
+              <Route path="/main" component={main}/>
               <Route path="/books" component={Books} />
               <Route path="/ereader" component={ArticleReader} />
               <Route path="/videoplayer" component={VideoPlayer} />
