@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import Navbar from "../Navbar/Navbar";
-import { NavLink } from "react-router-dom";
+import FormGroup from "react-bootstrap/FormGroup";
+import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import FormLabel from "react-bootstrap/FormLabel";
 import "./SignUp.scss";
 import { Redirect } from 'react-router-dom';
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {RegisterUser} from "../../services/apiservice.js";
-
 firebase.initializeApp({
 
     apiKey: "AIzaSyBB0W3EuMqoeQLVuczRUCQmaWQV0HOHZQQ",
@@ -20,7 +22,8 @@ class SignUp extends Component {
         signInFlow: "popup",
         signInOptions: [
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.TwitterAuthProvider.PROVIDER_ID
         ],
         callbacks: {
         signInSuccess: () => false
@@ -29,23 +32,18 @@ class SignUp extends Component {
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(user => {
           this.setState({ isSignedIn: !!user })
-          console.log("user", user)
         })
     }
-
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            surname: '',
-            email: '',
-            phone: '',
-            password: '',
-            organisation: '',
-
+            name: "",
+            surname: "",
+            email: "",
+            phone: "",
+            password: "",
+            organisation: ""
         };
-
-       // this.handleClick = this.handleClick.bind(this);
     }
 
     updateNameValue(evt) {
@@ -72,17 +70,14 @@ class SignUp extends Component {
     }
 
     handleClick() {
-        // console.log(this.state.name);
        let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
-       console.log(result);
     }
+
     render()
     {
 
         let loc_navBarTitle = "MEMBER REGISTRATION";
         let loc_navbarItems = [true, true, true, true];
-       // RegisterUser("username", "surname", "passsword", "email", "phoneNumber", "membershipType");
-
         return (
             <div className="signup">
                 <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
@@ -134,7 +129,6 @@ class SignUp extends Component {
                                 <button className="btn-login-options twitter"><i className="fab fa-twitter"></i></button>
                             </span>
                         </div>
-                        )
                         <div className="col-12 margin-top-30">
                             <span><label> Membership type</label></span>
                             <div className="div-membershiptype">
@@ -152,12 +146,11 @@ class SignUp extends Component {
                                         <a className="nav-link" data-toggle="tab" href="#menu3"><b>Premium</b><br/> R100/month</a>
                                     </li>
                                 </ul>
-
                                 <div className="tab-content">
-                                    <div className="tab-pane container active" id="home">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu1">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu2">Some interesting information, when I say interesting I mean really interesting</div>
-                                    <div className="tab-pane container" id="menu3">Some interesting information, when I say interesting I mean really interesting</div>
+                                    <div className="tab-pane container active" id="home"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu1"><p>Thought I found a way , Isn't it lovely say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu2"><p>I really enjoy read</p></div>
+                                    <div className="tab-pane container" id="menu3"><p>This text is a text for the know your nation memebership or speedy information</p></div>
                                 </div>
                             </div>
                         </div>
@@ -170,5 +163,3 @@ class SignUp extends Component {
         );
     }
 }
-
-export default SignUp;

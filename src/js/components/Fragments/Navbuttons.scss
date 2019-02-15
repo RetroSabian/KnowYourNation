@@ -1,34 +1,34 @@
-.nav-buttons{
+.Navbuttons {
     position: absolute;
     bottom: 20px;
     width: 100%;
     overflow: hidden;
     max-height: 60px;
-    background-color: transparent;
-    text-align:center;
+    background-color: #eee0;
+    text-align: center;
 }
 
-.btn-nav-button{
+.btnNavButton {
     background-color: #333;
     color: white;
     height: 60px;
 }
 
-.left-nav-button{
+.leftNavButton {
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
     float: left;
     width: 30%;
 }
 
-.right-nav-button{
+.rightNavButton {
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
     float: right;
     width: 30%;
 }
 
-.center-nav-button{
+.centerNavButton {
     display: inline-block;
     border-radius: 100%;
     width: 60px;

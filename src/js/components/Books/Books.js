@@ -14,9 +14,10 @@ class Books extends Component {
       "bookname5",
       "bookname6"
     ],
-    bookid: 0,
-    isClicked: false
+
+    bookid: "bookname3"
   };
+
   render() {
     let loc_navBarTitle = "BOOKS";
     let loc_navbarItems = [true, true, true, true];
@@ -33,14 +34,12 @@ class Books extends Component {
             {this.state.booklist.map(book => (
               <div className="col-4 col-sm-3 col-md-2 noPaddMar" key={book}>
                 {" "}
-                {this.state.key === "bookname6" ? (
+                {this.state.bookid === book ? (
                   <NavLink to="/ereader">
                     <Bookcard />{" "}
                   </NavLink>
                 ) : (
-                  <NavLink to="/ereader">
-                    <Bookcard />
-                  </NavLink>
+                  <Bookcard />
                 )}
                 {book}{" "}
               </div>

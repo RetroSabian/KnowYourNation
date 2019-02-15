@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.scss";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.sass";
 import AdminMembership from "./js/components/AdminMembershipPage/AdminMembership"
 import Home from "./js/components/Home/Home";
 import Books from "./js/components/Books/Books";
@@ -11,7 +10,6 @@ import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import ArticleReader from "./js/components/Articles/ArticleReader";
 import VideoPlayer from "./js/components/Articles/VideoPlayer";
 import AdminMembershipDisplay from "./js/components/AdminMembershipPage/AdminMembershipDisplay";
-import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import main from "./js/components/Main_Menu/Main";
 import collection from "./js/components/CollectionsPage/Collection";
 class App extends Component {
@@ -19,9 +17,8 @@ class App extends Component {
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [true, true, true, true];
     return (
-      <div className="App">
+      <div className="app">
         <BrowserRouter>
-          <div>
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
@@ -35,7 +32,6 @@ class App extends Component {
               <Route path="/AdminMembershipDisplay" component={AdminMembershipDisplay}/>
               <Route component={Home} />
             </Switch>
-          </div>
         </BrowserRouter>
       </div>
     );

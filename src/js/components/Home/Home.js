@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Mapbuttons from "./Countries";
+import CharacterPage1 from "./SpeedyScreens/Book.js"
 import Navbar from "../Navbar/Navbar";
+import Navbuttons from "../Fragments/Navbuttons";
 import { NavLink } from "react-router-dom";
 import "./Home.scss";
-import  Navbuttons  from "../Fragments/Navbuttons";
-import firebase from "firebase";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 class Home extends Component {
 
@@ -13,7 +12,6 @@ class Home extends Component {
     super();
     this.state = { center: [0, 0] };
   }
-
   state={isSignedIn:false}
 
   componentDidMount = () =>{
@@ -21,26 +19,22 @@ class Home extends Component {
       this.setState({ isSignedIn: !!user })     
     })
   }
-
   render() {
-    let loc_navBarTitle = "KnowYourNation";
-    let loc_navbarItems = [false, true, true, false];
+    let page = this.props.location.pathname.substr(1);
+    if (!page) page = 'home';
+    var loc_navBarTitle = "KnowYourNation";
+    var loc_navbarItems = [false, true, true, false];
+
 
     return (
       <div className="home">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
-        {this.state.isSignedIn ? (
-          <span>    
-		<button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-            	<h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-          </span>          
-        ) :(
-          null
-        )}
         <NavLink to="/Books">
           <button className="btn btn-success"> Books </button>
         </NavLink>
-        <Mapbuttons/>
+        <Mapbuttons />
+        <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
+        <CharacterPage1/>
         <Navbuttons/>
       </div>
     );
