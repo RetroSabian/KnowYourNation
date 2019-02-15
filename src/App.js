@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.scss";
-import {BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import {BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.sass";
-import Dummy from "./js/components/Dummy";
+import AdminMembership from "./js/components/AdminMembershipPage/AdminMembership"
 import Home from "./js/components/Home/Home";
-import Navbar from "./js/components/Navbar/Navbar";
-import { Provider } from "react-redux";
 import Books from "./js/components/Books/Books";
 import Login from "./js/components/LoginPage/Login";
 import SignUp from "./js/components/RegisterPage/SignUp";
-
+import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
+import AdminMembershipDisplay from "./js/components/AdminMembershipPage/AdminMembershipDisplay";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import main from "./js/components/Main_Menu/Main";
 import collection from "./js/components/CollectionsPage/Collection";
@@ -18,7 +16,7 @@ class App extends Component {
   render() {
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [true, true, true, true];
-
+  render() {
     return (
       <div className="App">
         <BrowserRouter>
@@ -27,9 +25,11 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
               <Route path="/resetpassword" component={ForgotSignIn} />
-              <Route path="/Books" component={Books} />
-              <Route path="/collection" component={collection} />
+               <Route path="/collection" component={collection} />
               <Route path="/main" component={main}/>
+              <Route path="/books" component={Books} />
+              <Route path="/AdminMembership" component={AdminMembership}/>
+              <Route path="/AdminMembershipDisplay" component={AdminMembershipDisplay}/>
               <Route component={Home} />
             </Switch>
           </div>
@@ -40,3 +40,4 @@ class App extends Component {
 }
 
 export default App;
+  

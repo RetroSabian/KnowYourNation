@@ -1,32 +1,47 @@
 import React, { Component } from "react";
-import ArticleApp from "../App";
 import Mapbuttons from "./Countries";
-import Map from "./Map";
-import MyWorker from "../../other/workerz";
 import Navbar from "../Navbar/Navbar";
-import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./Home.scss";
+import  Navbuttons  from "../Fragments/Navbuttons";
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 class Home extends Component {
+
   constructor() {
     super();
     this.state = { center: [0, 0] };
   }
-  changeCenter = center => () => {
-    this.setState({ center });
-  };
+
+  state={isSignedIn:false}
+
+  componentDidMount = () =>{
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: !!user })     
+    })
+  }
+
   render() {
-    var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [false, true, true, false];
+    let loc_navBarTitle = "KnowYourNation";
+    let loc_navbarItems = [false, true, true, false];
 
     return (
-      <div className="Home">
-      <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
-      <h4> Home Component </h4>
-
-      <NavLink to="/Books"> <button className="btn btn-success"> Books </button> </NavLink>
-      <h4> Insert speedy picture here </h4>
-      <Mapbuttons />
-      {/*<ArticleApp/>*/}
+      <div className="home">
+        <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
+        {this.state.isSignedIn ? (
+          <span>    
+		<button onClick={() => firebase.auth().signOut()}>Sign out!</button>
+            	<h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+          </span>          
+        ) :(
+          null
+        )}
+        <NavLink to="/Books">
+          <button className="btn btn-success"> Books </button>
+        </NavLink>
+        <Mapbuttons/>
+        <Navbuttons/>
       </div>
     );
   }

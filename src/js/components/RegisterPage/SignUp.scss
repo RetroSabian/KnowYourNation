@@ -1,0 +1,90 @@
+$primary-color: #fff;
+
+.signup{
+  background-color: #bbb;
+  min-height: 100vh;
+  color: $primary-color;
+  padding-bottom: 30px;
+  & span {
+    display: block;
+    overflow: hidden;
+    padding: 0 4px 0 6px
+  }
+  & div{
+    background-color: transparent;
+  }
+}
+
+label {
+  float: left
+}
+
+input {
+  width: 100%
+}
+.form-input{
+  background-color: transparent;
+  border: 1px solid $primary-color;
+  font-size: 15px;
+  height: 35px;
+  padding-left: 10px;
+  color: $primary-color;
+}
+
+.margin-top-20{
+  margin-top: 20px;
+}
+
+.margin-left-20{
+
+  margin-left: 20px;
+}
+
+.margin-top-30{
+  margin-top: 30px;
+}
+
+.btn-login-options{
+  border-radius: 100%;
+  border: 1px solid grey;
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  &.facebook{
+    background-color: $primary-color;
+  }
+  &.google{
+    background-color: $primary-color;
+  }
+  &.twitter{
+    background-color: $primary-color;
+  }
+}
+
+.div-membershiptype{
+  border: 1px solid $primary-color;
+  min-height: 100px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.no-background{
+  background-color: transparent !important; // Had to overwrite bootstrap default
+}
+
+.nav-link{
+  padding-left: 0px ;
+  font-size: 9px;
+  color: $primary-color;
+}
+
+.reg-circle{
+  color: $primary-color;
+  background-color: #333;
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  float: right;
+  font-size: 11px;
+  border: 0px;
+}

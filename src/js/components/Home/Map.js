@@ -8,8 +8,9 @@ import {
 import { Motion, spring } from "react-motion";
 
 const mapStyles = {
-    width: "50%",       // Where the globe width size on the page is set.
-    height: "auto"
+    width: "60%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
+    height: "100%",
+    outline: "#888888"
 };
 
 const Map = ({ center }) => (
@@ -35,7 +36,9 @@ const Map = ({ center }) => (
                             cx={250}
                             cy={250}
                             r={220}
-                            fill="#0018BE" //ocean coulour fill
+                            fill="#26BAF2" //ocean colour fill
+                            stroke = "#000"
+                            strokeWidth = "6"
                         />
                         <Geographies
                             disableOptimization
@@ -48,7 +51,10 @@ const Map = ({ center }) => (
                                         geography={geo}
                                         projection={proj}
                                         style={{
-                                            default: { fill: "#61993b" } //country colour fills
+                                            default: { fill: "#9BC214",
+                                                stroke: "#000",
+                                                strokeWidth: 0.4}, //countries styling specifications
+                                            // hover : {fill: "#f258e9"} // TODO: Onhover to be set at a later stage waiting for design
                                         }}
                                     />
                                 ))

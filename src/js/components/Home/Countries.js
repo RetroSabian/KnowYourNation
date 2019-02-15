@@ -1,54 +1,60 @@
 import React, {Component} from "react";
 import Map from "./Map";
-import './MapStyles.sass'
 import ReactFlagsSelect from 'react-flags-select';
+import  countries from 'react-flags-select/es/countries';
+import Geocode from "react-geocode";
 
+Geocode.setApiKey("AIzaSyBiCz9njYP8nYxEUEQLzltCM8kAnm7z6To");
 
 class Mapbuttons extends Component {
     constructor() {
         super()
-        this.state = {center: [0, 0]}
-    }
-    changeCenter = center => () => {
-        this.setState({center})
-    }
-
-     onSelectFlag=countryCode=>() =>{
-        console.log(countryCode);
-        return this.changeCenter([-122.4194, 37.7749])
+        this.state = {
+            center: [0, 0]
+        }
+        this.getCountryCode = this.getCountryCode.bind(this);
+        this.setCountry = this.setCountry.bind(this);
     }
 
+    setCountry(countryCode) {
+        this.getCountryCode( countries[countryCode]);
+    }
+
+    getCountryCode(country) {
+        Geocode.fromAddress(country).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                this.setState({center: [lng,lat] });
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    }
 
     render() {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-9">
+                    <div className="col-md-9 col-12">
                         <Map center={this.state.center}/>
                     </div>
-                    <div className="col-3">
+                    <div className="col-md-2 col-12">
+                        {/*DropDown option where country is selected, with configuration */}
                         <ReactFlagsSelect  searchable={true}
-                                           defaultCountry="US"
+                                           defaultCountry= "ZA"
                                            searchPlaceholder="Know Your Nation"
-                                           selectedSize={18}
-                                           optionsSize={20}
+                                           selectedSize={16}
+                                           optionsSize={14}
                                            className="menu-flags"
-                                           alignOptions="left"
-                                           onSelect={this.changeCenter([-122.4194, 37.7749])}/>
-                                           {/*this.changeCenter([-122.4194, 37.7749])*/}
-
-                        {/*<button*/}
-                        {/*className="btn"*/}
-                        {/*onClick={this.changeCenter([151.2093, -33.8688])}*/}
-                        {/*>*/}
-                        {/*{"Sydney"}*/}
-                        {/*</button>*/}
+                                           alignOptions="right"
+                                           onSelect={this.setCountry}/>
                     </div>
+                    <div className="col-md-1"/>
                 </div>
             </div>
         )
     }
 }
-
 
 export default Mapbuttons
