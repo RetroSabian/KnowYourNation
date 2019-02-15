@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import { createGlobalStyle } from "styled-components";
-import { ReactReader } from "./modules";
+import { ReactReader } from "react-reader";
 import { NavLink } from "react-router-dom";
 import "./ArticleButtons.scss";
 import "./GlobalStyle.scss";
