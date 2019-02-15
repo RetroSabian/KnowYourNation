@@ -18,6 +18,7 @@ class Navbar extends Component {
       {this.props.navbarItems[3] === false ? <i className="fas fa-times"></i> : null}
     </ul>
 </nav>
+
     );
   }
 }
