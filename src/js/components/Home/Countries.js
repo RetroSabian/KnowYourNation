@@ -1,8 +1,12 @@
 import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
 import Map from "./Map";
-import ReactFlagsSelect from 'react-flags-select';
-import  countries from 'react-flags-select/es/countries';
+import ReactFlagsSelect from "react-flags-select";
+import countries from "react-flags-select/es/countries";
 import Geocode from "react-geocode";
+import Book from "../../../Assests/Images/book.png";
+import Speedy from '../../../Assests/Images/Speedy_Pose_3.png'
+
 
 Geocode.setApiKey("AIzaSyBiCz9njYP8nYxEUEQLzltCM8kAnm7z6To");
 
@@ -10,7 +14,8 @@ class Mapbuttons extends Component {
     constructor() {
         super()
         this.state = {
-            center: [0, 0]
+            center: [0, 0],
+            countryName: 'South Africa'
         }
         this.getCountryCode = this.getCountryCode.bind(this);
         this.setCountry = this.setCountry.bind(this);
@@ -34,7 +39,7 @@ class Mapbuttons extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container-fluid country-div">
                 <div className="row">
                     <div className="col-md-9 col-12">
                         <Map center={this.state.center}/>

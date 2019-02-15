@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar';
-import Bookcard from '../Books/Bookcard/Bookcard';
+import React, { Component } from "react";
+import Navbar from "../Navbar/Navbar";
+import Bookcard from "../Books/Bookcard/Bookcard";
 
 import './Book.scss';
 class  Books extends Component {
@@ -12,11 +12,11 @@ class  Books extends Component {
           rows.push(<div key={i} className="col-4 col-sm-3 col-md-2 noPaddMar"><Bookcard /></div> )
       }
     return (
-      <div className="books">
+      <div className="Books">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
         <br/>
         <div className="container ">
-                <div className="row no-padding-margin">
+                <div className="row noPaddMar">
                     {rows}         
             </div>
         </div>

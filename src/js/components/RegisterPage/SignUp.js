@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import Navbar from "../Navbar/Navbar";
-import { NavLink } from "react-router-dom";
+import FormGroup from "react-bootstrap/FormGroup";
+import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import FormLabel from "react-bootstrap/FormLabel";
 import "./SignUp.scss";
 import { Redirect } from 'react-router-dom';
 import firebase from "firebase";
@@ -160,5 +163,3 @@ class SignUp extends Component {
         );
     }
 }
-
-export default SignUp;

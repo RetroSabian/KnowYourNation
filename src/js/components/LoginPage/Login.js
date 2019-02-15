@@ -1,7 +1,24 @@
+import { Link } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import FormGroup from "react-bootstrap/FormGroup";
 import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import FormLabel from "react-bootstrap/FormLabel";
+import Navbar from "../Navbar/Navbar";
 import "./Login.scss";
 import "./ButtonStyles.css";
-import Navbar from "../Navbar/Navbar";
+import FacebookLoginButton from "react-social-login-buttons/lib/buttons/FacebookLoginButton";
+import GoogleLoginButton from "react-social-login-buttons/lib/buttons/GoogleLoginButton";
+import TwitterLoginButton from "react-social-login-buttons/lib/buttons/TwitterLoginButton";
+
+import {
+  isEmail,
+  isEmpty,
+  isLength,
+  isContainWhiteSpace
+} from "../../helpers/validator";
 import {Redirect} from "react-router-dom";
 import StyledFirebaseAuth from "../RegisterPage/SignUp";
 import {RegisterUser} from "../../services/apiservice";
@@ -10,6 +27,7 @@ import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 class Login extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       name: "",
       surname: "",

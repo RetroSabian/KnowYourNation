@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.scss";
 import {BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.sass";
-import AdminMembership from "./js/components/AdminMembershipPage/AdminMembership"
 import Home from "./js/components/Home/Home";
 import Books from "./js/components/Books/Books";
 import Login from "./js/components/LoginPage/Login";
@@ -17,9 +15,8 @@ class App extends Component {
     var loc_navbarItems = [true, true, true, true];
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <BrowserRouter>
-          <div>
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
@@ -27,11 +24,8 @@ class App extends Component {
                <Route path="/collection" component={collection} />
               <Route path="/main" component={main}/>
               <Route path="/books" component={Books} />
-              <Route path="/AdminMembership" component={AdminMembership}/>
-              <Route path="/AdminMembershipDisplay" component={AdminMembershipDisplay}/>
               <Route component={Home} />
             </Switch>
-          </div>
         </BrowserRouter>
       </div>
     );
