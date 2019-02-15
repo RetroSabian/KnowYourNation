@@ -6,32 +6,27 @@ import {RegisterUser} from "../../services/apiservice";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
   
 class  ResetPassword extends Component {
-
+  
     constructor(props) {
         super(props);
         this.state = {
           email: '',
           password: ''
         };    
-      }
-    
+      }    
       updateEmailValue(evt) {
         this.setState({email: evt.target.value});
       }
       updatePasswordValue(evt) {
         this.setState({password: evt.target.value});
-      }
-    
+      }    
       handleClick() {
-        // console.log(this.state.name);
         let result = RegisterUser(this.state.password, this.state.email);
         console.log(result);
-      }
-    
+      }    
       render() {
         let loc_navBarTitle = "Reset Password";
         let loc_navbarItems = [true, true, true, true];
-    
         return (
           <div className="login">
             <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
@@ -56,12 +51,10 @@ class  ResetPassword extends Component {
                     <button className="btn-login" onClick={this.handleClick.bind(this)}>Reset Password</button>
                   </NavLink>
                 </div>
-    
             </div>
           </div>
         );
-      }
-    
+      }    
 }
 
 export default ResetPassword;
