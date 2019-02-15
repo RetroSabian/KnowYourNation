@@ -61,7 +61,6 @@ export const CreateMembership = (type, duration, price, description, allowAnimat
                 }
         axios.post('https://api.ereader.retrotest.co.za/api/Memberships/CreateMembership',member)
         .then(res => {
-            console.log(res.status);
           })
     }
 export const ForgotPassword = (email)=>{
