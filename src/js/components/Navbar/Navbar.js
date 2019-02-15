@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 import "./Navbar.scss";
-/*
-  loc_navBarTitle: String passed to object for the title
-navbarItems: Visibility of the search, user and (bars / cross) icons.
-*/
 class Navbar extends Component {
   render() {
     return (
