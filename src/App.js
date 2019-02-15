@@ -9,7 +9,6 @@ import Login from "./js/components/LoginPage/Login";
 import SignUp from "./js/components/RegisterPage/SignUp";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import AdminMembershipDisplay from "./js/components/AdminMembershipPage/AdminMembershipDisplay";
-import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import main from "./js/components/Main_Menu/Main";
 import collection from "./js/components/CollectionsPage/Collection";
 class App extends Component {
