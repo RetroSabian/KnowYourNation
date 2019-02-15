@@ -22,7 +22,6 @@ class Home extends Component {
   render() {
     let loc_navBarTitle = "KnowYourNation";
     let loc_navbarItems = [false, true, true, false];
-
     return (
       <div className="home">
         <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
