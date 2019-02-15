@@ -4,7 +4,6 @@ import CharacterPage1 from "./SpeedyScreens/Book.js"
 import Navbar from "../Navbar/Navbar";
 import Navbuttons from "../Fragments/Navbuttons";
 import { NavLink } from "react-router-dom";
-import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import "./Home.scss";
 
 class Home extends Component {
