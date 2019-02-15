@@ -175,6 +175,7 @@ class Product extends Component {
                         <div className="col-12 marginTop20px">
                             <span className="createButton" >
                                 <button onClick ={this.onSubmit} type="button" class="btn btn-success">CREATE</button>
+                                
                             </span>
                         </div>
                     </div>
