@@ -1,0 +1,15 @@
+.videoplayer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f2f2f2 0%, #333 100%);
+}
+
+.groupbutton {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  margin-top: 5%;
+}
