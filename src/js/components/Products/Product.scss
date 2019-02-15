@@ -1,61 +1,62 @@
 $primary-color: #fff;
 
-.Product{
+.Product
+{
     background-color: #bbb;
     min-height: 100vh;
     color: $primary-color;
 }
 span {
-  display:block;
-  overflow: hidden;
-  padding: 0 4px 0 6px;
-  .rad {
-    display: flex;
-    flex-grow: 20;
-  }
+    display:block;
+    overflow: hidden;
+    padding: 0 4px 0 6px;
+    .rad {
+      display: flex;
+      flex-grow: 20;
+    }
 }
+
 .checkboxs{
-  display: flex;
+    display: flex;
 }
-.color{
-  display: flex;
-}
+
 .createButton{
     float: right;
-  }
+}
+
 .rad{
-  display: flex;
-  flex-grow: 10;  
-}
-label {
-    float: left
+    display: flex;
+    flex-grow: 10;  
 }
 
+.color{
+  display:flex; 
+}
 
-textarea{
+.Description{
     width: 100%
 }
 
-
-input[type=text]
+.formInput
 {
     width: 100%
 }
 
- 
-.marginTop20px{
+.marginTop20px
+{
     margin-top: 20px;
-  }
-.marginLeft20px{
+}
+.marginLeft20px
+{
     margin-left: 20px;
-  }
+}
   
-  .marginTop40px{
+.marginTop40px{
     margin-top: 40px;
-  }
+}
   
-  .marginTop30px{
+.marginTop30px{
     margin-top: 30px;
-  }
+}
   
   
