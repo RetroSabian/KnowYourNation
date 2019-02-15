@@ -1,17 +1,11 @@
 import React from "react";
-import {
-    ComposableMap,
-    ZoomableGlobe,
-    Geographies,
-    Geography
-} from "react-simple-maps";
+import { ComposableMap, ZoomableGlobe, Geographies, Geography} from "react-simple-maps";
 import { Motion, spring } from "react-motion";
 import Speedy from "../../../Assests/Images/Speedy_Pose_3.png";
 import "./Home.scss";
 
 const mapStyles = {
     width: "100%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
-    // height: "100%",
     outline: "#888888",
     paddingBottom: "80px"
 };

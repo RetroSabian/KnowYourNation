@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar';
-import Bookcard from '../Books/Bookcard/Bookcard';
+import React, { Component } from "react";
+import Navbar from "../Navbar/Navbar";
+import Bookcard from "../Books/Bookcard/Bookcard";
 
 import './Book.scss';
 class  Books extends Component {

@@ -1,5 +1,4 @@
 export const RegisterUser = (username, surname, passsword, email, phoneNumber, membershipType)=>{
-
     fetch('http://ereader.retrotest.co.za/api/Db', {
     method: 'POST',
     headers: {
@@ -18,7 +17,7 @@ export const RegisterUser = (username, surname, passsword, email, phoneNumber, m
 }
 
 export const LoginUser = (username, pass)=>{
-    /*                This is just to remind me that this code is returned as a json object and how to make the raw function call
+    /*                TODO: This is just to remind me that this code is returned as a json object and how to make the raw function call
 
         (async () => {
             const rawResponse = await fetch('http://ereader.retrotest.co.za/api/Users/login', {

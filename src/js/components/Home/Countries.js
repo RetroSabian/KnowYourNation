@@ -1,10 +1,10 @@
 import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
 import Map from "./Map";
-import ReactFlagsSelect from 'react-flags-select';
-import countries from 'react-flags-select/es/countries';
+import ReactFlagsSelect from "react-flags-select";
+import countries from "react-flags-select/es/countries";
 import Geocode from "react-geocode";
 import Book from "../../../Assests/Images/book.png";
-import {NavLink} from "react-router-dom";
 import Speedy from '../../../Assests/Images/Speedy_Pose_3.png'
 
 
@@ -47,7 +47,7 @@ class Mapbuttons extends Component {
                     <div className="col-md-2 col-12">
                         {/*DropDown option where country is selected, with configuration */}
                         <ReactFlagsSelect  searchable={true}
-                                           defaultCountry= "South Africa"
+                                           defaultCountry= "ZA"
                                            searchPlaceholder="Know Your Nation"
                                            selectedSize={16}
                                            optionsSize={14}

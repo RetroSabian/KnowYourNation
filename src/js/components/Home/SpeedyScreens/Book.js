@@ -35,7 +35,8 @@ class CharacterWindow1 extends Component {
         }
     }
     render() {
-
+        let charDescOne= "Speedy is a hard-working resident of Happy Township, a township in South Africa";
+        let charDescTwo = "Speedy is full of fun and good humour, and enjoys soccer, his wife's cooking, and more soccer.";
         return (
             <div className="container-fluid character-page">
                 <div className="row char-window">
@@ -56,18 +57,8 @@ class CharacterWindow1 extends Component {
                         <Animated animationIn="fadeInRight" animationOut="fadeOutRight" isVisible={this.state.displayInfo}>
                             <div>
                                 <h3>Speedy</h3>
-                                <h6>Speedy is a
-                                hard-working
-                                resident of Happy
-                                Township, a
-                                township in South
-                                Africa</h6>
-                                <h6>Speedy is full of
-                                fun and good
-                                humour, and
-                                enjoys soccer, his
-                                wife's cooking, and
-                                more soccer.</h6>
+                                <h6>{charDescOne}</h6>
+                                <h6>{charDescTwo}</h6>
                             </div>
                         </Animated>
                     </div>
