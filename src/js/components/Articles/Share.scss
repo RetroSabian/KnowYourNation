@@ -1,0 +1,30 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: white;
+}
+
+.some-network {
+  vertical-align: top;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.share-count {
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.share-button {
+  cursor: pointer;
+}
+
+.share-button:hover:not(:active) {
+  opacity: 0.75;
+}
+
+.custom-icon {
+  width: 32px;
+  height: 32px;
+}
