@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [true, true, true, true];
-  render() {
+ 
     return (
       <div className="App">
         <BrowserRouter>

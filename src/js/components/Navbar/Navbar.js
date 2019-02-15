@@ -14,7 +14,7 @@ class Navbar extends Component {
     <ul className="nav navbar-right ml-auto">
       {this.props.navbarItems[1] === true ? <li><i className="fas fa-search"></i></li> : null}
       {this.props.navbarItems[2] === true ? (<NavLink to="/login"><li><i className="fas fa-user-circle"></i></li> </NavLink>): null}
-      {this.props.navbarItems[3] === false ? (<NavLink to="/main"><li><i className="fas fa-bars"></i></li> </NavLink>) : null}
+      {this.props.navbarItems[3] === true ? (<NavLink to="/main"><li><i className="fas fa-bars"></i></li> </NavLink>) : null}
       {this.props.navbarItems[3] === false ? <i className="fas fa-times"></i> : null}
     </ul>
 </nav>
