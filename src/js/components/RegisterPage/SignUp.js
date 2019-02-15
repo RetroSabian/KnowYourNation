@@ -44,8 +44,6 @@ class SignUp extends Component {
             organisation: '',
 
         };
-
-       // this.handleClick = this.handleClick.bind(this);
     }
 
     updateNameValue(evt) {
@@ -126,10 +124,7 @@ class SignUp extends Component {
                                     uiConfig={this.uiConfig}
                                     firebaseAuth={firebase.auth()}
                                 />
-                                )}
-                                <button className="btnLoginOptions facebook"><i className="fab fa-facebook-f"></i></button>
-                                <button className="btnLoginOptions google"><i className="fab fa-google"></i></button>
-                                <button className="btnLoginOptions twitter"><i className="fab fa-twitter"></i></button>
+                                )}                               
                             </span>
                         </div>
                         
