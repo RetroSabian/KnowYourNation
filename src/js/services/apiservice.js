@@ -80,8 +80,6 @@ export const ForgotPassword = (email)=>{
         // alert(JSON.stringify(content) );
       })();
 }
-
-
 export const resetPassword = (email , password)=>{
     (async () => {
 
@@ -97,9 +95,5 @@ export const resetPassword = (email , password)=>{
             "password": password
             })
         });
-    // const content = await rawResponse.json();
-    // alert(JSON.stringify(content) );
   })();
-
 }
-
