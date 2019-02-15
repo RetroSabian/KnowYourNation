@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./AdminMembership.scss";
-import {CreateMembership} from "../../services/apiservice.js";
+// import {CreateMembership} from "../../services/apiservice.js";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 class AdminMembership extends Component {
@@ -85,9 +85,9 @@ class AdminMembership extends Component {
             this.setState({description: evt.target.value});
         }
 
-        handleClick() {
-           CreateMembership(this.state.type, this.state.duration, this.state.price, this.state.description, this.state.allowAnimation, this.state.allowArticle, this.state.allowBook, this.state.allowComic)
-        }
+        // handleClick() {
+        //    CreateMembership(this.state.type, this.state.duration, this.state.price, this.state.description, this.state.allowAnimation, this.state.allowArticle, this.state.allowBook, this.state.allowComic)
+        // }
 
     render()
     {
@@ -162,7 +162,7 @@ class AdminMembership extends Component {
                         </div>            
                     </div>
                     <div className="col-12 marginTop20px">
-                        <NavLink to= "/AdminMembershipDisplay"><button className="reg-circle" onClick={this.handleClick.bind(this)}> Save</button></NavLink>
+                        {/*<NavLink to= "/AdminMembershipDisplay"><button className="reg-circle" onClick={this.handleClick.bind(this)}> Save</button></NavLink>*/}
                     </div>
                 </div>
             </div>
