@@ -76,7 +76,6 @@ class SignUp extends Component {
     }
     render()
     {
-
         let loc_navBarTitle = "MEMBER REGISTRATION";
         let loc_navbarItems = [true, true, true, true];
         return (
