@@ -19,134 +19,94 @@ import {
   isLength,
   isContainWhiteSpace
 } from "../../helpers/validator";
+import {Redirect} from "react-router-dom";
+import StyledFirebaseAuth from "../RegisterPage/SignUp";
+import {RegisterUser} from "../../services/apiservice";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      formData: {}, // Contains login form data
-      errors: {}, // Contains login field errors
-      formSubmitted: false, // Indicates submit status of login form
-      loading: false // Indicates in progress state of login form
+      name: "",
+      surname: "",
+      email: "",
+      phone: "",
+      password: "",
+      organisation: ""
     };
   }
 
-  handleInputChange = event => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  updateNameValue(evt) {
+    this.setState({name: evt.target.value});
+  }
 
-    let { formData } = this.state;
-    formData[name] = value;
+  updateSurnameValue(evt) {
+    this.setState({surname: evt.target.value});
+  }
 
-    this.setState({
-      formData: formData
-    });
-  };
+  updateEmailValue(evt) {
+    this.setState({email: evt.target.value});
+  }
 
-  validateLoginForm = e => {
-    let errors = {};
-    const { formData } = this.state;
+  updatePhoneValue(evt) {
+    this.setState({phone: evt.target.value});
+  }
 
-    if (isEmpty(formData.email)) {
-      errors.email = "Email can't be blank";
-    } else if (!isEmail(formData.email)) {
-      errors.email = "Please enter a valid email";
-    }
+  updatePasswordValue(evt) {
+    this.setState({password: evt.target.value});
+  }
 
-    if (isEmpty(formData.password)) {
-      errors.password = "Password can't be blank";
-    } else if (isContainWhiteSpace(formData.password)) {
-      errors.password = "Password should not contain white spaces";
-    } else if (!isLength(formData.password, { gte: 4, lte: 16, trim: true })) {
-      errors.password = "Password's length must between 4 to 16";
-    }
+  updateOrganisationValue(evt) {
+    this.setState({organisation: evt.target.value});
+  }
 
-    if (isEmpty(errors)) {
-      return true;
-    } else {
-      return errors;
-    }
-  };
-
-  login = e => {
-    e.preventDefault();
-
-    let errors = this.validateLoginForm();
-
-    if (errors === true) {
-      alert("You are successfully signed in...");
-      window.location.reload();
-    } else {
-      this.setState({
-        errors: errors,
-        formSubmitted: true
-      });
-    }
-  };
+  handleClick() {
+    let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
+  }
 
   render() {
-    var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [true, true, true, true];
-
-    const { errors, formSubmitted } = this.state;
+    let loc_navBarTitle = "LOGIN";
+    let loc_navbarItems = [true, true, true, true];
 
     return (
       <div className="login">
-        <Navbar
-          titleFromParent={loc_navBarTitle}
-          navbarItems={loc_navbarItems}
-        />
-        <Row>
-          <Form onSubmit={this.login}>
-            <h2> Login </h2>
-            <FormGroup
-              controlId="email"
-              validationState={
-                formSubmitted ? (errors.email ? "error" : "success") : null
-              }
-            >
-              <FormLabel>Email</FormLabel>
-              <Form.Control
-                type="text"
-                name="email"
-                placeholder="Enter your email"
-                onChange={this.handleInputChange}
-              />
-              {errors.email && <Form>{errors.email}</Form>}
-            </FormGroup>
-            <FormGroup
-              controlId="password"
-              validationState={
-                formSubmitted ? (errors.password ? "error" : "success") : null
-              }
-            >
-              <FormLabel>Password</FormLabel>
-              <Form.Control
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                onChange={this.handleInputChange}
-              />
-              {errors.password && <Form>{errors.password}</Form>}
-
-              <Link to="/resetpassword">Forget Password or UserName?</Link>
-              <Link to="/register"> Not Registered? Sign Up </Link>
-              <div className="d-flex flex-column">
-                <ButtonGroup className="mt-3">
-                  <FormLabel>OR Login with </FormLabel>
-                  <FacebookLoginButton> </FacebookLoginButton>
-                  <GoogleLoginButton> </GoogleLoginButton>
-                  <TwitterLoginButton> </TwitterLoginButton>
-                </ButtonGroup>
-              </div>
-            </FormGroup>
-            <Button class="btn-circle" variant="primary" type="submit">
-              Sign-In
-            </Button>
-          </Form>
-        </Row>
+        <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
+        <div className="container-fluid ">
+          <div className="row margin-top-20 ">
+            <h4 className="margin-left-20">Login</h4>
+          </div>
+          <div className="row ">
+            <div className="col-12 margin-top-20">
+              <label >E-mail</label>
+              <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateEmailValue(evt)}/></span>
+            </div>
+            <div className="col-12 margin-top-20">
+              <label >Password</label>
+              <span>
+                  <input className="form-input" type="password" value={this.state.inputValue} onChange={evt => this.updatePasswordValue(evt)}/>
+              </span>
+            </div>
+            <div className="col-12 margin-top-10">
+              <p className="text-forgotpassword">Forgot Password/Username</p>
+            </div>
+          </div>
+            <div className="row display-flow-root border-danger">
+              <button className="btn-login" onClick={this.handleClick.bind(this)}>Login</button>
+              <NavLink to="/register">
+                <button className="btn-signup float-right" >Sign Up</button>
+              </NavLink>
+            </div>
+            <div className="col-12 margin-top-30">
+              <label >Or Login with </label>
+              <span>
+                <button className="btn-login-options facebook"><i className="fab fa-facebook-f"></i></button>
+                <button className="btn-login-options google"><i className="fab fa-google"></i></button>
+                <button className="btn-login-options twitter"><i className="fab fa-twitter"></i></button>
+              </span>
+            </div>
+        </div>
       </div>
     );
   }

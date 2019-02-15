@@ -5,181 +5,161 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormLabel from "react-bootstrap/FormLabel";
 import "./SignUp.scss";
-import Navbar from "../Navbar/Navbar";
-import {RegisterUser} from "../../services/apiservice";
+import { Redirect } from 'react-router-dom';
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import {RegisterUser} from "../../services/apiservice.js";
+firebase.initializeApp({
 
-export default class Signup extends Component {
-  constructor(props) {
-    super(props);
+    apiKey: "AIzaSyBB0W3EuMqoeQLVuczRUCQmaWQV0HOHZQQ",
+    authDomain: "knowyournation-6daac.firebaseapp.com"
+  })
 
-    this.state = {
-      isLoading: false,
-      name: "",
-      surname: "",
-      email: "",
-      phoneNumber: "",
-      password: "",
-      confirmPassword: "",
-      confirmationCode: "",
-      newUser: null
-    };
-    
-  }
+class SignUp extends Component {
+  
+   state = { isSignedIn: false }
+    uiConfig = {
+        signInFlow: "popup",
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.TwitterAuthProvider.PROVIDER_ID
+        ],
+        callbacks: {
+        signInSuccess: () => false
+        }
+    }
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged(user => {
+          this.setState({ isSignedIn: !!user })
+        })
+    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            surname: "",
+            email: "",
+            phone: "",
+            password: "",
+            organisation: ""
+        };
+    }
 
-  validateForm() {
-    return (
-      this.state.email.length > 0 &&
-      this.state.password.length > 0 &&
-      this.state.password === this.state.confirmPassword
-    );
-  }
+    updateNameValue(evt) {
+        this.setState({name: evt.target.value});
+    }
 
-  /*
-      This function is used to register a user, the last paramater is a default membership that indicates that the user
-      create will be a 'free' user as part of our business logic.
-  */
-  register()
-  {
-    RegisterUser(this.state.name,this.state.surname,this.state.password,this.state.email,this.state.phoneNumber,"free");
-  }
+    updateSurnameValue(evt) {
+        this.setState({surname: evt.target.value});
+    }
 
-  validateConfirmationForm() {
-    return this.state.confirmationCode.length > 0;
-  }
+    updateEmailValue(evt) {
+        this.setState({email: evt.target.value});
+    }
 
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  };
+    updatePhoneValue(evt) {
+        this.setState({phone: evt.target.value});
+    }
 
-  handleSubmit = async event => {
-    event.preventDefault();
+    updatePasswordValue(evt) {
+        this.setState({password: evt.target.value});
+    }
+    updateOrganisationValue(evt) {
+        this.setState({organisation: evt.target.value});
+    }
 
-    this.setState({ isLoading: true });
+    handleClick() {
+       let result = RegisterUser(this.state.name, this.state.surname, this.state.password, this.state.email, this.state.phone, this.state, this.organisation);
+    }
 
-    this.setState({ newUser: "test" });
+    render()
+    {
 
-    this.setState({ isLoading: false });
-  };
+        let loc_navBarTitle = "MEMBER REGISTRATION";
+        let loc_navbarItems = [true, true, true, true];
+        return (
+            <div className="signup">
+                <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
+                <div className="container ">
+                    <div className="row margin-top-20 ">
+                            <h3 className="margin-left-20">Register</h3>
+                    </div>
+                    <div className="row ">
+                        <div className="col-12 margin-top-20">
+                            <label >Name</label>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateNameValue(evt)}/></span>
+                        </div>
+                        <div className="col-12 margin-top-20">
+                            <label >Surname</label>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateSurnameValue(evt)}/></span>
+                        </div>
+                        <div className="col-12 margin-top-20">
+                            <label >E-mail</label>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateEmailValue(evt)}/></span>
+                        </div>
+                        <div className="col-12 margin-top-20">
+                            <label >Phone no</label>
+                            <span><input className="form-input" type="phone" value={this.state.inputValue} onChange={evt => this.updatePhoneValue(evt)}/></span>
+                        </div>
+                        <div className="col-12 margin-top-20">
+                            <label >Password</label>
+                            <span>
+                                <input className="form-input" type="password" value={this.state.inputValue} onChange={evt => this.updatePasswordValue(evt)}/>
+                            </span>
+                        </div>
+                        <div className="col-12 margin-top-20">
+                            <label >Organisation</label>
+                            <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateOrganisationValue(evt)}/></span>
+                        </div>
+                        <div className="col-12 margin-top-30">
+                            <label >Or Register with </label>
+                            <span>
+                                {this.state.isSignedIn ?(
+                                 <Redirect to='/home' />
 
-  handleConfirmationSubmit = async event => {
-    event.preventDefault();
-
-    this.setState({ isLoading: true });
-  };
-
-  renderConfirmationForm() {
-    return (
-      <Row>
-        <Form onSubmit={this.handleConfirmationSubmit}>
-          <FormGroup controlId="confirmationCode" bsSize="large">
-            <FormLabel>Confirmation Code</FormLabel>
-            <Form.Control autoFocus type="tel" value={this.state.confirmationCode} onChange={this.handleChange}/>
-            <Form>Please check your email for the code.</Form>
-          </FormGroup>
-          <Button
-            block
-            bsSize="large"
-            disabled={!this.validateConfirmationForm()}
-            type="submit"
-            isLoading={this.state.isLoading}
-            loadingText="Verifying…">
-            Verify
-          </Button>
-        </Form>
-      </Row>
-    );
-  }
-
-  renderForm() {
-    return (
-      <Row> 
-        <Form onSubmit={this.handleSubmit}>
-          <h2> Register </h2>
-          <FormGroup controlId="name" bsSize="large">
-            <FormLabel>Name</FormLabel>
-            <Form.Control autoFocus
-              type="name"
-              value={this.state.name}
-              placeholder="Enter your name"
-              onChange={this.handleChange}/>
-          </FormGroup>
-          <FormGroup controlId="surname" bsSize="large">
-            <FormLabel>Surname</FormLabel>
-            <Form.Control
-              autoFocus
-              type="surname"
-              value={this.state.surname}
-              placeholder="Enter your Surname"
-              onChange={this.handleChange}/>
-          </FormGroup>
-          <FormGroup controlId="email" bsSize="large">
-            <FormLabel>Email</FormLabel>
-            <Form.Control
-              autoFocus
-              type="email"
-              value={this.state.email}
-              placeholder="Enter your email"
-              onChange={this.handleChange}/>
-          </FormGroup>
-          <FormGroup controlId="phoneNumber" bsSize="large">
-            <FormLabel>Phone Number</FormLabel>
-            <Form.Control
-              autoFocus
-              type="phoneNumber"
-              value={this.state.phoneNumber}
-              placeholder="Enter your phoneNumber"
-              onChange={this.handleChange}/>
-          </FormGroup>
-
-          <FormGroup controlId="password" bsSize="large">
-            <FormLabel>Password</FormLabel>
-            <Form.Control
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-              placeholder="Enter your password"/>
-          </FormGroup>
-
-          <FormGroup controlId="confirmPassword" bsSize="large">
-            <FormLabel>Confirm Password</FormLabel>
-            <Form.Control
-              value={this.state.confirmPassword}
-              onChange={this.handleChange}
-              type="password"
-              placeholder="Confirm your password"/>
-          </FormGroup>
-
-          <Button
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
-            type="submit"
-            isLoading={this.state.isLoading}
-            loadingText="Signing up…">
-            SignUp{" "}
-          </Button>
-
-        </Form>
-      </Row>
-    );
-  }
-
-  render() {
-    var loc_navBarTitle = "KnowYourNation";
-    var loc_navbarItems = [true, true, true, false];
-    return (
-      <div className="Signup">
-        <Navbar
-          titleFromParent={loc_navBarTitle}
-          navbarItems={loc_navbarItems}
-        />
-        {this.state.newUser === null
-          ? this.renderForm()
-          : this.register()}
-
-      </div>
-    );
-  }
+                                ) :(
+                                <StyledFirebaseAuth
+                                    uiConfig={this.uiConfig}
+                                    firebaseAuth={firebase.auth()}
+                                />
+                                )}
+                                <button className="btn-login-options facebook"><i className="fab fa-facebook-f"></i></button>
+                                <button className="btn-login-options google"><i className="fab fa-google"></i></button>
+                                <button className="btn-login-options twitter"><i className="fab fa-twitter"></i></button>
+                            </span>
+                        </div>
+                        <div className="col-12 margin-top-30">
+                            <span><label> Membership type</label></span>
+                            <div className="div-membershiptype">
+                                <ul className="nav nav-tabs">
+                                    <li className="nav-item  ">
+                                        <a className="no-background nav-link active border-0 " data-toggle="tab" href="#home"><b>Free</b><br/> 0/month</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" data-toggle="tab" href="#menu1"><b>Speedy</b><br/> R20/month</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" data-toggle="tab" href="#menu2"><b>NYN</b><br/> R10/month</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" data-toggle="tab" href="#menu3"><b>Premium</b><br/> R100/month</a>
+                                    </li>
+                                </ul>
+                                <div className="tab-content">
+                                    <div className="tab-pane container active" id="home"><p>Some interesting information, when I say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu1"><p>Thought I found a way , Isn't it lovely say interesting I mean really interesting</p></div>
+                                    <div className="tab-pane container" id="menu2"><p>I really enjoy read</p></div>
+                                    <div className="tab-pane container" id="menu3"><p>This text is a text for the know your nation memebership or speedy information</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <button className="reg-circle" onClick={this.handleClick.bind(this)}> Complete Registration</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }

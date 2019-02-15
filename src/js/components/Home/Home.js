@@ -12,12 +12,19 @@ class Home extends Component {
     super();
     this.state = { center: [0, 0] };
   }
+  state={isSignedIn:false}
 
+  componentDidMount = () =>{
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: !!user })     
+    })
+  }
   render() {
     let page = this.props.location.pathname.substr(1);
     if (!page) page = 'home';
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [false, true, true, false];
+
 
     return (
       <div className="home">

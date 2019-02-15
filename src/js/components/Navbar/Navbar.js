@@ -8,9 +8,9 @@ navbarItems: Visibility of the search, user and (bars / cross) icons.
 class Navbar extends Component {
   render() {
     return (
-<nav className="navbar borderRed navbar-expand-lg navbar-dark bg-dark">
-            {this.props.navbarItems[0] === true ? <NavLink to="/"><div className="fas"><i className="fas fa-chevron-circle-left"></i></div></NavLink>:null}
-  <a className="navbar-brand" href="#">{this.props.titleFromParent}</a>
+<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  {this.props.navbarItems[0] === true ? <NavLink to={"/"}><div className="fas"><i className="fas fa-chevron-circle-left"></i></div></NavLink>:null}
+  <a className="nav-bar-title " href="#">{this.props.titleFromParent}</a>
     <ul className="nav navbar-right ml-auto">
       {this.props.navbarItems[1] === true ? <li><i className="fas fa-search"></i></li> : null}
       {this.props.navbarItems[2] === true ? (<NavLink to="/login"><li><i className="fas fa-user-circle"></i></li> </NavLink>): null}
