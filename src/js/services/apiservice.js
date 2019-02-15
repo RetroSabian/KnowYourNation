@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const RegisterUser = (username, surname, passsword, email, phoneNumber, membershipType, userOrganisation)=>{
-
     (async () => {
         const rawResponse = await fetch('https://api.ereader.retrotest.co.za/api/users', {
             method: 'POST',
@@ -23,7 +22,6 @@ export const RegisterUser = (username, surname, passsword, email, phoneNumber, m
         return content;
     })();
 }
-
 export const GetMemberships = ()=>{
     (async () => {
         let id, type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic;
@@ -50,8 +48,7 @@ export const GetMemberships = ()=>{
         return content;
     })();
     }
-    
-    export const CreateMembership = (type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic)=>{
+export const CreateMembership = (type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic)=>{
        const member ={
                     "type": type,
                     "duration": duration,
