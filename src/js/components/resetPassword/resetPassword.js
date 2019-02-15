@@ -12,9 +12,7 @@ class  ResetPassword extends Component {
         this.state = {
           email: '',
           password: ''
-        };
-    
-        // this.handleClick = this.handleClick.bind(this);
+        };    
       }
     
       updateEmailValue(evt) {
