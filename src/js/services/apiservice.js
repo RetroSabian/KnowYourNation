@@ -64,7 +64,7 @@ export const CreateMembership = (type, duration, price, description, allowAnimat
     }
 export const ForgotPassword = (email)=>{
         (async () => {
-            const rawResponse = await fetch(`https://localhost:44311/api/Users/ForgotPassword/${email}`, {
+            const rawResponse = await fetch(`https://api.ereader.retrotest.co.za/api/Users/ForgotPassword/${email}`, {
               method: 'PUT',
               headers: {
                 'Accept': 'application/json',
@@ -80,7 +80,7 @@ export const resetPassword = (email , password)=>{
     (async () => {
 
         email = ForgotPassword.email
-        const rawResponse = await fetch(`https://localhost:44311/api/Users/ForgotPassword/${email}${password}`, {
+        const rawResponse = await fetch(`https://api.ereader.retrotest.co.za/api/Users/resetPassword/${email}${password}`, {
           method: 'PUT',
           headers: {
             'Accept': 'application/json',
