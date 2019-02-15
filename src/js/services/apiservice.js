@@ -44,7 +44,6 @@ export const GetMemberships = ()=>{
             })
         });
         const content = await rawResponse.json();
-        console.log(content);
         return content;
     })();
     }
