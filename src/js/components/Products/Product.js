@@ -20,9 +20,10 @@ class Product extends Component {
             Speedy:false,
             color:false,
             kyn:false,
-            count:0
+            count:0,
 
         }
+
         this.onChange=this.onChange.bind(this);
         this.onSubmit=this.onSubmit.bind(this);
         this.Small=this.Small.bind(this);
@@ -31,7 +32,7 @@ class Product extends Component {
         this.handleChecked=this.handleChecked.bind(this);
         this.Color=this.Color.bind(this)
     }
-
+    
     onChange(e){
         this.setState({[e.target.name]:e.target.value});
     }
@@ -123,32 +124,28 @@ class Product extends Component {
             <div className="Product">
                 <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
                 <div className="container ">
-                    <div className="row marginTop20px ">
-                            <h3 className="marginLeft20px"></h3>
-                    </div>
-                    <div>
-                        <img src={this.state.url || "http://placehold.it/150x150" } alt="Uploaded images" height="150" width="150"></img>
+                   <div>
+                        <img src={require('./download.jpg')} />
                     </div>
                     <div className="row ">
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 cover-image">
                             <label >Cover Image</label>
                             <span>
                                 <input name="file" type="file"  onChange={this.handleChage}/> 
                              </span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 name">
                             <label >Name</label>
-                            <span>
-                                <input className="formInput" name="Name" type="text" onChange={this.onChange}  value={this.state.Name}/>
-                            </span>
+                            <input className="formInput" name="Name" type="text" onChange={this.onChange}  value={this.state.Name}/>
+
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 name">
                             <label >Description</label>
                         </div>
-                        <div className="col-12 marginTop10px">
-                            <textarea className ="Description"  type="text" name ="Description"  onChange={this.onChange}  value={this.state.Description}/>
+                        <div className="col-12 description">
+                            <textarea className ="description"  type="text" name ="Description"  onChange={this.onChange}  value={this.state.Description}/>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 name">
                             <label >Type/Category</label>
                         </div>
                         <div className="col-12 marginTop10px">
@@ -157,40 +154,33 @@ class Product extends Component {
                                 <input type="radio" value="Know your nation" name="Speedy" value={this.state.Speedy} onClick={this.handleChecked}/> Know your nation
                             </span>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 name">
                             <label >Price</label>
-                            <span>
-                                <input className="formInput" name="Price" type="Price" onChange={this.onChange}  value={this.state.Price}/>
-                            </span>
+                            <input className="formInput" name="Price" type="Price" onChange={this.onChange}  value={this.state.Price}/>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 name">
                             <label >Variations</label>
                         </div>
-                        <div className="col-12 marginTop10px">
+                        <div className="col-12 size">
                             <label >Size</label>
                         </div>
-                        <div className="col-12 marginTop10px">
+                        <div className="col-12 size">
                             <div className='checkboxs'>
                                 <input className="Small" onClick={this.Small}  type="checkbox"/>
                                 <input className="Medium" onClick={this.Medium} type="checkbox"/>
                                 <input className="Large" onClick={this.Large} type="checkbox"/>
                             </div>
                         </div>
-                        <div className="col-12 marginTop20px">
+                        <div className="col-12 color-label">
                             <label >Color</label>
                         </div>
-                        <div className="col-12 marginTop10px">
-                            <div className ="color">
+                        <div className="col-12 color">
                                 <input  type="radio" id="small" onClick={this.Color}  name="colorRadio"  />
                                 <input  type="radio"  id="medium" name="colorRadio"  />
                                 <input  type="radio" id="large"  name="colorRadio"/>
-                            </div>
                         </div>
-                        <div className="col-12 marginTop20px">
-                            <span className="createButton" >
+                        <div className="col-12 createbutton">
                                 <button onClick ={this.onSubmit} type="button" class="btn btn-success">CREATE</button>
-
-                            </span>
                         </div>
                     </div>
                 </div>

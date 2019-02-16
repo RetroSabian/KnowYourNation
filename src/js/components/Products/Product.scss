@@ -1,4 +1,10 @@
 $primary-color: #fff;
+$name-margin-top: 20px;
+$color-margin-top:10px;
+$color-label-margin-top:20px;
+$size-margin-top:10px;
+$cover-image-margin-top: 20px;
+$description-margin-top :10px; 
 
 .Product
 {
@@ -6,22 +12,19 @@ $primary-color: #fff;
     min-height: 100vh;
     color: $primary-color;
 }
+
 span {
     display:block;
     overflow: hidden;
     padding: 0 4px 0 6px;
-    .rad {
-      display: flex;
-      flex-grow: 20;
-    }
 }
 
 .checkboxs{
     display: flex;
 }
 
-.createButton{
-    float: right;
+.createbutton{
+    justify-content: flex-end ;
 }
 
 .rad{
@@ -33,30 +36,43 @@ span {
   display:flex; 
 }
 
-.Description{
-    width: 100%
-}
 
 .formInput
 {
     width: 100%
 }
 
-.marginTop20px
+.name
 {
-    margin-top: 20px;
+    margin-top: $name-margin-top;
+    display: flex;
 }
-.marginLeft20px
+
+.cover-image
 {
-    margin-left: 20px;
+    margin-top: $cover-image-margin-top;
+    display: flex;
+    
 }
-  
-.marginTop40px{
-    margin-top: 40px;
+
+.description{
+    margin-top:$description-margin-top;
+    width: 100% 
 }
-  
-.marginTop30px{
-    margin-top: 30px;
+
+.color
+{
+    margin-top: $color-margin-top;
 }
-  
-  
+
+.color-label
+{
+    margin-top: $color-label-margin-top;
+    display: flex;
+}
+
+.size
+{
+    margin-top: $size-margin-top;
+    display: flex;
+}
