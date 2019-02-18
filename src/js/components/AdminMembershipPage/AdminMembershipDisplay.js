@@ -3,6 +3,12 @@ import Navbar from "../Navbar/Navbar";
 import "./AdminMembershipDisplay.scss";
 import {GetMemberships} from "../../services/apiservice.js";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as MemberActions from "../../actions/member-action";
+//import {LogMember} from "../../actions/member-action";
+import Display from "./Display"
+import { bindActionCreators } from "redux";
 
 class AdminMembershipDisplay extends Component {
 
@@ -20,11 +26,47 @@ class AdminMembershipDisplay extends Component {
             allowArticle: '',
             allowAnimation: '',
             allowBook: '',
-            allowComic: ''
+            allowComic: '',
+            isActive: '',
+            edit: false
         };
-        this.populateDetails=this.populateDetails.bind(this);
+       this.populateDetails=this.populateDetails.bind(this);
        this.handleClick=this.handleClick.bind(this);
+       this.editMembership=this.editMembership.bind(this);
+       this.createMembership=this.createMembership.bind(this);
     }
+
+    createMembership(){
+      this.props.memberActions.LogMember({
+             id: null,
+             type: "",
+             duration: 0,
+             price: 100000,
+             description: "",
+             allowArticle: false,
+             allowAnimation: false,
+             allowBook: false,
+             allowComic: false,
+             isActive: this.state.isActive,
+             edit:false
+        });
+     }
+
+        editMembership(){
+          this.props.memberActions.LogMember({
+                id: this.state.id,
+                type: this.state.type,
+                duration: this.state.duration,
+                price: this.state.price,
+                description: this.state.description,
+                allowArticle: this.state.allowArticle,
+                allowAnimation: this.state.allowAnimation,
+                allowBook: this.state.allowBook,
+                allowComic: this.state.allowComic,
+                isActive: this.state.isActive,
+                edit:true
+           });
+        }
 
         handleClick() {
              const {newArray}=this.state
@@ -39,7 +81,7 @@ class AdminMembershipDisplay extends Component {
                 .then(data => console.log(data.newArray))
            }
 
-           componentWillMount() {
+           componentDidMount() {
             fetch('https://api.ereader.retrotest.co.za/api/Memberships')
               .then(res => res.json())
               .then(data => {
@@ -54,46 +96,23 @@ class AdminMembershipDisplay extends Component {
                   })
                 }
                 )
-              });
-              
+              });    
           }
-          populateDetails = event => {
-            this.setState({id: this.state.posts[event].id});
-            document.getElementById("NameLabel").innerText = this.state.posts[(event)].type;
-            document.getElementById("PriceLabel").innerText = this.state.posts[(event)].price;
-            document.getElementById("PayLabel").innerText = this.state.posts[(event)].duration;
-            if(this.state.posts[event].allowAnimation)
-            {
-                document.getElementById("AccessLabel1").style.display="inline";
-                document.getElementById("AccessLabel1").innerText = "Animations";
-            }
-            else{
-                document.getElementById("AccessLabel1").style.display="none";
-            }
-            if(this.state.posts[event].allowArticle)
-            {
-                document.getElementById("AccessLabel2").style.display="inline";
-                document.getElementById("AccessLabel2").innerText = "Articles";
-            }
-            else{
-                document.getElementById("AccessLabel2").style.display="none";
-            }
-            if(this.state.posts[event].allowBook)
-            {
-                document.getElementById("AccessLabel3").style.display="inline";
-                document.getElementById("AccessLabel3").innerText = "Books";
-            }
-            else{
-                document.getElementById("AccessLabel3").style.display="none";
-            }
-            if(this.state.posts[event].allowComic)
-            {
-                document.getElementById("AccessLabel4").style.display="inline";
-                document.getElementById("AccessLabel4").innerText = "Comics";
-            }
-            else{
-                document.getElementById("AccessLabel4").style.display="none";
-            }
+
+        populateDetails = event => {
+            this.setState({
+            id: this.state.posts[event].id,
+            type: this.state.posts[(event)].type,
+            price:this.state.posts[(event)].price,
+            duration:this.state.posts[(event)].duration,
+            description:this.state.posts[(event)].description,
+            allowAnimation:this.state.posts[(event)].allowAnimation,       
+            allowArticle:this.state.posts[(event)].allowArticle,                   
+            allowBook:this.state.posts[(event)].allowBook,           
+            allowComic:this.state.posts[(event)].allowComic,
+            isActive:this.state.posts[(event)].isActive
+          });
+            this.editMembership();
          }
 
     render()
@@ -104,47 +123,68 @@ class AdminMembershipDisplay extends Component {
             <div className="AdminMembershipDisplay">
                 <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
                 <div className="container ">
-                    <div className="row marginTop20px ">
+                    <div className="row">
                         {this.state.posts.map((post,index) => (
-                        <button key={post.id.toString()}   name="yourBtn" className="entry" onClick={()=>this.populateDetails(index)} value={post.id} onChange={()=>this.onChange(post.id)}>
+                        <button key={post.id.toString()}   name="yourBtn" className="entry" onClick={()=>{
+                            this.populateDetails(index);
+                        }} value={post.id} onChange={()=>this.onChange(post.id)}>
                             <h5>{post.type}</h5>
                         </button>
                         ))}
-                        <NavLink to= "/AdminMembership/new"><button className="reg-circle" onClick={this.handleClick.bind(this)}> +</button></NavLink>
+                        <NavLink to= "/AdminMembership"><button className="reg-circle" onClick={this.createMembership}>+</button></NavLink>
                     </div>
+                    {/* <Display/> */}
                     <div className="col-12 marginTop20px">
-                        <span><label >Name:</label>
-                        <label className="label"  name = "NameLabel" id = "NameLabel" type="text" value={this.state.inputValue} onChange={evt => this.updateTypeValue(evt)}/></span>
-                    </div>
-                    <div className="col-12 marginTop20px">
-                        <span><label >Price:</label>
-                        <label className="label" name = "PriceLabel" id = "PriceLabel" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
-                    </div>
-                    <div className="row marginTop10px ">
-                        <h5 className="marginLeft20px">Description</h5>
-                    </div>
-                    <div className="col-12 marginTop5px">
-                        <p id = "Descriptionp"></p>   
-                    </div>
-                    <div className="row marginTop10px ">
-                        <span><h5 className="marginLeft20px">Payment Option</h5>
-                        <label className="label" name = "PayLabel" id = "PayLabel" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
-                    </div>  
-                    
-                    <div className="row marginTop10px ">
-                        <h5 className="marginLeft20px">Access To</h5>
-                        <span className="amd-label"><label className="label" name = "AccessLabel" id = "AccessLabel1" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
-                        <span className="amd-label"><label className="label" name = "AccessLabe2" id = "AccessLabel2" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
-                        <span className="amd-label"><label className="label" name = "AccessLabe3" id = "AccessLabel3" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
-                        <span className="amd-label"><label className="label" name = "AccessLabe4" id = "AccessLabel4" type="text" value={this.state.inputValue} onChange={evt => this.updatePriceValue(evt)}/></span>
-                    </div>  
-                    <div className="col-12 marginTop20px">
-                    <button className="reg-circle" onClick= {() => (window.location.href = `adminmembership/${this.state.id}`)}> Edit</button>
+                    <NavLink to= '/AdminMembership'><button className="reg-circle" type="button" onClick={this.editMembership}> Edit</button></NavLink>
                     </div>
                 </div>
             </div>
         );
     }
 }
+// AdminMembershipDisplay.propTypes = {
+// LogMember: PropTypes.func.isRequired
+//   };
 
-export default AdminMembershipDisplay;
+  const mapDispatchToProps = dispatch => {
+    return {
+      memberActions: bindActionCreators(MemberActions, dispatch)
+    }
+  }
+const mapStateToProps = (state) => ({
+  id: state.member.members.id,
+  type: state.member.members.type,
+  duration: state.member.members.duration,
+  price: state.member.members.price,
+  description: state.member.members.description,
+  allowArticle: state.member.members.allowArticle,
+  allowAnimation: state.member.members.allowAnimation,
+  allowBook: state.member.members.allowBook,
+  allowComic: state.member.members.allowBook,
+  isActive: state.member.members.isActive,
+  edit: state.member.members.edit
+  })
+  
+//export default connect(null, mapDispatchToProps) (AdminMembershipDisplay);
+export default connect(mapStateToProps, mapDispatchToProps) (AdminMembershipDisplay);
+
+
+//this.props.memberActions.LogMember(name);
+
+/*import * as MemberActions from '../../actions/member-action';
+import { bindActionCreators } from "redux";
+
+component ...
+
+const mapDispatchToProps = dispatch => {
+  return {
+    memberActions: bindActionCreators(MemberActions, dispatch)
+  }
+}*/
+// const mapDispatchToProps = dispatch => ({
+//   LogMember(members){
+//   return ()=>{
+//   dispatch(LogMember(members));
+//   };
+//   },
+//   });

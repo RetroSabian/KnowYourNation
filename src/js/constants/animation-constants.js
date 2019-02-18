@@ -1,0 +1,2 @@
+export const ANIMATIONINFO = "ANIMATION";
+export const ANIMATIONCLEAR = "CLEAR";

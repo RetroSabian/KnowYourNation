@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import { isatty } from 'tty';
 export const RegisterUser = (username, surname, passsword, email, phoneNumber, membershipType, userOrganisation)=>{
 
     (async () => {
@@ -26,7 +27,7 @@ export const RegisterUser = (username, surname, passsword, email, phoneNumber, m
 
 export const GetMemberships = ()=>{
 (async () => {
-    let id, type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic;
+    let id, type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic, isAlive;
     const rawResponse = await fetch('https://api.ereader.retrotest.co.za/api/Memberships', {
         method: 'GET',
         headers: {
@@ -42,7 +43,8 @@ export const GetMemberships = ()=>{
                 "allowAnimation": allowAnimation,
                 "allowArticle": allowArticle,
                 "allowBook": allowBook,
-                "allowComic": allowComic
+                "allowComic": allowComic,
+                "isAlive": isAlive
         })
     });
     const content = await rawResponse.json();
@@ -51,7 +53,7 @@ export const GetMemberships = ()=>{
 })();
 }
 
-export const CreateMembership = (type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic)=>{
+export const CreateMembership = (type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic, isAlive)=>{
    const member ={
                 "type": type,
                 "duration": duration,
@@ -60,13 +62,33 @@ export const CreateMembership = (type, duration, price, description, allowAnimat
                 "allowAnimation": allowAnimation,
                 "allowArticle": allowArticle,
                 "allowBook": allowBook,
-                "allowComic": allowComic
+                "allowComic": allowComic,
+                "isAlive": isAlive
             }
     axios.post('https://api.ereader.retrotest.co.za/api/Memberships/CreateMembership',member)
     .then(res => {
         console.log(res.status);
       })
 }
+
+export const EditMembership = (id,type, duration, price, description, allowAnimation, allowArticle, allowBook, allowComic, isAlive)=>{
+    const member ={
+                 "id": id,
+                 "type": type,
+                 "duration": duration,
+                 "price": price,
+                 "description": description,
+                 "allowAnimation": allowAnimation,
+                 "allowArticle": allowArticle,
+                 "allowBook": allowBook,
+                 "allowComic": allowComic,
+                 "isAlive": isAlive
+             }
+     axios.post('https://api.ereader.retrotest.co.za/api/Memberships/EditMembership',member)
+     .then(res => {
+         console.log(res.status);
+       })
+ }
 /*
 // TODO: This is just to remind me that this code is returned as a json object and how to make the raw function call
 
