@@ -7,6 +7,8 @@ import * as MemberActions from "../../actions/member-action";
 class Display extends Component{
     constructor(props) {
         super(props);
+
+        console.log(props);
         this.state = {
             id: '',
             type: '',
