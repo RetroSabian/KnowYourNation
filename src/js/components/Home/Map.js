@@ -4,12 +4,6 @@ import { Motion, spring } from "react-motion";
 import Speedy from "../../../Assests/Images/Speedy_Pose_3.png";
 import "./Home.scss";
 
-const mapStyles = {
-    width: "100%",       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
-    outline: "#888888",
-    paddingBottom: "80px"
-};
-
 const Map = ({ center }) => (
     <div>
         <img className="speedy" src={Speedy} alt="Speedy Character"></img>
@@ -24,11 +18,11 @@ const Map = ({ center }) => (
             }}>
             {({ x, y }) => (
                 <ComposableMap
+                    className = "mapStyles"
                     width={500}
                     height={500}
                     projection="orthographic"
-                    projectionConfig={{ scale: 220 }}
-                    style={mapStyles}>
+                    projectionConfig={{ scale: 220 }}>
                     <ZoomableGlobe center={[x, y]}>
                         <circle
                             cx={250}

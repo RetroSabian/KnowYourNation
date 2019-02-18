@@ -21,11 +21,21 @@
 }
 
 .country-div{
+    width: 100%;
+    height: 100%;
     background-color: #ccc;
+    display: flex;
+    align-items: center;
 }
 
 .speedy{
     height: 25%;
     width: 25%;
-    padding-top: 50px;
+    //padding-top: 50px;
 }
+
+.mapStyles {
+    width: 100%;       // Where the globe width size on the page is set. TODO: need a dynmic scale to adjust globe size
+    outline: #888;
+// paddingBottom: "80px"
+};

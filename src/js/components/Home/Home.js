@@ -30,8 +30,8 @@ class Home extends Component {
           <button className="btn btn-success"> Books </button>
         </NavLink>
         <Mapbuttons />
-        <Navbar titleFromParent={loc_navBarTitle} navbarItems={loc_navbarItems}/>
-        <CharacterPage1/>
+        {/*<CharacterPage1/>*/}
+        {/*TODO: navigation to character page*/}
         <Navbuttons/>
       </div>
     );
