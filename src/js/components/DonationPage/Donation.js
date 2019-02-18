@@ -97,19 +97,13 @@ class donation extends Component {
                      Security code&nbsp;<input type="password" name="SecurityCode" placeholder="****"/><br/><br/>
                      <nav>
                           <navItem>
-                                <NavLink to="/donationSuccess" ><button>click me for payment</button></NavLink>
+                                <NavLink to="/donationSuccess" ><button>pay</button></NavLink>
                           </navItem><hr />
                       </nav> 
 
                       </form>
-
-                      
-
                 </div>
-      </div>
-      
-
-        
+      </div>       
     );
   }
 }

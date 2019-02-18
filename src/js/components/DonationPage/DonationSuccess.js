@@ -27,21 +27,11 @@ class donationSuccess extends Component {
       
       <div className="App"> 
                 <div>
-                 
-               
                      <h>Thank you</h><br/>
-                         
-                    
-
                      <button type="submit"  variant="primary">Browse Books</button><br/><button type="submit"  variant="primary">Share</button>
-                   
                 </div>
-      </div>
-      
-
-        
+      </div>        
     );
   }
 }
-
 export default donationSuccess;
