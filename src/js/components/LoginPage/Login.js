@@ -6,42 +6,31 @@ import {Redirect} from "react-router-dom";
 import StyledFirebaseAuth from "../RegisterPage/SignUp";
 import {RegisterUser} from "../../services/apiservice";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import axios from 'axios';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      surname: "",
-      email: "",
-      phone: "",
-      password: "",
-      organisation: ""
+      username: "",
+      password: ""
     };
+
+    this.change = this.change.bind(this);
   }
 
-  updateNameValue(evt) {
-    this.setState({name: evt.target.value});
+  change(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
-  updateSurnameValue(evt) {
-    this.setState({surname: evt.target.value});
-  }
-
-  updateEmailValue(evt) {
-    this.setState({email: evt.target.value});
-  }
-
-  updatePhoneValue(evt) {
-    this.setState({phone: evt.target.value});
-  }
-
-  updatePasswordValue(evt) {
-    this.setState({password: evt.target.value});
-  }
-
-  updateOrganisationValue(evt) {
-    this.setState({organisation: evt.target.value});
+  submit(e){
+    e.preventDefault();
+    axios.post("/auth/getToken", {
+      email: this.state.email,
+      password: this.state.password
+    }).then(localStorage.setItem('cool'))
   }
 
   handleClick() {
@@ -62,12 +51,12 @@ class Login extends Component {
           <div className="row ">
             <div className="col-12 margin-top-20">
               <label >E-mail</label>
-              <span><input className="form-input" type="text" value={this.state.inputValue} onChange={evt => this.updateEmailValue(evt)}/></span>
+              <span><input className="form-input" type="text" value={this.state.username} onChange={evt => this.change(evt)}/></span>
             </div>
             <div className="col-12 margin-top-20">
               <label >Password</label>
               <span>
-                  <input className="form-input" type="password" value={this.state.inputValue} onChange={evt => this.updatePasswordValue(evt)}/>
+                  <input className="form-input" type="password" value={this.state.password} onChange={evt => this.change(evt)}/>
               </span>
             </div>
             <div className="col-12 margin-top-10">

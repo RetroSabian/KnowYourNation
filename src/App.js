@@ -10,12 +10,15 @@ import SignUp from "./js/components/RegisterPage/SignUp";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import AdminMembershipDisplay from "./js/components/AdminMembershipPage/AdminMembershipDisplay";
 import main from "./js/components/Main_Menu/Main";
+import deleteme from "./js/components/delete/deleteme";
 import collection from "./js/components/CollectionsPage/Collection";
+import Passwordreset from "./js/components/Passwordreset/Passwordreset";
+import Profile from "./js/components/Profile/Profile";
+
 class App extends Component {
   render() {
     var loc_navBarTitle = "KnowYourNation";
     var loc_navbarItems = [true, true, true, true];
-  render() {
     return (
       <div className="App">
         <BrowserRouter>
@@ -24,9 +27,12 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={SignUp} />
               <Route path="/resetpassword" component={ForgotSignIn} />
-               <Route path="/collection" component={collection} />
+              <Route path="/collection" component={collection} />
               <Route path="/main" component={main}/>
               <Route path="/books" component={Books} />
+              <Route path="/deleteme" component={deleteme} />
+              <Route path="/passwordreset" component={Passwordreset}/>
+              <Route path="/profile" component={Profile}/>
               <Route path="/AdminMembership" component={AdminMembership}/>
               <Route path="/AdminMembershipDisplay" component={AdminMembershipDisplay}/>
               <Route component={Home} />
