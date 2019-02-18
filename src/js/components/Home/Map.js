@@ -3,10 +3,14 @@ import { ComposableMap, ZoomableGlobe, Geographies, Geography} from "react-simpl
 import { Motion, spring } from "react-motion";
 import Speedy from "../../../Assests/Images/Speedy_Pose_3.png";
 import "./Home.scss";
+import {NavLink} from "react-router-dom";
 
 const Map = ({ center }) => (
     <div>
+        {/*TODO: NAvigate to character page*/}
+        {/*<NavLink to="/books">*/}
         <img className="speedy" src={Speedy} alt="Speedy Character"></img>
+        {/*</NavLink>*/}
         <Motion
             defaultStyle={{
                 x: center[0],
