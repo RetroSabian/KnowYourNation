@@ -8,6 +8,8 @@ import Login from "./js/components/LoginPage/Login";
 import SignUp from "./js/components/RegisterPage/SignUp";
 import ForgotSignIn from "./js/components/ForgotSignIn/ForgotSignIn";
 import Product from "./js/components/Products/Product";
+import Store from "./js/components/Products/Store";
+import ProductName from "./js/components/Products/ProductName";
 class App extends Component {
 
   render() {
@@ -21,6 +23,8 @@ class App extends Component {
               <Route path="/resetpassword" component={ForgotSignIn} />
               <Route path="/Books" component={Books} />
               <Route path="/Product" component={Product} />
+              <Route path="/Store" component={Store}/>
+              <Route path="/Productname" component={ProductName}/>
               <Route component={Home} />
             </Switch>
           </div>
