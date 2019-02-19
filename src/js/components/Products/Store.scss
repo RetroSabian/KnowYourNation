@@ -1,0 +1,27 @@
+$primary-color: #fff;
+$name-margin-top: 20px;
+$spaceleft-margin-top: 20px;
+.Store
+{
+    background-color: #bbb;
+    min-height: 100vh;
+    color: $primary-color;
+}
+.speed-KYN{
+    width: 50%;
+    height: 15;
+}
+.product{
+    margin-top: $name-margin-top;
+    margin-left: $spaceleft-margin-top;
+    flex-wrap: wrap ;
+}
+
+.cartButton{
+    align-content:flex-end; 
+    
+}
+
+.ProductPrice{
+    margin-top:3px;
+}
