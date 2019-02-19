@@ -12,24 +12,34 @@ $description-margin-top :10px;
     min-height: 100vh;
     color: $primary-color;
 }
-
 span {
     display:block;
     overflow: hidden;
     padding: 0 4px 0 6px;
 }
 
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+  }
+
 .checkboxs{
     display: flex;
 }
 
 .createbutton{
-    justify-content: flex-end ;
+    display: flex;
+    color: black;
+    flex-direction: row-reverse;
+    border-radius: 50%;
 }
 
 .rad{
     display: flex;
-    flex-grow: 10;  
 }
 
 .color{
@@ -51,8 +61,7 @@ span {
 .cover-image
 {
     margin-top: $cover-image-margin-top;
-    display: flex;
-    
+    display: flex;    
 }
 
 .description{
