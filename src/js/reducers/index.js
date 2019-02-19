@@ -1,17 +1,19 @@
-import { ADD_ARTICLE} from "../constants/action-types";
+import {VOLUNTEERINFO} from "../constants/volunteer-constants";
 
 const initialState = {
-    articles: []
+    volunteers: []
 };
 
 function rootReducer(state = initialState, action) {
-    if (action.type === ADD_ARTICLE)
-    {
-        return Object.assign({}, state, {
-            articles: state.articles.concat(action.payload)
-        });
+    switch(action.type){
+        case VOLUNTEERINFO:
+        return{
+            ...state,
+            volunteers: action.volunteer
+        };
+        default:
+        return state
     }
-    return state;
-};
+}
 
 export default rootReducer;
